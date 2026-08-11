@@ -1,0 +1,140 @@
+-- Create Student Table
+
+CREATE TABLE Students (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    Age INT,
+    Gender VARCHAR(10),
+    City VARCHAR(30),
+    Marks INT,
+    Course VARCHAR(30)
+);
+
+
+-- Insert Data into Students Table
+
+INSERT INTO Students
+(Student_ID, Student_Name, Age, Gender, City, Marks, Course)
+VALUES
+(101, 'Aarav', 20, 'Male', 'Mumbai', 85, 'SQL'),
+(102, 'Diya', 19, 'Female', 'Pune', 72, 'Excel'),
+(103, 'Vivaan', 22, 'Male', 'Delhi', 91, 'Python'),
+(104, 'Ananya', 21, 'Female', 'Mumbai', 68, 'SQL'),
+(105, 'Aditya', 23, 'Male', 'Bangalore', 76, 'Power BI'),
+(106, 'Kiara', 20, 'Female', 'Pune', 88, 'Python'),
+(107, 'Arjun', 24, 'Male', 'Delhi', 59, 'Excel'),
+(108, 'Riya', 19, 'Female', 'Mumbai', 94, 'SQL'),
+(109, 'Ishaan', 21, 'Male', 'Chennai', 63, 'Python'),
+(110, 'Myra', 22, 'Female', 'Pune', 79, 'Power BI'),
+(111, 'Kabir', 25, 'Male', 'Bangalore', 87, 'SQL'),
+(112, 'Saanvi', 20, 'Female', 'Delhi', 71, 'Excel'),
+(113, 'Reyansh', 23, 'Male', 'Mumbai', 66, 'Python'),
+(114, 'Aadhya', 19, 'Female', 'Chennai', 82, 'SQL'),
+(115, 'Dhruv', 26, 'Male', 'Pune', 55, 'Power BI'),
+(116, 'Navya', 21, 'Female', 'Bangalore', 90, 'Python'),
+(117, 'Advik', 22, 'Male', 'Delhi', 74, 'Excel'),
+(118, 'Anika', 20, 'Female', 'Mumbai', 61, 'SQL'),
+(119, 'Veer', 24, 'Male', 'Chennai', 96, 'Python'),
+(120, 'Sara', 19, 'Female', 'Pune', 69, 'Power BI'),
+(121, 'Yash', 23, 'Male', 'Bangalore', 84, 'SQL'),
+(122, 'Meera', 21, 'Female', 'Delhi', 77, 'Excel'),
+(123, 'Kunal', 25, 'Male', 'Mumbai', 58, 'Python'),
+(124, 'Nisha', 20, 'Female', 'Chennai', 89, 'SQL'),
+(125, 'Rohan', 22, 'Male', 'Pune', 73, 'Power BI'),
+(126, 'Pihu', 19, 'Female', 'Bangalore', 95, 'Python'),
+(127, 'Manav', 24, 'Male', 'Delhi', 67, 'Excel'),
+(128, 'Tanya', 21, 'Female', 'Mumbai', 81, 'SQL'),
+(129, 'Aryan', 23, 'Male', 'Chennai', 62, 'Python'),
+(130, 'Isha', 20, 'Female', 'Pune', 86, 'Power BI');
+
+-- WHERE Clause : The WHERE clause is used to filter records based on a condition.
+-- Syntax: SELECT column1, column2 FROM table_name WHERE condition;
+
+-- Note : Think of it like Excel's Filter option: Show me only the rows where this condition is true.
+
+
+-- SQL Operators : Operators are used to create conditions in the WHERE clause.
+
+-- Comparion Operator  : 
+-- | Operator | Meaning                  |
+-- | -------- | ------------------------ |
+-- | =        | Equal to                 | 
+-- | <>       | Not equal to             | 
+-- | >        | Greater than             |
+-- | <        | Less than                |
+-- | >=       | Greater than or equal to | 
+-- | <=       | Less than or equal to    |
+
+-- 1. Display all students whose Age is 20.
+-- 2. Display all students whose City is not Mumbai.
+-- 3. Display all students whose Marks are greater than 80.
+-- 4. Display all students whose Marks are less than 60.
+-- 5. Display all students whose Marks are greater than or equal to 75.
+-- 6. Display all students whose Age is less than or equal to 20.
+
+
+-- Logical Operators : used when we want to combine multiple conditions.
+
+-- | Operator | Purpose                          
+-- | -------- | ------------------------------------ |
+-- | AND      | Both conditions must be true.        | 
+-- | OR       | At least one condition must be true. | 
+-- | NOT      | Reverses the condition.              |
+
+-- 1.Display students who are from Mumbai AND have Marks greater than 80.
+-- 2.Display students who are from Mumbai OR Pune.
+-- 3.Display students who are NOT from Delhi.
+
+-- Important WHERE Operators
+
+-- Create EmployeeDetails Table
+
+CREATE TABLE EmployeeDetails (
+    Employee_ID INT PRIMARY KEY,
+    Employee_Name VARCHAR(50),
+    Age INT,
+    Department VARCHAR(30),
+    City VARCHAR(30),
+    Salary INT,
+    Email VARCHAR(100)
+);
+
+-- Insert Data into EmployeeDetails Table
+
+INSERT INTO EmployeeDetails
+(Employee_ID, Employee_Name, Age, Department, City, Salary, Email)
+VALUES
+(201, 'Rahul', 25, 'IT', 'Mumbai', 45000, 'rahul@gmail.com'),
+(202, 'Priya', 28, 'HR', 'Pune', 52000, 'priya@gmail.com'),
+(203, 'Aman', 24, 'Finance', 'Delhi', 48000, NULL),
+(204, 'Sneha', 30, 'IT', 'Mumbai', 65000, 'sneha@gmail.com'),
+(205, 'Rohit', 27, 'Sales', 'Pune', 55000, NULL),
+(206, 'Neha', 23, 'HR', 'Delhi', 42000, 'neha@gmail.com'),
+(207, 'Vikas', 32, 'Finance', 'Bangalore', 72000, 'vikas@gmail.com'),
+(208, 'Pooja', 26, 'IT', 'Mumbai', 58000, NULL),
+(209, 'Karan', 29, 'Sales', 'Chennai', 61000, 'karan@gmail.com'),
+(210, 'Anjali', 31, 'HR', 'Pune', 68000, NULL),
+(211, 'Mohit', 22, 'Finance', 'Delhi', 40000, 'mohit@gmail.com'),
+(212, 'Riya', 27, 'IT', 'Bangalore', 60000, 'riya@gmail.com'),
+(213, 'Arjun', 25, 'Sales', 'Mumbai', 50000, NULL),
+(214, 'Simran', 29, 'HR', 'Chennai', 57000, 'simran@gmail.com'),
+(215, 'Nitin', 33, 'Finance', 'Pune', 75000, NULL);
+
+-- | Operator    | Purpose                |       
+-- | ------------| -----------------------|
+-- | BETWEEN     | Range of values        | 
+-- | IN          | Match multiple values  |
+-- | LIKE        | Pattern matching       |
+-- | IS NULL     | Check missing value    |
+-- | IS NOT NULL | Check available value  |
+
+-- 1. Display employees whose Salary is between 50,000 and 65,000.
+-- 2. Display employees whose Age is between 25 and 30.
+-- 3. Display employees who are from Mumbai, Pune, or Delhi.
+-- 4. Display employees who work in IT, HR, or Finance.
+-- 3. Display employees who are from Mumbai, Pune, or Delhi.
+-- 4. Display employees who work in IT, HR, or Finance.
+-- 8. Display employees whose Email is missing.
+-- 9. Display employees whose Email is NULL.
+-- 10. Display employees whose Email is available.
+-- 11. Display employees whose Email is NOT NULL.
