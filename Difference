@@ -1,0 +1,7 @@
+| **Constraint**                                     | **Command**                                                   |
+| -------------------------------------------------- | ------------------------------------------------------------- |
+| A **rule/restriction** applied to data in a table. | An **instruction** used to perform an action on the database. |
+| Controls **what data can be stored**.              | Controls **what we do with the data/database**.               |
+| Helps maintain **data accuracy and integrity**.    | Helps **create, insert, retrieve, update, or delete** data.   |
+| Example: `PRIMARY KEY`, `NOT NULL`, `UNIQUE`       | Example: `CREATE`, `INSERT`, `SELECT`, `UPDATE`, `DELETE`     |
+
