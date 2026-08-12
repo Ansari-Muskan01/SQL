@@ -44,9 +44,8 @@ CREATE TABLE Customers (
     Registration_Date DATE,
     Customer_Status VARCHAR(20)
 );
+
 -- INSERT DATA
-
-
 -- Method 1: INSERT data without specifying column names.
 -- HINT: Values must be provided in the same order as the table columns.
 INSERT INTO Customers VALUES (1, 'Aarav Sharma', 'M', 'aarav@gmail.com', '9876543210', 28, 75000.50, '2026-01-15', 'Active') ; 
@@ -67,6 +66,10 @@ INSERT INTO Customers VALUES (1, 'Aarav Sharma', 'M', 'aarav@gmail.com', '987654
 -- CHECK TABLE 
 SELECT * FROM Customers ; 
 
+-- DESCRIBE is used to view the structure of a table, including column names, data types, NULL values, keys, and default values.
+DESCRIBE Customers ; 
+
+
 
 -- Apply the following constraints:
 -- Question1: Create a Customers table where Customer_Name and Phone cannot contain NULL values. (HINT : NOT NULL)
@@ -78,9 +81,9 @@ CREATE TABLE Customers (
 );
 
 -- Insert one record
-
-INSERT INTO Customers
-VALUES (1, 'Aarav Sharma', '9876543210');
+INSERT INTO Customers VALUES (1, 'Aarav Sharma', '9876543210');
+DESCRIBE Customers ; 
+DROP TABLE Customers ; 
 
 
 
@@ -92,7 +95,8 @@ CREATE TABLE Customers (
 );
 -- Insert one record
 INSERT INTO Customers VALUES (1, 'Aarav Sharma', 'aarav@gmail.com');
-
+DESCRIBE Customers ; 
+DROP TABLE Customers ; 
 
 -- Question3: Create a Customers table with Customer_ID as the PRIMARY KEY. (HINT : PRIMARY KEY)
 CREATE TABLE Customers (
@@ -102,7 +106,8 @@ CREATE TABLE Customers (
 );
 -- Insert one record 
 INSERT INTO Customers VALUES (1, 'Aarav Sharma', 'aarav@gmail.com');
-
+DESCRIBE Customers ; 
+DROP TABLE Customers ; 
 
 
 -- Question4: Create a Customers table where Age must be greater than or equal to 18. (HINT : CHECK) 
@@ -113,7 +118,8 @@ CREATE TABLE Customers (
 );
 -- Insert one record
 INSERT INTO Customers VALUES (1, 'Aarav Sharma', 28);
-
+DESCRIBE Customers ; 
+DROP TABLE Customers ; 
 
 
 -- Question5: Create an Accounts table where Account_Status should have a DEFAULT value of 'Active' when no status is provided. (HINT : DEFAULT)
@@ -125,7 +131,8 @@ CREATE TABLE Accounts (
 
 -- Insert one record without providing Account_Status
 INSERT INTO Accounts (Account_ID, Account_Type) VALUES (101, 'Savings');
-
+DESCRIBE Customers ; 
+DROP TABLE Customers ; 
 
 
 -- Question 6: Create a Customers table where Customer_ID should automatically generate a new numeric value whenever a new customer record is inserted. (AUTO_INCREMENT)
@@ -136,7 +143,8 @@ CREATE TABLE Customers (
 );
 -- Insert one record without providing Customer_ID
 INSERT INTO Customers (Customer_Name, Email) VALUES ('Aarav Sharma', 'aarav@gmail.com');
-
+DESCRIBE Customers ; 
+DROP TABLE Customers ; 
 
 
 -- Question 7: Create two tables: Customers and Accounts.
@@ -163,6 +171,9 @@ INSERT INTO Customers VALUES (1, 'Aarav Sharma');
 -- Insert one record into Accounts
 INSERT INTO Accounts VALUES (101, 1, 'Savings');
 
+DESCRIBE Customers ; 
+DESCRIBE Accounts ; 
 
-
+DROP TABLE Customers ; 
+DROP TABLE  Accounts ; 
 
