@@ -1,5 +1,8 @@
 # SQL
 
+# 🏦 BankingDB Project
+
+```text
 BANKINGDB PROJECT
        │
        ▼
