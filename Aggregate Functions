@@ -1,0 +1,71 @@
+-- Aggregate Functions
+
+-- Aggregate functions in SQL are used to perform calculations on multiple rows of data and return one single result.
+
+-- | Function | Purpose                      | Syntax             |
+-- | -------- | ---------------------------- | -------------------|
+-- | COUNT()  | Counts the number of records | COUNT(Column_Name) |
+-- | SUM()    | Calculates the total         | SUM(Column_Name)   |
+-- | AVG()    | Calculates the average       | AVG(Column_Name)   |
+-- | MIN()    | Finds the minimum value      | MIN(Column_Name)   |
+-- | MAX()    | Finds the maximum value      | MAX(Column_Name)   |
+
+-- Use Database 
+USE Sample ; 
+
+-- Sales Table
+CREATE TABLE Sales (
+    Sale_ID INT PRIMARY KEY,
+    Product_Name VARCHAR(50),
+    Category VARCHAR(30),
+    Quantity INT,
+    Price DECIMAL(10,2),
+    Sales_Amount DECIMAL(10,2),
+    Sales_Date DATE
+);
+
+
+INSERT INTO Sales
+(Sale_ID, Product_Name, Category, Quantity, Price, Sales_Amount, Sales_Date)
+VALUES
+(1, 'Laptop', 'Electronics', 2, 55000.00, 110000.00, '2026-01-05'),
+(2, 'Mouse', 'Electronics', 5, 800.00, 4000.00, '2026-01-07'),
+(3, 'Keyboard', 'Electronics', 3, 1500.00, 4500.00, '2026-01-10'),
+(4, 'Monitor', 'Electronics', 2, 12000.00, 24000.00, '2026-01-12'),
+(5, 'Chair', 'Furniture', 4, 5000.00, 20000.00, '2026-01-15'),
+(6, 'Table', 'Furniture', 2, 7500.00, 15000.00, '2026-01-18'),
+(7, 'Notebook', 'Stationery', 10, 100.00, 1000.00, '2026-01-20'),
+(8, 'Pen', 'Stationery', 20, 50.00, 1000.00, '2026-01-22'),
+(9, 'Printer', 'Electronics', 1, 15000.00, 15000.00, '2026-01-25'),
+(10, 'Desk Lamp', 'Furniture', 5, 1200.00, 6000.00, '2026-01-28'),
+(11, 'Headphones', 'Electronics', 4, 2500.00, 10000.00, '2026-02-02'),
+(12, 'Bag', 'Accessories', 3, 1800.00, 5400.00, '2026-02-05'),
+(13, 'Bottle', 'Accessories', 6, 500.00, 3000.00, '2026-02-08'),
+(14, 'Watch', 'Accessories', 2, 3500.00, 7000.00, '2026-02-12'),
+(15, 'Mobile Phone', 'Electronics', 3, 25000.00, 75000.00, '2026-02-15'),
+(16, 'Bookshelf', 'Furniture', 2, 8500.00, 17000.00, '2026-02-18'),
+(17, 'Marker', 'Stationery', 15, 80.00, 1200.00, '2026-02-20'),
+(18, 'Calculator', 'Stationery', 5, 600.00, 3000.00, '2026-02-22'),
+(19, 'Tablet', 'Electronics', 2, 18000.00, 36000.00, '2026-02-25'),
+(20, 'Backpack', 'Accessories', 4, 2200.00, 8800.00, '2026-02-28');
+
+-- AS (Alias) in SQL
+-- AS is used to give a temporary name, called an alias, to a column or table in the SQL query.
+-- It makes the output easier to understand and read.
+
+-- Check the Table
+SELECT * FROM Sales ; 
+
+-- Count total sales records
+
+-- Here, Total_Sales is the alias given to the result of SUM(Sales_Amount).
+
+
+-- Calculate total sales amount
+
+-- Calculate average sales amount
+
+-- Find minimum sales amount
+
+-- Find maximum sales amount
+
