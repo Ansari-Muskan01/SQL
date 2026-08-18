@@ -138,3 +138,20 @@ VALUES
 -- 9. Display employees whose Email is NULL.
 -- 10. Display employees whose Email is available.
 -- 11. Display employees whose Email is NOT NULL.
+
+Like Operator 
+
+| Requirement                       | Pattern  | Meaning                           |
+| --------------------------------- | -------- | --------------------------------- |
+| **Starts with A**                 | `'A%'`   | A + zero or more characters       |
+| **Ends with A**                   | `'%A'`   | Zero or more characters + A       |
+| **A anywhere**                    | `'%A%'`  | A can appear anywhere             |
+| **Exactly 1 character after A**   | `'A_'`   | A + exactly 1 character           |
+| **Starts with A and ends with N** | `'A%N'`  | A + any characters + N            |
+| **A + exactly 2 characters**      | `'A__'`  | A + exactly 2 characters          |
+| **Exactly 1 character + A**       | `'_A'`   | 1 character + A                   |
+| **A is second character**         | `'_A%'`  | 1 character + A + any characters  |
+| **A is third character**          | `'__A%'` | 2 characters + A + any characters |
+| **A + 1 character + N**           | `'A_N'`  | A + exactly 1 character + N       |
+| **A + 2 characters + N**          | `'A__N'` | A + exactly 2 characters + N      |
+
