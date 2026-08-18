@@ -106,3 +106,9 @@ SET SQL_SAFE_UPDATES = 0;
 -- Questions:
 -- Display the Student_ID, Student_Name from the Student table
 -- Display All Column from the Student table
+
+DISTINCT Keyword
+The DISTINCT keyword is used with SELECT to remove duplicate values from the result.
+Syntax : SELECT DISTINCT column_name FROM table_name;
+
+
