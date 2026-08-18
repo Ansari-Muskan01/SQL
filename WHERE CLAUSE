@@ -55,7 +55,8 @@ VALUES
 
 -- SQL Operators : Operators are used to create conditions in the WHERE clause.
 
--- Comparion Operator  : 
+-- Comparison Operators  :
+
 -- | Operator | Meaning                  |
 -- | -------- | ------------------------ |
 -- | =        | Equal to                 | 
@@ -132,26 +133,63 @@ VALUES
 -- 2. Display employees whose Age is between 25 and 30.
 -- 3. Display employees who are from Mumbai, Pune, or Delhi.
 -- 4. Display employees who work in IT, HR, or Finance.
--- 3. Display employees who are from Mumbai, Pune, or Delhi.
--- 4. Display employees who work in IT, HR, or Finance.
--- 8. Display employees whose Email is missing.
--- 9. Display employees whose Email is NULL.
--- 10. Display employees whose Email is available.
--- 11. Display employees whose Email is NOT NULL.
+-- 5. Display employees whose Email is NULL.
+-- 6. Display employees whose Email is NOT NULL.
 
-Like Operator 
+-- Like Operator 
 
-| Requirement                       | Pattern  | Meaning                           |
-| --------------------------------- | -------- | --------------------------------- |
-| **Starts with A**                 | `'A%'`   | A + zero or more characters       |
-| **Ends with A**                   | `'%A'`   | Zero or more characters + A       |
-| **A anywhere**                    | `'%A%'`  | A can appear anywhere             |
-| **Exactly 1 character after A**   | `'A_'`   | A + exactly 1 character           |
-| **Starts with A and ends with N** | `'A%N'`  | A + any characters + N            |
-| **A + exactly 2 characters**      | `'A__'`  | A + exactly 2 characters          |
-| **Exactly 1 character + A**       | `'_A'`   | 1 character + A                   |
-| **A is second character**         | `'_A%'`  | 1 character + A + any characters  |
-| **A is third character**          | `'__A%'` | 2 characters + A + any characters |
-| **A + 1 character + N**           | `'A_N'`  | A + exactly 1 character + N       |
-| **A + 2 characters + N**          | `'A__N'` | A + exactly 2 characters + N      |
+-- Definition: The LIKE operator in SQL is used with the WHERE clause to search for a specific pattern in text values.
+-- Syntax: SELECT column_name FROM table_name WHERE column_name LIKE 'pattern';
+
+-- It is mainly used with two wildcard characters:
+-- % → Represents zero, one, or more characters
+-- _ → Represents exactly one character
+
+-- | Requirement                   | Pattern | Meaning                           |
+-- | ------------------------------| ------- | --------------------------------- |
+-- | Starts with A                 | 'A%'    | A + zero or more characters       |
+-- | Ends with A                   | '%A'    | Zero or more characters + A       |
+-- | A anywhere                    | '%A%'   | A can appear anywhere             |
+-- | Exactly 1 character after A   | 'A_'    | A + exactly 1 character           |
+-- | Starts with A and ends with N | 'A%N'   | A + any characters + N            |
+-- | A + exactly 2 characters      | 'A__'   | A + exactly 2 characters          |
+
+
+USE Sample;
+
+CREATE TABLE Orders (
+    Order_ID INT PRIMARY KEY,
+    Customer_Name VARCHAR(50),
+    Product_Name VARCHAR(50),
+    City VARCHAR(50),
+    Order_Status VARCHAR(20)
+);
+
+INSERT INTO Orders (Order_ID, Customer_Name, Product_Name, City, Order_Status)
+VALUES
+(1, 'Aarav',  'Laptop',    'Mumbai',    'Delivered'),
+(2, 'Ananya', 'Mobile',    'Pune',      'Pending'),
+(3, 'Arjun',  'Keyboard',  'Delhi',     'Shipped'),
+(4, 'Aman',   'Monitor',   'Ahmedabad', 'Delivered'),
+(5, 'Riya',   'Headphone', 'Mumbai',    'Pending'),
+(6, 'Diya',   'Mouse',     'Pune',      'Delivered'),
+(7, 'Anil',   'Tablet',    'Nagpur',    'Shipped'),
+(8, 'Amit',   'Printer',   'Mumbai',    'Pending'),
+(9, 'Arun',   'Laptop Bag', 'Delhi',    'Delivered'),
+(10, 'Ayan',  'Speaker',   'Pune',      'Shipped'),
+(11, 'Avi', 'Bag', 'Pune', 'Pending');
+
+-- Display All Records
+
+-- Q1. Find customers whose name starts with A.
+
+-- Q2. Find customers whose name ends with A.
+
+-- Q3. Find customers whose name contains A anywhere.
+
+-- Q4. Find customer names with exactly 1 character after A.
+
+-- Q5. Find customers whose name starts with A and ends with N.
+
+-- Q6. Find customer names with A followed by exactly 2 characters.
 
