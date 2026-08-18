@@ -1,0 +1,108 @@
+-- Types of Commands:
+-- DDL Commands: DDL (Data Definition Language) is used to create, modify,
+-- and delete the structure of database objects such as tables and databases.
+
+
+-- DDL Commands:
+-- CREATE       | Creates a new database object
+-- ALTER        | Modifies the structure of an existing object
+-- DROP         | Permanently deletes an object
+-- TRUNCATE     | Removes all records but keeps the table structure
+-- RENAME       | Changes the name of an object
+
+
+-- Easy way to remember:
+-- CREATE → Create
+-- ALTER → Change the structure
+-- TRUNCATE → Remove all data
+-- DROP → Remove the table/object
+-- RENAME → Change the name
+
+
+-- 1. CREATE : CREATE is used to create a new database object, such as a table.
+
+-- Syntax:
+-- CREATE TABLE table_name (
+--     column1 datatype,
+--     column2 datatype,
+--     column3 datatype
+-- );
+
+-- Question: Create a Student table with the following columns:
+-- Student_ID, Student_Name, Age, and Marks.
+
+
+-- 2. ALTER : ALTER is used to modify the structure of an existing table.
+-- Syntax: ALTER TABLE table_name ADD column_name datatype;
+-- Question: Add a City column to the Student table with the datatype VARCHAR(50).
+
+
+-- 3. RENAME : RENAME is used to change the name of an existing table.
+-- Syntax: RENAME TABLE old_table_name TO new_table_name;
+-- Question: Rename the Student table to Student_Details.
+
+
+-- 4. TRUNCATE : TRUNCATE is used to remove all records from a table but keeps the table structure.
+-- Syntax:TRUNCATE TABLE table_name;
+-- Question: Remove all records from the Student_Details table while keeping the table structure.
+
+
+-- 5. DROP : DROP is used to permanently delete a database object, such as a table.
+-- Syntax: DROP TABLE table_name;
+-- Question: Write an SQL command to permanently delete the Student_Details table.
+
+
+-- 2. DML Commands : DML (Data Manipulation Language) is used to add, modify, and delete data stored in a table.
+
+-- DML Commands:
+-- INSERT       | Adds new records to a table
+-- UPDATE       | Modifies existing records in a table
+-- DELETE       | Removes records from a table
+
+-- Easy way to remember:
+-- INSERT → Add data
+-- UPDATE → Change data
+-- DELETE → Remove data
+
+-- New Table : 
+CREATE TABLE Student (
+Student_ID INT , 
+Student_Name VARCHAR(30) , 
+Age INT , 
+Marks INT ); 
+
+-- 1. INSERT : INSERT is used to add new records to a table.
+-- Syntax: INSERT INTO table_name (column1, column2, column3) VALUES (value1, value2, value3);
+
+-- Question: Insert a student record into the Student table with : 
+-- Student_ID = 101, Student_Name = 'Rahul', Age = 20, and Marks = 85.
+-- Student_ID = 102, Student_Name = 'Priya', Age = 21, and Marks = 90.
+
+-- Note:
+-- If UPDATE or DELETE commands do not run in MySQL Workbench,
+-- disable Safe Updates Mode using the following command:
+SET SQL_SAFE_UPDATES = 0;
+-- Now we can execute UPDATE and DELETE commands.
+
+-- 2. UPDATE : UPDATE is used to modify existing records in a table
+-- Syntax:  UPDATE table_name SET column_name = new_value WHERE condition;
+-- Question: Update the Marks of the student whose Student_ID is 101 to 90.
+
+
+-- 3. DELETE : DELETE is used to remove records from a table.
+-- Syntax: DELETE FROM table_name WHERE condition;
+-- Question: Delete the student record whose Student_ID is 101.
+
+
+-- DQL Commands
+-- DQL (Data Query Language) is used to retrieve data from a table.
+
+-- Easy way to remember:
+-- SELECT → View/Retrieve data
+
+-- 1. SELECT : SELECT is used to retrieve data from one or more tables.
+-- Syntax: SELECT column1, column2 FROM table_name;
+
+-- Questions:
+-- Display the Student_ID, Student_Name from the Student table
+-- Display All Column from the Student table
