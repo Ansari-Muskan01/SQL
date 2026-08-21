@@ -24,7 +24,7 @@ Data means raw facts or values that describe something.
 ## 2. What is a Database?
 
 **Definition:**  
-A database is an organized collection of related data that can be stored, accessed, managed, and retrieved efficiently.
+A database is a place where related data is stored and organized so that it can be easily accessed and managed.
 
 **In Simple Words:**  
 A database is a place where we store and organize data so that we can easily access and manage it.
