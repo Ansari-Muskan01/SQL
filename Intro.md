@@ -16,8 +16,6 @@
 **Definition:**  
 Data is a collection of raw facts and information that can be stored, processed, and analyzed to generate meaningful information.
 
-**In Simple Words:**  
-Data means raw facts or values that describe something.
 
 ---
 
@@ -26,8 +24,6 @@ Data means raw facts or values that describe something.
 **Definition:**  
 A database is a place where related data is stored and organized so that it can be easily accessed and managed.
 
-**In Simple Words:**  
-A database is a place where we store and organize data so that we can easily access and manage it.
 
 ---
 
@@ -38,13 +34,10 @@ A database is a place where we store and organize data so that we can easily acc
 **Definition:**  
 A Database Management System (DBMS) is software used to create, store, organize, manage, update, and retrieve data from databases.
 
-**In Simple Words:**  
-A DBMS is software that helps us manage databases and the data stored inside them.
 
 ### What Can a DBMS Do?
 
 A DBMS allows us to:
-
 - Create databases
 - Create tables
 - Insert data
