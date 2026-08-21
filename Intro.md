@@ -1,1 +1,1 @@
-![Banking Database Relationship](./IMAGES/Banking Exampe.png)
+<img src="./IMAGES/Banking%20Example.png" alt="Banking Exampe">
