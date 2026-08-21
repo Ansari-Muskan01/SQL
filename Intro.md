@@ -1,1 +1,1 @@
-<img src="./IMAGES/Banking%20Example.png" alt="Banking Exampe">
+<img src="./IMAGES/Banking%20Exampe.png" alt="Banking Database Relationship">
