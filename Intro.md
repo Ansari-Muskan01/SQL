@@ -37,14 +37,14 @@ A Database Management System (DBMS) is software used to create, store, organize,
 
 ### What Can a DBMS Do?
 
-A DBMS allows us to:
-- Create databases
-- Create tables
-- Insert data
-- Update data
-- Delete data
-- Retrieve data
-- Manage database structure
+A DBMS allows us to:<br>
+- Create databases<br>
+- Create tables<br>
+- Insert data<br>
+- Update data<br>
+- Delete data<br>
+- Retrieve data<br>
+- Manage database structure<br>
 
 
 
@@ -64,20 +64,26 @@ A DBMS allows us to:
 - Definition: SQL is a standard language used to communicate with relational databases to create, store,retrieve, update, and manage data.
 - In Simple Words : SQL is the language we use to communicate with a database.
 
--- SQL is used for:<br>
--- Creating databases<br>
--- Creating tables<br>
--- Inserting data<br>
--- Retrieving data<br>
--- Updating data<br>
--- Deleting data<br>
--- Managing database structures<br>
+- SQL is used for:<br>
+- Creating databases<br>
+- Creating tables<br>
+- Inserting data<br>
+- Retrieving data<br>
+- Updating data<br>
+- Deleting data<br>
+- Managing database structures<br>
 
+---
 ### 7. SQL vs MySQL
 
+---
 ### 10. What is a Row?
 
+---
+
 ### 11. What is a Column
+
+---
 
 - Column = What type of information?<br>
 - Row = One complete record<br>
