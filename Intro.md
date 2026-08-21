@@ -11,7 +11,7 @@
 - Explore table structure using DESCRIBE<br>
 - Understand the basic structure of banking data
 
-  ## 1. What is Data?
+## 1. What is Data?
 
 **Definition:**  
 Data is a collection of raw facts and information that can be stored, processed, and analyzed to generate meaningful information.
