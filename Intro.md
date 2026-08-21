@@ -89,5 +89,4 @@ A DBMS allows us to:<br>
 - Row = One complete record<br>
 
 ### 12. What is a Data Type?
-
--- CHAR vs VARCHAR
+### CHAR vs VARCHAR
