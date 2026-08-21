@@ -49,3 +49,39 @@ A DBMS allows us to:
 
 
 <img src="./IMAGES/Banking%20Exampe.png" alt="Banking Database Relationship">
+
+
+### 5. DBMS vs RDBMS
+
+
+- DBMS → Manage data
+- RDBMS → Manage data + relationships between tables
+
+---------------
+
+### 6. What is SQL?
+- SQL = Structured Query Language
+- Definition: SQL is a standard language used to communicate with relational databases to create, store,retrieve, update, and manage data.
+- In Simple Words : SQL is the language we use to communicate with a database.
+
+-- SQL is used for:<br>
+-- Creating databases<br>
+-- Creating tables<br>
+-- Inserting data<br>
+-- Retrieving data<br>
+-- Updating data<br>
+-- Deleting data<br>
+-- Managing database structures<br>
+
+### 7. SQL vs MySQL
+
+### 10. What is a Row?
+
+### 11. What is a Column
+
+- Column = What type of information?<br>
+- Row = One complete record<br>
+
+### 12. What is a Data Type?
+
+-- CHAR vs VARCHAR
