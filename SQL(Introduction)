@@ -44,6 +44,10 @@
 -- Definition: A RDBMS is a type of DBMS that stores data in tables and allows relationships to be established between related tables.
 -- In Simple Words : A RDBMS stores data in tables and connects related tables using relationships.
 
+## Banking Example
+
+![Banking Database Relationship](../IMAGES/banking_database_relationship.png)
+
 -- For example:
 
 -- Customers
