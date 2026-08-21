@@ -64,7 +64,7 @@ A DBMS allows us to:<br>
 - Definition: SQL is a standard language used to communicate with relational databases to create, store,retrieve, update, and manage data.
 - In Simple Words : SQL is the language we use to communicate with a database.
 
-- SQL is used for:
+### SQL is used for:
 - Creating databases<br>
 - Creating tables<br>
 - Inserting data<br>
