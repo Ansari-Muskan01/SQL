@@ -17,7 +17,7 @@
 Data is a collection of raw facts and information that can be stored, processed, and analyzed to generate meaningful information.
 
 <img src="./IMAGES/Data.png" alt="Banking Database Relationship">
----
+
 
 ## 2. What is a Database?
 
@@ -25,7 +25,6 @@ Data is a collection of raw facts and information that can be stored, processed,
 A database is a place where related data is stored and organized so that it can be easily accessed and managed.
 
 <img src="./IMAGES/DataBase.png" alt="Banking Database Relationship">
----
 
 ## 3. What is DBMS?
 
