@@ -24,7 +24,7 @@ Data is a collection of raw facts and information that can be stored, processed,
 **Definition:**  
 A database is a place where related data is stored and organized so that it can be easily accessed and managed.
 
-
+<img src="./IMAGES/DataBase.png" alt="Banking Database Relationship">
 ---
 
 ## 3. What is DBMS?
