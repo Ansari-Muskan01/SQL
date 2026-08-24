@@ -60,7 +60,6 @@ A DBMS allows us to:<br
 - DBMS → Manage data
 - RDBMS → Manage data + relationships between tables
 
----------------
 
 ### 6. What is SQL?
 - SQL = Structured Query Language
@@ -78,21 +77,21 @@ A DBMS allows us to:<br
 
 <img src="./IMAGES/SQL.png" alt="Banking Database Relationship">
 
----
+
 ### 7. SQL vs MySQL
 <img src="./IMAGES/SQLVsMYSQL.png" alt="Banking Database Relationship">
 
----
+
 ### 10. What is a Row?
 
 <img src="./IMAGES/ROW.png" alt="Banking Database Relationship">
----
+
 
 ### 11. What is a Column
 
 <img src="./IMAGES/COLUMN.png" alt="Banking Database Relationship">
 
----
+
 
 - Column = What type of information?<br>
 - Row = One complete record<br>
