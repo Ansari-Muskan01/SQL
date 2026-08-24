@@ -1,0 +1,60 @@
+Window Function : 
+
+A Window Function in SQL is a function that performs a calculation across a set of related rows without grouping those rows into a single row.
+
+In simple words:
+A Window Function calculates values for each row while keeping all the original rows in the result.
+
+
+| Function     | Purpose                   |
+| -------------| ------------------------- |
+| ROW_NUMBER() | Gives a unique row number |
+| RANK()       | Gives rank with gaps      |
+| DENSE_RANK() | Gives rank without gaps   |
+| LAG()        | Gets previous row's value |
+| LEAD()       | Gets next row's value     |
+
+
+-- Over Clause: The OVER clause is used with a Window Function to define the set of rows (window) on which the calculation will be performed.
+
+-- PARTITION BY : PARTITION BY is used with the OVER() clause to divide the rows into separate groups based on one or more columns.
+
+-- RANK() assigns a rank to each row based on the specified order. Rows with the same value get the same rank, and the next rank is skipped.
+
+-- DENSE_RANK() assigns a rank to each row where rows with the same value get the same rank, but no rank is skipped.
+
+-- LAG() returns the value from a previous row within the specified window.
+
+-- LEAD() returns the value from a next row within the specified window.
+
+
+CREATE TABLE Sales (
+    Sale_ID INT PRIMARY KEY,
+    Employee_Name VARCHAR(50),
+    Department VARCHAR(30),
+    Sale_Date DATE,
+    Sales_Amount DECIMAL(10,2)
+);
+
+
+INSERT INTO Sales
+(Sale_ID, Employee_Name, Department, Sale_Date, Sales_Amount)
+VALUES
+(1, 'Rahul', 'Sales', '2026-01-05', 45000.00),
+(2, 'Priya', 'Sales', '2026-01-10', 52000.00),
+(3, 'Amit', 'Sales', '2026-01-15', 48000.00),
+(4, 'Neha', 'Sales', '2026-01-20', 65000.00),
+(5, 'Rohit', 'Sales', '2026-01-25', 58000.00),
+(6, 'Sneha', 'Sales', '2026-02-05', 72000.00),
+(7, 'Karan', 'Sales', '2026-02-10', 68000.00),
+(8, 'Anjali', 'Sales', '2026-02-15', 75000.00),
+(9, 'Vikas', 'Sales', '2026-02-20', 62000.00),
+(10, 'Pooja', 'Sales', '2026-02-25', 80000.00);
+
+
+Question: Display the employee name, department, sales amount, and total sales amount of all employees using a Window Function with the OVER() clause.
+Question: Display the employee name, department, sales amount, and total sales amount for each department using PARTITION BY.
+Question: Display the employee name, department, sales amount, and rank of each employee based on Sales_Amount from highest to lowest using RANK().
+Question: Display the employee name, department, sales amount, and dense rank of each employee based on Sales_Amount from highest to lowest using DENSE_RANK().
+Question: Display the employee name, sale date, sales amount, and the sales amount of the previous sale using LAG()
+Question: Display the employee name, sale date, sales amount, and the sales amount of the next sale using LEAD().
