@@ -81,7 +81,7 @@ IMAGES/Banking Exampe.png
 -- | ---------------------------------------- | ----------------------------------------------- |
 -- | Database Management System               | Relational Database Management System           |
 -- | Manages databases                        | Manages relational databases                    |
--- | May not use relationships between tables | Supports relationships between tables           |
+-- | Relationships are not required           | Supports relationships between tables           |
 -- | Data can be stored in different forms    | Data is primarily stored in tables              |
 -- | Suitable for simpler database systems    | Suitable for structured and large-scale systems |
 -- | Example: SQLite can be used as a DBMS    | MySQL, Oracle, PostgreSQL                       |
