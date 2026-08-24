@@ -34,6 +34,8 @@ A database is a place where related data is stored and organized so that it can 
 A Database Management System (DBMS) is software used to create, store, organize, manage, update, and retrieve data from databases.
 
 
+<img src="./IMAGES/DBMS.png" alt="Banking Database Relationship">
+
 ### What Can a DBMS Do?
 
 A DBMS allows us to:<br
