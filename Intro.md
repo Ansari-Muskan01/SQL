@@ -76,6 +76,8 @@ A DBMS allows us to:<br
 - Deleting data<br>
 - Managing database structures<br>
 
+<img src="./IMAGES/SQL.png" alt="Banking Database Relationship">
+
 ---
 ### 7. SQL vs MySQL
 
