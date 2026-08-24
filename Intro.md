@@ -97,4 +97,7 @@ A DBMS allows us to:<br
 - Row = One complete record<br>
 
 ### 12. What is a Data Type?
+
+Definition: A data type defines what kind of value can be stored in a column.
+
 ### CHAR vs VARCHAR
