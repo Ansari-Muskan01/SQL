@@ -80,7 +80,7 @@ A DBMS allows us to:<br
 
 ---
 ### 7. SQL vs MySQL
-<img src="./IMAGES/SQLvSMYSQL.png" alt="Banking Database Relationship">
+<img src="./IMAGES/SQLVsMYSQL.png" alt="Banking Database Relationship">
 
 ---
 ### 10. What is a Row?
