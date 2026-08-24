@@ -116,7 +116,6 @@ IMAGES/Banking Exampe.png
 #| SQL is a language used to communicate with databases.                  | MySQL is software that uses SQL to manage databases.           |
 #| SQL defines commands such as `SELECT`, `INSERT`, `UPDATE`, and `DELETE`| MySQL executes these SQL commands and manages the stored data. |
 #| SQL itself does not store data.                                        | MySQL stores and manages data in databases and tables.         |
-#| SQL can be used with different database systems.                       | MySQL is one specific database system.                         |
 #| Example: SELECT * FROM Customers;                                      | MySQL can execute this SQL query on a MySQL database.          |
 # SQL = Language
 # MySQL = Software that understands and executes that language
