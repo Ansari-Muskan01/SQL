@@ -84,7 +84,7 @@ IMAGES/Banking Exampe.png
 -- | Relationships are not required           | Supports relationships between tables           |
 -- | Data can be stored in different forms    | Data is primarily stored in tables              |
 -- | Suitable for simpler database systems    | Suitable for structured and large-scale systems |
--- | Example: SQLite can be used as a DBMS    | MySQL, Oracle, PostgreSQL                       |
+-- | Example: SQL Server can be used as a DBMS| MySQL, Oracle, PostgreSQL                       |
 
 -- DBMS → Manage data
 -- RDBMS → Manage data + relationships between tables
