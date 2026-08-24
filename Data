@@ -1,0 +1,298 @@
+# 1. Create Database
+
+CREATE DATABASE SmartBankDB;
+USE SmartBankDB;
+
+
+2. Create Branches Table
+
+CREATE TABLE Branches (
+    Branch_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Branch_Name VARCHAR(100) NOT NULL,
+    City VARCHAR(50) NOT NULL,
+    State VARCHAR(50) NOT NULL,
+    Branch_Manager VARCHAR(100),
+    Contact_Number VARCHAR(15),
+    IFSC_Code VARCHAR(20) UNIQUE NOT NULL,
+    Opening_Date DATE
+);
+
+# Insert Branch Data
+
+INSERT INTO Branches
+(Branch_Name, City, State, Branch_Manager, Contact_Number, IFSC_Code, Opening_Date)
+VALUES
+('Andheri West Branch', 'Mumbai', 'Maharashtra', 'Rajesh Mehta', '9876501001', 'SMBK0001001', '2015-04-15'),
+('Bandra Branch', 'Mumbai', 'Maharashtra', 'Neha Kapoor', '9876501002', 'SMBK0001002', '2016-07-20'),
+('Vashi Branch', 'Navi Mumbai', 'Maharashtra', 'Amit Shah', '9876501003', 'SMBK0001003', '2017-02-10'),
+('Thane Central Branch', 'Thane', 'Maharashtra', 'Priya Nair', '9876501004', 'SMBK0001004', '2018-09-12'),
+('Pune Camp Branch', 'Pune', 'Maharashtra', 'Sanjay Patil', '9876501005', 'SMBK0001005', '2014-11-25'),
+('Nashik Road Branch', 'Nashik', 'Maharashtra', 'Kavita Joshi', '9876501006', 'SMBK0001006', '2019-03-18'),
+('Nagpur Main Branch', 'Nagpur', 'Maharashtra', 'Vikram Deshmukh', '9876501007', 'SMBK0001007', '2013-06-05'),
+('Aurangabad Branch', 'Aurangabad', 'Maharashtra', 'Rohit Kulkarni', '9876501008', 'SMBK0001008', '2020-01-15');
+
+
+
+3. Create Customers Table
+
+CREATE TABLE Customers (
+    Customer_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Customer_Name VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) UNIQUE,
+    Phone VARCHAR(15) UNIQUE,
+    City VARCHAR(50),
+    Age INT,
+    Gender CHAR(1),
+    Customer_Status CHAR(1) DEFAULT 'A',
+    Registration_Date DATE,
+    Branch_ID INT,
+
+    FOREIGN KEY (Branch_ID)
+    REFERENCES Branches(Branch_ID)
+);
+
+# Insert Customer Data
+INSERT INTO Customers
+(Customer_Name, Email, Phone, City, Age, Gender, Customer_Status, Registration_Date, Branch_ID)
+VALUES
+('Rahul Sharma', 'rahul.sharma@gmail.com', '9000001001', 'Mumbai', 32, 'M', 'A', '2021-01-15', 1),
+('Priya Patel', 'priya.patel@gmail.com', '9000001002', 'Mumbai', 28, 'F', 'A', '2021-03-20', 2),
+('Aman Khan', 'aman.khan@gmail.com', '9000001003', 'Navi Mumbai', 35, 'M', 'A', '2021-05-12', 3),
+('Sneha Joshi', 'sneha.joshi@gmail.com', '9000001004', 'Thane', 29, 'F', 'A', '2021-07-10', 4),
+('Rohit Verma', 'rohit.verma@gmail.com', '9000001005', 'Pune', 41, 'M', 'A', '2021-08-18', 5),
+('Anjali Singh', 'anjali.singh@gmail.com', '9000001006', 'Mumbai', 26, 'F', 'A', '2021-09-22', 1),
+('Vivek Desai', 'vivek.desai@gmail.com', '9000001007', 'Pune', 38, 'M', 'A', '2022-01-05', 5),
+('Fatima Sheikh', 'fatima.sheikh@gmail.com', '9000001008', 'Nashik', 31, 'F', 'A', '2022-02-14', 6),
+('Karan Malhotra', 'karan.malhotra@gmail.com', '9000001009', 'Mumbai', 45, 'M', 'A', '2022-04-19', 2),
+('Meena Iyer', 'meena.iyer@gmail.com', '9000001010', 'Thane', 52, 'F', 'A', '2022-06-25', 4),
+('Arjun Kapoor', 'arjun.kapoor@gmail.com', '9000001011', 'Nagpur', 34, 'M', 'A', '2022-08-12', 7),
+('Nisha Gupta', 'nisha.gupta@gmail.com', '9000001012', 'Pune', 30, 'F', 'A', '2022-10-03', 5),
+('Sameer Khan', 'sameer.khan@gmail.com', '9000001013', 'Mumbai', 39, 'M', 'A', '2023-01-17', 1),
+('Pooja Sharma', 'pooja.sharma@gmail.com', '9000001014', 'Nashik', 27, 'F', 'A', '2023-03-28', 6),
+('Aditya Rao', 'aditya.rao@gmail.com', '9000001015', 'Nagpur', 43, 'M', 'A', '2023-05-15', 7),
+('Komal Jain', 'komal.jain@gmail.com', '9000001016', 'Mumbai', 33, 'F', 'A', '2023-07-20', 2),
+('Imran Ali', 'imran.ali@gmail.com', '9000001017', 'Navi Mumbai', 36, 'M', 'A', '2023-09-11', 3),
+('Riya Shah', 'riya.shah@gmail.com', '9000001018', 'Thane', 25, 'F', 'A', '2024-01-08', 4),
+('Manish Gupta', 'manish.gupta@gmail.com', '9000001019', 'Pune', 47, 'M', 'A', '2024-02-22', 5),
+('Sana Khan', 'sana.khan@gmail.com', '9000001020', 'Aurangabad', 29, 'F', 'A', '2024-04-16', 8);
+
+
+4. Create Accounts Table
+
+CREATE TABLE Accounts (
+    Account_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Customer_ID INT NOT NULL,
+    Branch_ID INT NOT NULL,
+    Account_Type VARCHAR(30) NOT NULL,
+    Balance DECIMAL(12,2) DEFAULT 0,
+    Account_Status VARCHAR(20) DEFAULT 'Active',
+    Opening_Date DATE,
+
+    FOREIGN KEY (Customer_ID)
+    REFERENCES Customers(Customer_ID),
+
+    FOREIGN KEY (Branch_ID)
+    REFERENCES Branches(Branch_ID)
+);
+
+Insert Account Data
+
+INSERT INTO Accounts
+(Customer_ID, Branch_ID, Account_Type, Balance, Account_Status, Opening_Date)
+VALUES
+(1, 1, 'Savings', 85000.00, 'Active', '2021-01-16'),
+(1, 1, 'Salary', 125000.00, 'Active', '2021-06-10'),
+(2, 2, 'Savings', 65000.00, 'Active', '2021-03-21'),
+(3, 3, 'Current', 245000.00, 'Active', '2021-05-13'),
+(4, 4, 'Savings', 92000.00, 'Active', '2021-07-11'),
+(5, 5, 'Savings', 145000.00, 'Active', '2021-08-19'),
+(6, 1, 'Salary', 78000.00, 'Active', '2021-09-23'),
+(7, 5, 'Current', 315000.00, 'Active', '2022-01-06'),
+(8, 6, 'Savings', 58000.00, 'Active', '2022-02-15'),
+(9, 2, 'Savings', 190000.00, 'Active', '2022-04-20'),
+(10, 4, 'Savings', 112000.00, 'Active', '2022-06-26'),
+(11, 7, 'Salary', 95000.00, 'Active', '2022-08-13'),
+(12, 5, 'Savings', 73000.00, 'Active', '2022-10-04'),
+(13, 1, 'Current', 420000.00, 'Active', '2023-01-18'),
+(14, 6, 'Savings', 48000.00, 'Active', '2023-03-29'),
+(15, 7, 'Savings', 155000.00, 'Active', '2023-05-16'),
+(16, 2, 'Savings', 89000.00, 'Active', '2023-07-21'),
+(17, 3, 'Current', 275000.00, 'Active', '2023-09-12'),
+(18, 4, 'Savings', 62000.00, 'Active', '2024-01-09'),
+(19, 5, 'Salary', 118000.00, 'Active', '2024-02-23'),
+(20, 8, 'Savings', 55000.00, 'Active', '2024-04-17'),
+(2, 2, 'Salary', 98000.00, 'Active', '2022-01-10'),
+(5, 5, 'Current', 275000.00, 'Active', '2023-02-15'),
+(9, 2, 'Salary', 145000.00, 'Active', '2023-06-20'),
+(13, 1, 'Savings', 185000.00, 'Active', '2024-01-25'),
+(17, 3, 'Savings', 95000.00, 'Active', '2024-05-12'),
+(18, 4, 'Salary', 76000.00, 'Active', '2024-06-18'),
+(20, 8, 'Current', 210000.00, 'Active', '2024-08-22'),
+(7, 5, 'Savings', 132000.00, 'Active', '2024-09-10'),
+(10, 4, 'Salary', 87000.00, 'Active', '2024-10-15');
+
+# 5. Create Transactions Table
+
+CREATE TABLE Transactions (
+    Transaction_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Account_ID INT NOT NULL,
+    Transaction_Type VARCHAR(30) NOT NULL,
+    Amount DECIMAL(12,2) NOT NULL,
+    Transaction_Date DATE,
+    Description VARCHAR(200),
+
+    FOREIGN KEY (Account_ID)
+    REFERENCES Accounts(Account_ID)
+);
+
+Insert Transaction Data
+
+INSERT INTO Transactions
+(Account_ID, Transaction_Type, Amount, Transaction_Date, Description)
+VALUES
+(1, 'Deposit', 20000.00, '2024-01-05', 'Cash deposit'),
+(1, 'Withdrawal', 5000.00, '2024-01-12', 'ATM withdrawal'),
+(1, 'Transfer', 10000.00, '2024-01-20', 'Online transfer'),
+(1, 'Deposit', 15000.00, '2024-02-05', 'Salary credit'),
+(1, 'Payment', 3500.00, '2024-02-10', 'Electricity bill'),
+(2, 'Deposit', 45000.00, '2024-01-01', 'Monthly salary'),
+(2, 'Transfer', 12000.00, '2024-01-15', 'Family transfer'),
+(2, 'Payment', 5500.00, '2024-01-25', 'Credit card payment'),
+(3, 'Deposit', 25000.00, '2024-02-03', 'Cash deposit'),
+(3, 'Withdrawal', 8000.00, '2024-02-10', 'ATM withdrawal'),
+(3, 'Transfer', 15000.00, '2024-02-18', 'Online transfer'),
+(4, 'Deposit', 75000.00, '2024-01-08', 'Business income'),
+(4, 'Payment', 18000.00, '2024-01-20', 'Vendor payment'),
+(4, 'Transfer', 25000.00, '2024-02-05', 'Business transfer'),
+(5, 'Deposit', 30000.00, '2024-02-02', 'Cash deposit'),
+(5, 'Withdrawal', 7000.00, '2024-02-12', 'ATM withdrawal'),
+(5, 'Payment', 4500.00, '2024-02-20', 'Utility bill'),
+(6, 'Deposit', 60000.00, '2024-01-31', 'Salary credit'),
+(6, 'Withdrawal', 10000.00, '2024-02-03', 'ATM withdrawal'),
+(6, 'Transfer', 5000.00, '2024-02-15', 'Personal transfer'),
+(7, 'Deposit', 90000.00, '2024-01-10', 'Business payment'),
+(7, 'Payment', 22000.00, '2024-01-18', 'Supplier payment'),
+(7, 'Transfer', 30000.00, '2024-02-01', 'Online transfer'),
+(8, 'Deposit', 18000.00, '2024-02-06', 'Cash deposit'),
+(8, 'Withdrawal', 4000.00, '2024-02-14', 'ATM withdrawal'),
+(9, 'Deposit', 25000.00, '2024-01-11', 'Salary credit'),
+(9, 'Payment', 6000.00, '2024-01-22', 'Insurance payment'),
+(10, 'Deposit', 40000.00, '2024-02-08', 'Cash deposit'),
+(10, 'Withdrawal', 5000.00, '2024-02-17', 'ATM withdrawal'),
+(11, 'Deposit', 55000.00, '2024-01-30', 'Salary credit'),
+(11, 'Transfer', 10000.00, '2024-02-11', 'Online transfer'),
+(12, 'Deposit', 28000.00, '2024-01-14', 'Cash deposit'),
+(12, 'Payment', 7500.00, '2024-02-03', 'Rent payment'),
+(13, 'Deposit', 125000.00, '2024-01-07', 'Business income'),
+(13, 'Payment', 35000.00, '2024-01-25', 'Vendor payment'),
+(13, 'Transfer', 45000.00, '2024-02-15', 'Business transfer'),
+(14, 'Deposit', 22000.00, '2024-02-01', 'Cash deposit'),
+(14, 'Withdrawal', 3000.00, '2024-02-09', 'ATM withdrawal'),
+(15, 'Deposit', 65000.00, '2024-01-05', 'Salary credit'),
+(15, 'Payment', 12000.00, '2024-01-20', 'Insurance payment'),
+(16, 'Deposit', 35000.00, '2024-02-04', 'Cash deposit'),
+(16, 'Transfer', 8000.00, '2024-02-12', 'Online transfer'),
+(17, 'Deposit', 95000.00, '2024-01-09', 'Business income'),
+(17, 'Payment', 25000.00, '2024-01-30', 'Supplier payment'),
+(18, 'Deposit', 18000.00, '2024-02-07', 'Cash deposit'),
+(18, 'Withdrawal', 4500.00, '2024-02-16', 'ATM withdrawal'),
+(19, 'Deposit', 72000.00, '2024-01-31', 'Salary credit'),
+(19, 'Payment', 15000.00, '2024-02-10', 'Rent payment'),
+(20, 'Deposit', 30000.00, '2024-01-15', 'Cash deposit'),
+(20, 'Transfer', 10000.00, '2024-02-05', 'Online transfer'),
+(21, 'Deposit', 40000.00, '2024-01-20', 'Salary credit'),
+(21, 'Payment', 6500.00, '2024-02-02', 'Credit card payment'),
+(22, 'Deposit', 85000.00, '2024-01-11', 'Business income'),
+(22, 'Transfer', 20000.00, '2024-02-15', 'Business transfer'),
+(23, 'Deposit', 50000.00, '2024-01-25', 'Salary credit'),
+(23, 'Withdrawal', 8000.00, '2024-02-08', 'ATM withdrawal'),
+(24, 'Deposit', 65000.00, '2024-02-01', 'Cash deposit'),
+(24, 'Payment', 9000.00, '2024-02-18', 'Utility payment'),
+(25, 'Deposit', 30000.00, '2024-01-18', 'Salary credit'),
+(25, 'Transfer', 7000.00, '2024-02-05', 'Online transfer'),
+(26, 'Deposit', 45000.00, '2024-01-22', 'Cash deposit'),
+(26, 'Payment', 5000.00, '2024-02-12', 'Insurance payment'),
+(27, 'Deposit', 35000.00, '2024-02-03', 'Salary credit'),
+(27, 'Withdrawal', 4000.00, '2024-02-15', 'ATM withdrawal'),
+(28, 'Deposit', 95000.00, '2024-01-12', 'Business income'),
+(28, 'Payment', 20000.00, '2024-02-01', 'Vendor payment'),
+(29, 'Deposit', 28000.00, '2024-01-28', 'Salary credit'),
+(29, 'Transfer', 6000.00, '2024-02-10', 'Online transfer'),
+(30, 'Deposit', 75000.00, '2024-02-05', 'Business income'),
+(30, 'Payment', 18000.00, '2024-02-20', 'Supplier payment');
+
+
+6. Create Loans Table
+
+CREATE TABLE Loans (
+    Loan_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Customer_ID INT NOT NULL,
+    Branch_ID INT NOT NULL,
+    Loan_Type VARCHAR(50) NOT NULL,
+    Loan_Amount DECIMAL(15,2) NOT NULL,
+    Interest_Rate DECIMAL(5,2),
+    Loan_Term_Years INT,
+    Loan_Status VARCHAR(30),
+    Start_Date DATE,
+
+    FOREIGN KEY (Customer_ID)
+    REFERENCES Customers(Customer_ID),
+
+    FOREIGN KEY (Branch_ID)
+    REFERENCES Branches(Branch_ID)
+);
+
+Insert Loan Data
+
+INSERT INTO Loans
+(Customer_ID, Branch_ID, Loan_Type, Loan_Amount, Interest_Rate, Loan_Term_Years, Loan_Status, Start_Date)
+VALUES
+(1, 1, 'Home Loan', 4500000.00, 8.25, 20, 'Active', '2022-03-15'),
+(2, 2, 'Personal Loan', 500000.00, 11.50, 5, 'Active', '2023-01-20'),
+(3, 3, 'Business Loan', 2500000.00, 9.75, 10, 'Active', '2022-07-10'),
+(4, 4, 'Education Loan', 800000.00, 8.50, 7, 'Active', '2023-06-12'),
+(5, 5, 'Car Loan', 900000.00, 9.25, 6, 'Active', '2022-11-05'),
+(7, 5, 'Home Loan', 3500000.00, 8.10, 15, 'Active', '2023-02-18'),
+(8, 6, 'Personal Loan', 300000.00, 12.00, 4, 'Active', '2023-08-15'),
+(9, 2, 'Car Loan', 1200000.00, 9.50, 7, 'Active', '2022-09-20'),
+(10, 4, 'Home Loan', 2800000.00, 8.30, 15, 'Active', '2023-04-10'),
+(11, 7, 'Business Loan', 1800000.00, 10.25, 8, 'Active', '2023-05-22'),
+(12, 5, 'Education Loan', 600000.00, 8.75, 6, 'Active', '2024-01-15'),
+(13, 1, 'Business Loan', 5000000.00, 9.50, 12, 'Active', '2023-03-10'),
+(14, 6, 'Personal Loan', 250000.00, 12.25, 3, 'Active', '2024-02-12'),
+(15, 7, 'Home Loan', 3200000.00, 8.15, 18, 'Active', '2023-07-18'),
+(17, 3, 'Car Loan', 1100000.00, 9.40, 6, 'Active', '2024-01-25'),
+(19, 5, 'Personal Loan', 400000.00, 11.75, 5, 'Active', '2024-03-15'),
+(20, 8, 'Education Loan', 700000.00, 8.60, 7, 'Active', '2024-05-10'),
+(6, 1, 'Car Loan', 850000.00, 9.10, 5, 'Closed', '2021-10-15'),
+(16, 2, 'Personal Loan', 350000.00, 11.90, 4, 'Active', '2024-02-20'),
+(18, 4, 'Home Loan', 2500000.00, 8.40, 15, 'Active', '2024-04-05');
+
+
+| Table                   | Relationship                            |
+| ----------------------- | --------------------------------------- |
+| Branches → Customers    | One branch has many customers           |
+| Customers → Accounts    | One customer can have multiple accounts |
+| Branches → Accounts     | One branch manages many accounts        |
+| Accounts → Transactions | One account can have many transactions  |
+| Customers → Loans       | One customer can have multiple loans    |
+| Branches → Loans        | One branch manages many loans           |
+
+
+
+
+
+                     SMARTBANK DATABASE
+                            │
+       ┌────────────────────┼────────────────────┐
+       │                    │                    │
+       ▼                    ▼                    ▼
+   BRANCHES             CUSTOMERS            ACCOUNTS
+       │                    │                    │
+       │                    │                    │
+       │                    ├────────────────────┤
+       │                    │                    │
+       │                    ▼                    ▼
+       │                  LOANS            TRANSACTIONS
+       │
+       └────────────── Branch_ID
