@@ -84,9 +84,12 @@ A DBMS allows us to:<br
 ---
 ### 10. What is a Row?
 
+<img src="./IMAGES/ROW.png" alt="Banking Database Relationship">
 ---
 
 ### 11. What is a Column
+
+<img src="./IMAGES/COLUMN.png" alt="Banking Database Relationship">
 
 ---
 
