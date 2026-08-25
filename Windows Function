@@ -5,6 +5,11 @@ A Window Function in SQL is a function that performs a calculation across a set 
 In simple words:
 A Window Function calculates values for each row while keeping all the original rows in the result.
 
+-- Syntax:
+-- FUNCTION() OVER (
+--     PARTITION BY column_name
+--     ORDER BY column_name
+-- );
 
 | Function     | Purpose                   |
 | -------------| ------------------------- |
@@ -14,29 +19,6 @@ A Window Function calculates values for each row while keeping all the original 
 | LAG()        | Gets previous row's value |
 | LEAD()       | Gets next row's value     |
 
-
-
--- PARTITION BY : PARTITION BY is used with the OVER() clause to divide the rows into separate groups based on one or more columns.
-
--- RANK() assigns a rank to each row based on the specified order. Rows with the same value get the same rank, and the next rank is skipped.
-
--- DENSE_RANK() assigns a rank to each row where rows with the same value get the same rank, but no rank is skipped.
-
--- LAG() returns the value from a previous row within the specified window.
-
--- LEAD() returns the value from a next row within the specified window.
-
-
--- WINDOW FUNCTIONS IN SQL
-
--- Definition:
--- A Window Function performs a calculation across a set of related rows without combining those rows into a single result.
-
--- Syntax:
--- FUNCTION() OVER (
---     PARTITION BY column_name
---     ORDER BY column_name
--- );
 
 -- Create a new Orders table for Window Functions practice
 
@@ -58,14 +40,12 @@ VALUES (201, 'Aarav Sharma', 'Biryani', 900.00),
 (206, 'Rohan Joshi', 'Pizza', 400.00);
 
 -- Check the table
-
 SELECT * FROM Window_Orders;
 
 -- Over Clause: The OVER clause is used with a Window Function to define the set of rows (window) on which the calculation will be performed.
 
 -- Q: Display each Order_ID, Order_Amount, and the total Order_Amount of all orders.
-SELECT Order_ID, Order_Amount,
-    SUM(Order_Amount) OVER () AS Total_Order_Amount FROM Window_Orders;
+SELECT Order_ID, Order_Amount, SUM(Order_Amount) OVER () AS Total_Order_Amount FROM Window_Orders;
     
     
 -- Q: Display all columns from the Window_Orders table along with the total, average, minimum, and maximum Order_Amount for all orders using Window Functions.
@@ -78,8 +58,10 @@ SELECT
     MAX(Order_Amount) OVER () AS Maximum_Order_Amount
 FROM Window_Orders;
 
--- Q: Display all columns from the Window_Orders table along with the total, average, minimum, and maximum Order_Amount for each
--- Food_Category using Window Functions and PARTITION BY.
+
+-- PARTITION BY : PARTITION BY is used with the OVER() clause to divide the rows into separate groups based on one or more columns.
+
+-- Q: Display all columns from the Window_Orders table along with the total, average, minimum, and maximum Order_Amount for each Food_Category using Window Functions and PARTITION BY.
 
 SELECT
     *,
@@ -92,19 +74,20 @@ SELECT
 
 -- ROW_NUMBER() assigns a unique sequential number to each row.
 -- Q: Assign a unique row number to each order based on Order_Amount from highest to lowest
-SELECT Order_ID, Order_Amount,
-    ROW_NUMBER() OVER (ORDER BY Order_Amount DESC) AS Row_Num FROM Window_Orders;
+SELECT Order_ID, Order_Amount, ROW_NUMBER() OVER (ORDER BY Order_Amount DESC) AS Row_Num FROM Window_Orders;
 
 -- RANK() assigns the same rank to rows with the same value.The next rank is skipped.    
 -- Q: Rank orders based on Order_Amount from highest to lowest.
-SELECT Order_ID, Order_Amount,
-    RANK() OVER (ORDER BY Order_Amount DESC) AS Order_Rank FROM Window_Orders;
+SELECT Order_ID, Order_Amount, RANK() OVER (ORDER BY Order_Amount DESC) AS Order_Rank FROM Window_Orders;
     
 -- DENSE_RANK() assigns the same rank to rows with the same value. The next rank is NOT skipped.
 -- Q: Rank orders using DENSE_RANK() based on Order_Amount.
-SELECT Order_ID, Order_Amount,
-    DENSE_RANK() OVER (ORDER BY Order_Amount DESC) AS Dense_Order_Rank FROM Window_Orders;
-Question: Display the employee name, department, sales amount, and rank of each employee based on Sales_Amount from highest to lowest using RANK().
-Question: Display the employee name, department, sales amount, and dense rank of each employee based on Sales_Amount from highest to lowest using DENSE_RANK().
-Question: Display the employee name, sale date, sales amount, and the sales amount of the previous sale using LAG()
-Question: Display the employee name, sale date, sales amount, and the sales amount of the next sale using LEAD().
+SELECT Order_ID, Order_Amount, DENSE_RANK() OVER (ORDER BY Order_Amount DESC) AS Dense_Order_Rank FROM Window_Orders;
+
+
+-- LAG() returns the value from a previous row within the specified window.
+-- Q: Display the Order_ID, Order_Amount, and the Order_Amount of the previous order based on Order_ID.
+SELECT Order_ID,Order_Amount, LAG(Order_Amount) OVER (ORDER BY Order_ID) AS Previous_Order_Amount FROM Window_Orders;
+
+-- LEAD() returns the value from a next row within the specified window.
+SELECT Order_ID, Order_Amount, LEAD(Order_Amount) OVER (ORDER BY Order_ID) AS Next_Order_Amount FROM Window_Orders;
