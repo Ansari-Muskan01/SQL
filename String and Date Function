@@ -1,0 +1,30 @@
+-- Date Functions in SQL
+-- Date Functions are built-in SQL functions used to extract, format, calculate, compare, and manipulate dates and times.
+
+| Function       | Purpose                               |
+| ---------------| ------------------------------------- |
+| CURDATE()      | Returns the current date              |
+| NOW()          | Returns current date and time         |
+| YEAR()         | Extracts the year                     |
+| MONTH()        | Extracts the month                    |
+| MONTHNAME()    | Returns the month name                |
+| DAY()          | Extracts the day                      |
+| DAYNAME()      | Returns the day name                  |
+| DAYOFWEEK()    | Returns weekday number                |
+| DAYOFYEAR()    | Returns day number of the year        |
+| DATEDIFF()     | Finds difference between two dates    |
+| QUARTER()      | Returns the quarter                   |
+
+Q. Display today's date.                                                         (Hint : CURDATE ) 
+Q. Display the current date and time.                                            (Hint : NOW() )
+Q. Display the order ID and order year for every order.                          (Hint : YEAR())
+Q. Display the order ID and month number for every order.                        (Hint : MONTH())
+Q. Display the order ID and month name for every order.                          (Hint : MONTHNAME())
+Q. Display the order date and day of the month.                                  (Hint : DAY())
+Q. Display the order date and the day on which the order was placed.             (Hint : DAYNAME())
+Q. Display the order date and weekday number.                                    (Hint : DAYOFWEEK())
+Q. Display the order date and its day number within the year.                    (Hint : DAYOFYEAR())
+Q. Display the order ID, order date, and quarter in which the order was placed.  (Hint : QUARTER())
+Q. Find how many days have passed between the order date and today's date.       (Hint : DATEDIFF())
+
+
