@@ -90,5 +90,10 @@ SELECT Order_ID,Order_Amount, LAG(Order_Amount) OVER (ORDER BY Order_ID) AS Prev
 -- LEAD() returns the value from a next row within the specified window.
 SELECT Order_ID, Order_Amount, LEAD(Order_Amount) OVER (ORDER BY Order_ID) AS Next_Order_Amount FROM Window_Orders;
 
+-- Q: Display the Order_ID, Order_Amount, previous Order_Amount, and the difference between the current and previous order amount.
+
+SELECT Order_ID, Order_Amount, 
+Order_Amount - LAG(Order_Amount) OVER (ORDER BY Order_ID) AS Amount_Difference FROM Window_Orders;
+
 
 
