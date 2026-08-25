@@ -226,14 +226,44 @@ SELECT Order_ID, Customer_ID, Order_Amount FROM Orders ORDER BY Order_Amount DES
 
 
 -- IF and CASE in SQL
+-- IF() is a conditional function in SQL that evaluates a condition and returns one value if the condition is TRUE 
+-- and another value if the condition is FALSE.
 
--- IF() is a conditional function in SQL that evaluates a condition and returns one value if the condition is TRUE and another value if the condition is FALSE.
 -- Syntax : IF(condition, value_if_true, value_if_false)
 
--- Display the Order_ID, Order_Amount, and show 'High Value' if the order amount is 500 or more; otherwise show 'Regular'.
--- Display the Order_ID and show 'Completed' if the order status is Delivered; otherwise show 'Not Completed'.
--- Display the Order_ID, Payment_Mode, and show 'Online Payment' if the payment mode is UPI or Card; otherwise show 'Cash Payment'.
+select * from Orders ; 
 
+-- Q: Display the Order_ID, Order_Amount, and show 'High Value'
+-- if the order amount is 500 or more; otherwise show 'Regular'.
+
+SELECT Order_ID, Order_Amount,
+    IF(Order_Amount >= 500, 'High Value', 'Regular') AS Order_Category FROM Orders;
+
+
+-- Q: Display the Order_ID, Payment_Mode, and show 'Online Payment'
+-- if the payment mode is UPI or Card; otherwise show 'Cash Payment'.
+
+SELECT  Order_ID, Payment_Mode,
+    IF(Payment_Mode IN ('UPI', 'Card'), 'Online Payment', 'Cash Payment') AS Payment_Type FROM Orders;
+    
+-- Q: Display the Order_ID, Order_Status and show:
+-- 'Completed' if the order status is Delivered
+-- 'In Progress' if the order status is Pending
+-- 'Not Completed' if the order status is Cancelled.
+
+SELECT Order_ID, Order_Status,
+    IF(Order_Status = 'Delivered', 'Completed', 
+        IF(Order_Status = 'Pending', 'In Progress', 'Not Completed')) AS Delivery_Status FROM Orders;
+    
+-- Update the Delivery_Status column using Nested IF
+ALTER TABLE Orders ADD COLUMN Delivery_Status VARCHAR (20); 
+SELECT * FROM Orders ; 
+
+UPDATE Orders SET Delivery_Status = IF(Order_Status = 'Delivered', 'Completed',
+       IF(Order_Status = 'Pending', 'In Progress', 'Not Completed')
+    );
+    
+SELECT * FROM Orders ;   
 
 -- CASE is used to check multiple conditions and return a different result for each condition.
 -- Syntax : 
@@ -249,9 +279,9 @@ SELECT Order_ID, Customer_ID, Order_Amount FROM Orders ORDER BY Order_Amount DES
 -- Medium → 500 to 799
 -- Low → below 500
 
-SELECT
-    Order_ID,
-    Order_Amount,
+SELECT * FROM Orders ; 
+
+SELECT Order_ID, Order_Amount,
     CASE
         WHEN Order_Amount >= 800 THEN 'High'
         WHEN Order_Amount >= 500 THEN 'Medium'
@@ -265,14 +295,7 @@ FROM Orders;
 -- Fast → 30 minutes or less
 -- Normal → 31–45 minutes
 -- Slow → above 45 minutes
-
-
--- Display membership level.
--- Display the Customer_ID, Customer_Name, and categorize customers as:
--- Young → below 25
--- Adult → 25–35
--- Senior → above 35
-
+-- Add a new column to permanently store Delivery Performance
 
 
 
