@@ -1,9 +1,7 @@
-Window Function : 
+-- Window Function : 
 
-A Window Function in SQL is a function that performs a calculation across a set of related rows without grouping those rows into a single row.
-
-In simple words:
-A Window Function calculates values for each row while keeping all the original rows in the result.
+-- A Window Function in SQL is a function that performs a calculation across a set of related rows without grouping those rows into a single row.
+-- In simple words: A Window Function calculates values for each row while keeping all the original rows in the result.
 
 -- Syntax:
 -- FUNCTION() OVER (
@@ -11,13 +9,13 @@ A Window Function calculates values for each row while keeping all the original 
 --     ORDER BY column_name
 -- );
 
-| Function     | Purpose                   |
-| -------------| ------------------------- |
-| ROW_NUMBER() | Gives a unique row number |
-| RANK()       | Gives rank with gaps      |
-| DENSE_RANK() | Gives rank without gaps   |
-| LAG()        | Gets previous row's value |
-| LEAD()       | Gets next row's value     |
+-- | Function     | Purpose                   |
+-- | -------------| ------------------------- |
+-- | ROW_NUMBER() | Gives a unique row number |
+-- | RANK()       | Gives rank with gaps      |
+-- | DENSE_RANK() | Gives rank without gaps   |
+-- | LAG()        | Gets previous row's value |
+-- | LEAD()       | Gets next row's value     |
 
 
 -- Create a new Orders table for Window Functions practice
@@ -46,7 +44,7 @@ SELECT * FROM Window_Orders;
 
 -- Q: Display each Order_ID, Order_Amount, and the total Order_Amount of all orders.
 SELECT Order_ID, Order_Amount, SUM(Order_Amount) OVER () AS Total_Order_Amount FROM Window_Orders;
-    
+   SELECT Order_ID, Order_Amount, MAX(Order_Amount) OVER () AS Total_Order_Amount FROM Window_Orders; 
     
 -- Q: Display all columns from the Window_Orders table along with the total, average, minimum, and maximum Order_Amount for all orders using Window Functions.
     
@@ -91,3 +89,6 @@ SELECT Order_ID,Order_Amount, LAG(Order_Amount) OVER (ORDER BY Order_ID) AS Prev
 
 -- LEAD() returns the value from a next row within the specified window.
 SELECT Order_ID, Order_Amount, LEAD(Order_Amount) OVER (ORDER BY Order_ID) AS Next_Order_Amount FROM Window_Orders;
+
+
+
