@@ -3,8 +3,7 @@
 CREATE DATABASE SmartBankDB;
 USE SmartBankDB;
 
-
-2. Create Branches Table
+# 2. Create Branches Table
 
 CREATE TABLE Branches (
     Branch_ID INT PRIMARY KEY AUTO_INCREMENT,
@@ -18,9 +17,7 @@ CREATE TABLE Branches (
 );
 
 # Insert Branch Data
-
-INSERT INTO Branches
-(Branch_Name, City, State, Branch_Manager, Contact_Number, IFSC_Code, Opening_Date)
+INSERT INTO Branches (Branch_Name, City, State, Branch_Manager, Contact_Number, IFSC_Code, Opening_Date)
 VALUES
 ('Andheri West Branch', 'Mumbai', 'Maharashtra', 'Rajesh Mehta', '9876501001', 'SMBK0001001', '2015-04-15'),
 ('Bandra Branch', 'Mumbai', 'Maharashtra', 'Neha Kapoor', '9876501002', 'SMBK0001002', '2016-07-20'),
@@ -29,11 +26,27 @@ VALUES
 ('Pune Camp Branch', 'Pune', 'Maharashtra', 'Sanjay Patil', '9876501005', 'SMBK0001005', '2014-11-25'),
 ('Nashik Road Branch', 'Nashik', 'Maharashtra', 'Kavita Joshi', '9876501006', 'SMBK0001006', '2019-03-18'),
 ('Nagpur Main Branch', 'Nagpur', 'Maharashtra', 'Vikram Deshmukh', '9876501007', 'SMBK0001007', '2013-06-05'),
-('Aurangabad Branch', 'Aurangabad', 'Maharashtra', 'Rohit Kulkarni', '9876501008', 'SMBK0001008', '2020-01-15');
+('Aurangabad Branch', 'Aurangabad', 'Maharashtra', 'Rohit Kulkarni', '9876501008', 'SMBK0001008', '2020-01-15'),
+('Borivali Branch', 'Mumbai', 'Maharashtra', 'Anita Desai', '9876501009', 'SMBK0001009', '2021-05-10'),
+('Kalyan Branch', 'Kalyan', 'Maharashtra', 'Manoj Patil', '9876501010', 'SMBK0001010', '2022-08-22');
+
+# Branch Summary
+-- | Branch_ID | Branch               | City        |
+-- | --------: | -------------------- | ----------- |
+-- |         1 | Andheri West Branch  | Mumbai      |
+-- |         2 | Bandra Branch        | Mumbai      |
+-- |         3 | Vashi Branch         | Navi Mumbai |
+-- |         4 | Thane Central Branch | Thane       |
+-- |         5 | Pune Camp Branch     | Pune        |
+-- |         6 | Nashik Road Branch   | Nashik      |
+-- |         7 | Nagpur Main Branch   | Nagpur      |
+-- |         8 | Aurangabad Branch    | Aurangabad  |
+-- |         9 | Borivali Branch      | Mumbai      |
+-- |        10 | Kalyan Branch        | Kalyan      |
 
 
 
-3. Create Customers Table
+# 3. Create Customers Table
 
 CREATE TABLE Customers (
     Customer_ID INT PRIMARY KEY AUTO_INCREMENT,
@@ -52,29 +65,132 @@ CREATE TABLE Customers (
 );
 
 # Insert Customer Data
-INSERT INTO Customers
-(Customer_Name, Email, Phone, City, Age, Gender, Customer_Status, Registration_Date, Branch_ID)
-VALUES
-('Rahul Sharma', 'rahul.sharma@gmail.com', '9000001001', 'Mumbai', 32, 'M', 'A', '2021-01-15', 1),
-('Priya Patel', 'priya.patel@gmail.com', '9000001002', 'Mumbai', 28, 'F', 'A', '2021-03-20', 2),
-('Aman Khan', 'aman.khan@gmail.com', '9000001003', 'Navi Mumbai', 35, 'M', 'A', '2021-05-12', 3),
-('Sneha Joshi', 'sneha.joshi@gmail.com', '9000001004', 'Thane', 29, 'F', 'A', '2021-07-10', 4),
-('Rohit Verma', 'rohit.verma@gmail.com', '9000001005', 'Pune', 41, 'M', 'A', '2021-08-18', 5),
-('Anjali Singh', 'anjali.singh@gmail.com', '9000001006', 'Mumbai', 26, 'F', 'A', '2021-09-22', 1),
-('Vivek Desai', 'vivek.desai@gmail.com', '9000001007', 'Pune', 38, 'M', 'A', '2022-01-05', 5),
-('Fatima Sheikh', 'fatima.sheikh@gmail.com', '9000001008', 'Nashik', 31, 'F', 'A', '2022-02-14', 6),
-('Karan Malhotra', 'karan.malhotra@gmail.com', '9000001009', 'Mumbai', 45, 'M', 'A', '2022-04-19', 2),
-('Meena Iyer', 'meena.iyer@gmail.com', '9000001010', 'Thane', 52, 'F', 'A', '2022-06-25', 4),
-('Arjun Kapoor', 'arjun.kapoor@gmail.com', '9000001011', 'Nagpur', 34, 'M', 'A', '2022-08-12', 7),
-('Nisha Gupta', 'nisha.gupta@gmail.com', '9000001012', 'Pune', 30, 'F', 'A', '2022-10-03', 5),
-('Sameer Khan', 'sameer.khan@gmail.com', '9000001013', 'Mumbai', 39, 'M', 'A', '2023-01-17', 1),
-('Pooja Sharma', 'pooja.sharma@gmail.com', '9000001014', 'Nashik', 27, 'F', 'A', '2023-03-28', 6),
-('Aditya Rao', 'aditya.rao@gmail.com', '9000001015', 'Nagpur', 43, 'M', 'A', '2023-05-15', 7),
-('Komal Jain', 'komal.jain@gmail.com', '9000001016', 'Mumbai', 33, 'F', 'A', '2023-07-20', 2),
-('Imran Ali', 'imran.ali@gmail.com', '9000001017', 'Navi Mumbai', 36, 'M', 'A', '2023-09-11', 3),
-('Riya Shah', 'riya.shah@gmail.com', '9000001018', 'Thane', 25, 'F', 'A', '2024-01-08', 4),
-('Manish Gupta', 'manish.gupta@gmail.com', '9000001019', 'Pune', 47, 'M', 'A', '2024-02-22', 5),
-('Sana Khan', 'sana.khan@gmail.com', '9000001020', 'Aurangabad', 29, 'F', 'A', '2024-04-16', 8);
+
+-- Insert 100 Customer Records
+INSERT INTO Customers (Customer_Name, Email, Phone, City, Age, Gender, Customer_Status, Registration_Date, Branch_ID)
+VALUES ('Rahul Sharma', 'rahul.sharma@gmail.com', '9000001001', 'Mumbai', 32, 'M', 'A', '2021-01-15', 1),
+('Priya Patel', 'priya.patel@gmail.com', '9000001002', 'Mumbai', 28, 'F', 'A', '2021-02-20', 2),
+('Aman Khan', 'aman.khan@gmail.com', '9000001003', 'Navi Mumbai', 35, 'M', 'A', '2021-03-12', 3),
+('Sneha Joshi', 'sneha.joshi@gmail.com', '9000001004', 'Thane', 29, 'F', 'A', '2021-04-18', 4),
+('Rohit Verma', 'rohit.verma@gmail.com', '9000001005', 'Pune', 41, 'M', 'A', '2021-05-22', 5),
+('Anjali Singh', 'anjali.singh@gmail.com', '9000001006', 'Mumbai', 26, 'F', 'A', '2021-06-15', 1),
+('Vivek Desai', 'vivek.desai@gmail.com', '9000001007', 'Pune', 38, 'M', 'A', '2021-07-05', 5),
+('Fatima Sheikh', 'fatima.sheikh@gmail.com', '9000001008', 'Nashik', 31, 'F', 'A', '2021-08-14', 6),
+('Karan Malhotra', 'karan.malhotra@gmail.com', '9000001009', 'Mumbai', 45, 'M', 'A', '2021-09-19', 2),
+('Meena Iyer', 'meena.iyer@gmail.com', '9000001010', 'Thane', 52, 'F', 'A', '2021-10-25', 4),
+
+('Arjun Kapoor', 'arjun.kapoor@gmail.com', '9000001011', 'Nagpur', 34, 'M', 'A', '2021-11-12', 7),
+('Nisha Gupta', 'nisha.gupta@gmail.com', '9000001012', 'Pune', 30, 'F', 'A', '2021-12-03', 5),
+('Sameer Khan', 'sameer.khan@gmail.com', '9000001013', 'Mumbai', 39, 'M', 'A', '2022-01-17', 1),
+('Pooja Sharma', 'pooja.sharma@gmail.com', '9000001014', 'Nashik', 27, 'F', 'A', '2022-02-28', 6),
+('Aditya Rao', 'aditya.rao@gmail.com', '9000001015', 'Nagpur', 43, 'M', 'A', '2022-03-15', 7),
+('Komal Jain', 'komal.jain@gmail.com', '9000001016', 'Mumbai', 33, 'F', 'A', '2022-04-20', 2),
+('Imran Ali', 'imran.ali@gmail.com', '9000001017', 'Navi Mumbai', 36, 'M', 'A', '2022-05-11', 3),
+('Riya Shah', 'riya.shah@gmail.com', '9000001018', 'Thane', 25, 'F', 'A', '2022-06-08', 4),
+('Manish Gupta', 'manish.gupta@gmail.com', '9000001019', 'Pune', 47, 'M', 'A', '2022-07-22', 5),
+('Sana Khan', 'sana.khan@gmail.com', '9000001020', 'Aurangabad', 29, 'F', 'A', '2022-08-16', 8),
+
+('Vikas Mehta', 'vikas.mehta@gmail.com', '9000001021', 'Mumbai', 40, 'M', 'A', '2022-09-10', 1),
+('Neha Kapoor', 'neha.kapoor@gmail.com', '9000001022', 'Mumbai', 34, 'F', 'A', '2022-10-18', 2),
+('Sahil Yadav', 'sahil.yadav@gmail.com', '9000001023', 'Navi Mumbai', 28, 'M', 'A', '2022-11-25', 3),
+('Ayesha Siddiqui', 'ayesha.siddiqui@gmail.com', '9000001024', 'Thane', 37, 'F', 'A', '2022-12-05', 4),
+('Nitin Patil', 'nitin.patil@gmail.com', '9000001025', 'Pune', 44, 'M', 'A', '2023-01-14', 5),
+('Kavita Joshi', 'kavita.joshi@gmail.com', '9000001026', 'Nashik', 32, 'F', 'A', '2023-02-19', 6),
+('Raj Malhotra', 'raj.malhotra@gmail.com', '9000001027', 'Nagpur', 36, 'M', 'A', '2023-03-22', 7),
+('Simran Kaur', 'simran.kaur@gmail.com', '9000001028', 'Mumbai', 27, 'F', 'A', '2023-04-17', 2),
+('Deepak Mishra', 'deepak.mishra@gmail.com', '9000001029', 'Aurangabad', 49, 'M', 'A', '2023-05-09', 8),
+('Isha Agarwal', 'isha.agarwal@gmail.com', '9000001030', 'Pune', 24, 'F', 'A', '2023-06-21', 5),
+
+('Rakesh Shah', 'rakesh.shah@gmail.com', '9000001031', 'Mumbai', 51, 'M', 'A', '2023-07-13', 1),
+('Divya Nair', 'divya.nair@gmail.com', '9000001032', 'Thane', 30, 'F', 'A', '2023-08-20', 4),
+('Akash Gupta', 'akash.gupta@gmail.com', '9000001033', 'Navi Mumbai', 33, 'M', 'A', '2023-09-14', 3),
+('Madhuri Rao', 'madhuri.rao@gmail.com', '9000001034', 'Nagpur', 42, 'F', 'A', '2023-10-07', 7),
+('Suresh Kumar', 'suresh.kumar@gmail.com', '9000001035', 'Pune', 55, 'M', 'A', '2023-11-18', 5),
+('Farah Khan', 'farah.khan@gmail.com', '9000001036', 'Mumbai', 29, 'F', 'A', '2023-12-11', 2),
+('Yash Kulkarni', 'yash.kulkarni@gmail.com', '9000001037', 'Nashik', 31, 'M', 'A', '2024-01-16', 6),
+('Tanvi Deshmukh', 'tanvi.deshmukh@gmail.com', '9000001038', 'Aurangabad', 26, 'F', 'A', '2024-02-22', 8),
+('Mohit Agarwal', 'mohit.agarwal@gmail.com', '9000001039', 'Mumbai', 46, 'M', 'A', '2024-03-19', 1),
+('Shreya Mehta', 'shreya.mehta@gmail.com', '9000001040', 'Thane', 28, 'F', 'A', '2024-04-08', 4),
+
+('Varun Singh', 'varun.singh@gmail.com', '9000001041', 'Pune', 39, 'M', 'A', '2024-05-15', 5),
+('Aarti Sharma', 'aarti.sharma@gmail.com', '9000001042', 'Mumbai', 35, 'F', 'A', '2024-06-12', 2),
+('Harsh Patel', 'harsh.patel@gmail.com', '9000001043', 'Navi Mumbai', 29, 'M', 'A', '2024-07-24', 3),
+('Preeti Verma', 'preeti.verma@gmail.com', '9000001044', 'Nashik', 41, 'F', 'A', '2024-08-17', 6),
+('Gaurav Jain', 'gaurav.jain@gmail.com', '9000001045', 'Nagpur', 37, 'M', 'A', '2024-09-05', 7),
+('Nandini Shah', 'nandini.shah@gmail.com', '9000001046', 'Mumbai', 25, 'F', 'A', '2024-10-14', 1),
+('Abhishek Rao', 'abhishek.rao@gmail.com', '9000001047', 'Pune', 43, 'M', 'A', '2024-11-20', 5),
+('Mansi Gupta', 'mansi.gupta@gmail.com', '9000001048', 'Thane', 31, 'F', 'A', '2024-12-09', 4),
+('Tarun Khan', 'tarun.khan@gmail.com', '9000001049', 'Aurangabad', 34, 'M', 'A', '2025-01-18', 8),
+('Pallavi Joshi', 'pallavi.joshi@gmail.com', '9000001050', 'Nashik', 38, 'F', 'A', '2025-02-11', 6),
+
+('Rohan Desai', 'rohan.desai@gmail.com', '9000001051', 'Mumbai', 27, 'M', 'A', '2025-03-05', 2),
+('Snehal Patil', 'snehal.patil@gmail.com', '9000001052', 'Pune', 33, 'F', 'A', '2025-03-19', 5),
+('Kunal Shah', 'kunal.shah@gmail.com', '9000001053', 'Mumbai', 45, 'M', 'A', '2025-04-14', 1),
+('Rashmi Iyer', 'rashmi.iyer@gmail.com', '9000001054', 'Thane', 29, 'F', 'A', '2025-04-28', 4),
+('Vishal Kumar', 'vishal.kumar@gmail.com', '9000001055', 'Navi Mumbai', 40, 'M', 'A', '2025-05-17', 3),
+('Poonam Singh', 'poonam.singh@gmail.com', '9000001056', 'Pune', 36, 'F', 'A', '2025-05-29', 5),
+('Rajat Mehra', 'rajat.mehra@gmail.com', '9000001057', 'Nagpur', 48, 'M', 'A', '2025-06-12', 7),
+('Bhavna Patel', 'bhavna.patel@gmail.com', '9000001058', 'Mumbai', 32, 'F', 'A', '2025-06-25', 2),
+('Naveen Khan', 'naveen.khan@gmail.com', '9000001059', 'Nashik', 35, 'M', 'A', '2025-07-08', 6),
+('Ritu Agarwal', 'ritu.agarwal@gmail.com', '9000001060', 'Aurangabad', 27, 'F', 'A', '2025-07-21', 8),
+
+('Siddharth Jain', 'siddharth.jain@gmail.com', '9000001061', 'Pune', 42, 'M', 'A', '2025-08-05', 5),
+('Swati Mehta', 'swati.mehta@gmail.com', '9000001062', 'Mumbai', 30, 'F', 'A', '2025-08-18', 1),
+('Manav Shah', 'manav.shah@gmail.com', '9000001063', 'Thane', 26, 'M', 'A', '2025-09-09', 4),
+('Kiran Desai', 'kiran.desai@gmail.com', '9000001064', 'Navi Mumbai', 39, 'F', 'A', '2025-09-22', 3),
+('Ajay Verma', 'ajay.verma@gmail.com', '9000001065', 'Pune', 50, 'M', 'A', '2025-10-06', 5),
+('Radhika Rao', 'radhika.rao@gmail.com', '9000001066', 'Nagpur', 34, 'F', 'A', '2025-10-19', 7),
+('Pranav Gupta', 'pranav.gupta@gmail.com', '9000001067', 'Mumbai', 29, 'M', 'A', '2025-11-11', 2),
+('Shalini Khan', 'shalini.khan@gmail.com', '9000001068', 'Nashik', 43, 'F', 'A', '2025-11-25', 6),
+('Chetan Joshi', 'chetan.joshi@gmail.com', '9000001069', 'Aurangabad', 37, 'M', 'A', '2025-12-08', 8),
+('Priti Sharma', 'priti.sharma@gmail.com', '9000001070', 'Mumbai', 28, 'F', 'A', '2025-12-21', 1),
+
+('Nikhil Patel', 'nikhil.patel@gmail.com', '9000001071', 'Pune', 44, 'M', 'A', '2022-01-10', 5),
+('Renu Singh', 'renu.singh@gmail.com', '9000001072', 'Thane', 33, 'F', 'A', '2022-03-18', 4),
+('Saurabh Mehta', 'saurabh.mehta@gmail.com', '9000001073', 'Mumbai', 41, 'M', 'A', '2022-05-22', 2),
+('Payal Shah', 'payal.shah@gmail.com', '9000001074', 'Navi Mumbai', 26, 'F', 'A', '2022-07-15', 3),
+('Ravi Kumar', 'ravi.kumar@gmail.com', '9000001075', 'Nagpur', 53, 'M', 'A', '2022-09-27', 7),
+('Alisha Khan', 'alisha.khan@gmail.com', '9000001076', 'Mumbai', 24, 'F', 'A', '2022-11-14', 1),
+('Dinesh Patil', 'dinesh.patil@gmail.com', '9000001077', 'Pune', 46, 'M', 'I', '2023-01-08', 5),
+('Sonali Joshi', 'sonali.joshi@gmail.com', '9000001078', 'Nashik', 31, 'F', 'A', '2023-03-16', 6),
+('Ramesh Rao', 'ramesh.rao@gmail.com', '9000001079', 'Thane', 58, 'M', 'I', '2023-05-20', 4),
+('Ayesha Patel', 'ayesha.patel@gmail.com', '9000001080', 'Mumbai', 29, 'F', 'A', '2023-07-11', 2),
+
+('Mahesh Gupta', 'mahesh.gupta@gmail.com', '9000001081', 'Aurangabad', 52, 'M', 'A', '2023-09-18', 8),
+('Rekha Sharma', 'rekha.sharma@gmail.com', '9000001082', 'Pune', 48, 'F', 'A', '2023-11-07', 5),
+('Yogesh Singh', 'yogesh.singh@gmail.com', '9000001083', 'Mumbai', 36, 'M', 'A', '2024-01-21', 1),
+('Monika Jain', 'monika.jain@gmail.com', '9000001084', 'Navi Mumbai', 27, 'F', 'A', '2024-03-14', 3),
+('Sanjay Mehta', 'sanjay.mehta@gmail.com', '9000001085', 'Thane', 45, 'M', 'A', '2024-05-18', 4),
+('Chandni Khan', 'chandni.khan@gmail.com', '9000001086', 'Nashik', 30, 'F', 'A', '2024-07-12', 6),
+('Prakash Desai', 'prakash.desai@gmail.com', '9000001087', 'Nagpur', 56, 'M', 'A', '2024-09-20', 7),
+('Juhi Kapoor', 'juhi.kapoor@gmail.com', '9000001088', 'Mumbai', 25, 'F', 'A', '2024-11-15', 2),
+('Hemant Verma', 'hemant.verma@gmail.com', '9000001089', 'Pune', 49, 'M', 'I', '2025-01-12', 5),
+('Naina Shah', 'naina.shah@gmail.com', '9000001090', 'Mumbai', 28, 'F', 'A', '2025-02-24', 1),
+
+('Ashish Patel', 'ashish.patel@gmail.com', '9000001091', 'Navi Mumbai', 34, 'M', 'A', '2025-04-09', 3),
+('Shweta Rao', 'shweta.rao@gmail.com', '9000001092', 'Thane', 37, 'F', 'A', '2025-05-16', 4),
+('Mukesh Kumar', 'mukesh.kumar@gmail.com', '9000001093', 'Pune', 54, 'M', 'A', '2025-06-23', 5),
+('Ankita Mehta', 'ankita.mehta@gmail.com', '9000001094', 'Nashik', 29, 'F', 'A', '2025-07-14', 6),
+('Rakesh Gupta', 'rakesh.gupta@gmail.com', '9000001095', 'Mumbai', 43, 'M', 'A', '2025-08-19', 2),
+('Sakshi Jain', 'sakshi.jain@gmail.com', '9000001096', 'Nagpur', 26, 'F', 'A', '2025-09-07', 7),
+('Vijay Singh', 'vijay.singh@gmail.com', '9000001097', 'Aurangabad', 47, 'M', 'A', '2025-10-12', 8),
+('Mitali Sharma', 'mitali.sharma@gmail.com', '9000001098', 'Mumbai', 32, 'F', 'A', '2025-11-18', 1),
+('Pradeep Khan', 'pradeep.khan@gmail.com', '9000001099', 'Pune', 40, 'M', 'A', '2025-12-05', 5),
+('Aishwarya Patil', 'aishwarya.patil@gmail.com', '9000001100', 'Thane', 27, 'F', 'A', '2025-12-20', 4);
+
+
+# Customer Data Summary
+
+-- | Category            | Data          |
+-- | ------------------- | ------------- |
+-- | Total Customers     | **100**       |
+-- | Active Customers    | **95**        |
+-- | Inactive Customers  | **5**         |
+-- | Gender              | Male / Female |
+-- | Age Range           | 24–58         |
+-- | Cities              | 7             |
+-- | Branches            | 8             |
+-- | Registration Period | 2021–2025     |
 
 
 4. Create Accounts Table
@@ -222,7 +338,7 @@ VALUES
 (30, 'Payment', 18000.00, '2024-02-20', 'Supplier payment');
 
 
-6. Create Loans Table
+# 6. Create Loans Table
 
 CREATE TABLE Loans (
     Loan_ID INT PRIMARY KEY AUTO_INCREMENT,
@@ -242,31 +358,137 @@ CREATE TABLE Loans (
     REFERENCES Branches(Branch_ID)
 );
 
-Insert Loan Data
+# Insert Loan Data
 
 INSERT INTO Loans
 (Customer_ID, Branch_ID, Loan_Type, Loan_Amount, Interest_Rate, Loan_Term_Years, Loan_Status, Start_Date)
 VALUES
+
 (1, 1, 'Home Loan', 4500000.00, 8.25, 20, 'Active', '2022-03-15'),
 (2, 2, 'Personal Loan', 500000.00, 11.50, 5, 'Active', '2023-01-20'),
 (3, 3, 'Business Loan', 2500000.00, 9.75, 10, 'Active', '2022-07-10'),
 (4, 4, 'Education Loan', 800000.00, 8.50, 7, 'Active', '2023-06-12'),
 (5, 5, 'Car Loan', 900000.00, 9.25, 6, 'Active', '2022-11-05'),
+(6, 1, 'Personal Loan', 350000.00, 11.75, 4, 'Closed', '2021-10-15'),
 (7, 5, 'Home Loan', 3500000.00, 8.10, 15, 'Active', '2023-02-18'),
 (8, 6, 'Personal Loan', 300000.00, 12.00, 4, 'Active', '2023-08-15'),
 (9, 2, 'Car Loan', 1200000.00, 9.50, 7, 'Active', '2022-09-20'),
 (10, 4, 'Home Loan', 2800000.00, 8.30, 15, 'Active', '2023-04-10'),
+
 (11, 7, 'Business Loan', 1800000.00, 10.25, 8, 'Active', '2023-05-22'),
 (12, 5, 'Education Loan', 600000.00, 8.75, 6, 'Active', '2024-01-15'),
 (13, 1, 'Business Loan', 5000000.00, 9.50, 12, 'Active', '2023-03-10'),
 (14, 6, 'Personal Loan', 250000.00, 12.25, 3, 'Active', '2024-02-12'),
 (15, 7, 'Home Loan', 3200000.00, 8.15, 18, 'Active', '2023-07-18'),
+(16, 2, 'Personal Loan', 350000.00, 11.90, 4, 'Active', '2024-02-20'),
 (17, 3, 'Car Loan', 1100000.00, 9.40, 6, 'Active', '2024-01-25'),
+(18, 4, 'Home Loan', 2500000.00, 8.40, 15, 'Active', '2024-04-05'),
 (19, 5, 'Personal Loan', 400000.00, 11.75, 5, 'Active', '2024-03-15'),
 (20, 8, 'Education Loan', 700000.00, 8.60, 7, 'Active', '2024-05-10'),
-(6, 1, 'Car Loan', 850000.00, 9.10, 5, 'Closed', '2021-10-15'),
-(16, 2, 'Personal Loan', 350000.00, 11.90, 4, 'Active', '2024-02-20'),
-(18, 4, 'Home Loan', 2500000.00, 8.40, 15, 'Active', '2024-04-05');
+
+(21, 9, 'Car Loan', 950000.00, 9.35, 6, 'Active', '2022-06-14'),
+(22, 10, 'Home Loan', 3800000.00, 8.20, 20, 'Active', '2023-08-21'),
+(23, 2, 'Personal Loan', 450000.00, 11.25, 5, 'Closed', '2021-09-12'),
+(24, 4, 'Business Loan', 2200000.00, 10.00, 8, 'Active', '2024-02-16'),
+(25, 5, 'Car Loan', 750000.00, 9.60, 5, 'Active', '2023-11-20'),
+(26, 6, 'Education Loan', 550000.00, 8.80, 6, 'Active', '2024-06-05'),
+(27, 7, 'Home Loan', 4200000.00, 8.05, 20, 'Active', '2022-12-18'),
+(28, 8, 'Personal Loan', 600000.00, 11.80, 5, 'Active', '2024-07-11'),
+(29, 1, 'Business Loan', 3000000.00, 9.85, 10, 'Active', '2023-10-15'),
+(30, 3, 'Car Loan', 1050000.00, 9.45, 7, 'Closed', '2021-05-22'),
+
+(31, 4, 'Home Loan', 5200000.00, 8.15, 20, 'Active', '2024-01-10'),
+(32, 5, 'Personal Loan', 275000.00, 12.10, 3, 'Active', '2024-08-19'),
+(33, 6, 'Business Loan', 1750000.00, 10.20, 7, 'Active', '2023-04-25'),
+(34, 7, 'Education Loan', 650000.00, 8.65, 6, 'Active', '2024-09-12'),
+(35, 8, 'Car Loan', 850000.00, 9.30, 6, 'Active', '2023-06-18'),
+(36, 9, 'Home Loan', 3100000.00, 8.35, 15, 'Active', '2022-08-25'),
+(37, 10, 'Personal Loan', 500000.00, 11.60, 5, 'Pending', '2025-01-15'),
+(38, 2, 'Business Loan', 2800000.00, 9.90, 10, 'Active', '2024-03-22'),
+(39, 3, 'Car Loan', 1150000.00, 9.55, 7, 'Active', '2024-10-05'),
+(40, 1, 'Education Loan', 900000.00, 8.45, 8, 'Active', '2023-09-14'),
+
+(41, 5, 'Home Loan', 4700000.00, 8.10, 20, 'Active', '2022-05-18'),
+(42, 6, 'Personal Loan', 325000.00, 12.15, 4, 'Closed', '2021-11-10'),
+(43, 7, 'Business Loan', 2400000.00, 10.10, 10, 'Active', '2023-12-20'),
+(44, 8, 'Car Loan', 980000.00, 9.40, 6, 'Active', '2024-04-16'),
+(45, 9, 'Education Loan', 725000.00, 8.70, 7, 'Active', '2024-05-21'),
+(46, 10, 'Home Loan', 3600000.00, 8.25, 18, 'Active', '2023-07-12'),
+(47, 1, 'Personal Loan', 425000.00, 11.95, 5, 'Active', '2024-11-08'),
+(48, 2, 'Business Loan', 3200000.00, 9.65, 12, 'Active', '2023-02-14'),
+(49, 3, 'Car Loan', 1250000.00, 9.20, 7, 'Active', '2025-02-10'),
+(50, 4, 'Home Loan', 2900000.00, 8.45, 15, 'Pending', '2025-03-18'),
+
+(51, 5, 'Personal Loan', 550000.00, 11.70, 5, 'Active', '2024-06-14'),
+(52, 6, 'Business Loan', 2100000.00, 10.30, 8, 'Active', '2023-10-22'),
+(53, 7, 'Car Loan', 875000.00, 9.35, 6, 'Active', '2024-02-25'),
+(54, 8, 'Education Loan', 480000.00, 8.55, 5, 'Closed', '2021-07-16'),
+(55, 9, 'Home Loan', 4100000.00, 8.05, 20, 'Active', '2022-10-19'),
+(56, 10, 'Personal Loan', 375000.00, 12.05, 4, 'Active', '2024-09-20'),
+(57, 1, 'Business Loan', 4500000.00, 9.45, 12, 'Active', '2023-05-15'),
+(58, 2, 'Car Loan', 1025000.00, 9.50, 6, 'Active', '2024-12-10'),
+(59, 3, 'Home Loan', 3350000.00, 8.30, 18, 'Active', '2023-08-17'),
+(60, 4, 'Personal Loan', 290000.00, 11.85, 3, 'Active', '2025-01-25'),
+
+(61, 5, 'Education Loan', 850000.00, 8.65, 8, 'Active', '2024-07-18'),
+(62, 6, 'Home Loan', 4800000.00, 8.20, 20, 'Active', '2022-04-15'),
+(63, 7, 'Business Loan', 1900000.00, 10.15, 8, 'Active', '2023-11-12'),
+(64, 8, 'Car Loan', 925000.00, 9.25, 6, 'Active', '2024-03-20'),
+(65, 9, 'Personal Loan', 475000.00, 11.55, 5, 'Closed', '2021-12-05'),
+(66, 10, 'Home Loan', 3900000.00, 8.35, 20, 'Active', '2024-08-15'),
+(67, 1, 'Business Loan', 2700000.00, 9.80, 10, 'Active', '2023-06-22'),
+(68, 2, 'Education Loan', 575000.00, 8.75, 6, 'Active', '2024-10-12'),
+(69, 3, 'Car Loan', 1180000.00, 9.40, 7, 'Pending', '2025-04-10'),
+(70, 4, 'Personal Loan', 650000.00, 11.65, 5, 'Active', '2024-05-25'),
+
+(71, 5, 'Home Loan', 4400000.00, 8.10, 20, 'Active', '2023-01-18'),
+(72, 6, 'Business Loan', 2300000.00, 10.05, 8, 'Active', '2024-01-22'),
+(73, 7, 'Car Loan', 780000.00, 9.35, 5, 'Active', '2023-09-16'),
+(74, 8, 'Personal Loan', 350000.00, 12.20, 4, 'Active', '2024-11-20'),
+(75, 9, 'Education Loan', 620000.00, 8.60, 7, 'Active', '2023-03-15'),
+(76, 10, 'Home Loan', 3750000.00, 8.25, 18, 'Active', '2022-11-18'),
+(77, 1, 'Business Loan', 3600000.00, 9.70, 12, 'Active', '2024-04-20'),
+(78, 2, 'Car Loan', 890000.00, 9.45, 6, 'Closed', '2021-08-15'),
+(79, 3, 'Personal Loan', 425000.00, 11.90, 5, 'Active', '2025-02-18'),
+(80, 4, 'Home Loan', 3000000.00, 8.40, 15, 'Pending', '2025-05-10'),
+
+(81, 5, 'Education Loan', 720000.00, 8.70, 7, 'Active', '2024-06-18'),
+(82, 6, 'Business Loan', 2600000.00, 9.95, 10, 'Active', '2023-07-22'),
+(83, 7, 'Car Loan', 1080000.00, 9.30, 7, 'Active', '2024-02-14'),
+(84, 8, 'Personal Loan', 315000.00, 12.00, 3, 'Active', '2024-09-18'),
+(85, 9, 'Home Loan', 4250000.00, 8.15, 20, 'Active', '2022-06-12'),
+(86, 10, 'Business Loan', 1950000.00, 10.25, 8, 'Active', '2023-10-10'),
+(87, 1, 'Car Loan', 970000.00, 9.55, 6, 'Active', '2024-12-18'),
+(88, 2, 'Education Loan', 540000.00, 8.80, 6, 'Active', '2025-01-20'),
+(89, 3, 'Personal Loan', 525000.00, 11.75, 5, 'Closed', '2021-04-15'),
+(90, 4, 'Home Loan', 3450000.00, 8.30, 18, 'Active', '2023-05-20'),
+
+(91, 5, 'Business Loan', 4100000.00, 9.60, 12, 'Active', '2024-07-15'),
+(92, 6, 'Car Loan', 820000.00, 9.40, 6, 'Active', '2024-08-22'),
+(93, 7, 'Personal Loan', 380000.00, 12.10, 4, 'Pending', '2025-03-15'),
+(94, 8, 'Education Loan', 680000.00, 8.55, 7, 'Active', '2024-10-20'),
+(95, 9, 'Home Loan', 4600000.00, 8.20, 20, 'Active', '2022-09-15'),
+(96, 10, 'Business Loan', 2850000.00, 10.00, 10, 'Active', '2023-12-15'),
+(97, 1, 'Car Loan', 1150000.00, 9.35, 7, 'Active', '2024-11-12'),
+(98, 2, 'Personal Loan', 450000.00, 11.80, 5, 'Active', '2025-04-18'),
+(99, 3, 'Home Loan', 3200000.00, 8.35, 15, 'Active', '2024-05-15'),
+(100, 4, 'Education Loan', 760000.00, 8.65, 7, 'Active', '2025-06-20');
+
+-- Loan Dataset Summary
+-- | Category          |                  Coverage |
+-- | ----------------- | ------------------------: |
+-- | Total Loans       |                   **100** |
+-- | Customers Covered |                   **100** |
+-- | Branches Covered  |                    **10** |
+-- | Home Loans        |                  Multiple |
+-- | Personal Loans    |                  Multiple |
+-- | Business Loans    |                  Multiple |
+-- | Car Loans         |                  Multiple |
+-- | Education Loans   |                  Multiple |
+-- | Loan Status       | Active / Closed / Pending |
+-- | Loan Dates        |                 2021–2025 |
+
+
 
 
 | Table                   | Relationship                            |
