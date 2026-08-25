@@ -299,6 +299,9 @@ FROM Orders;
 
 
 
+
+
+
 -- Date Functions in SQL
 -- Date Functions are built-in SQL functions used to extract, format, calculate, compare, and manipulate dates and times.
 
