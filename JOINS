@@ -1,0 +1,105 @@
+USE SAMPLE ; 
+
+-- SET OPERATORS IN SQL
+-- Set Operators are used to combine the results of two or more SELECT queries.
+-- The main set operators are:
+-- UNION
+-- UNION ALL
+-- INTERSECT
+
+CREATE TABLE Mumbai_Customers (
+    Customer_ID INT,
+    Customer_Name VARCHAR(50),
+    City VARCHAR(30)
+);
+
+INSERT INTO Mumbai_Customers (Customer_ID, Customer_Name, City)
+VALUES
+(1, 'Aarav Sharma', 'Mumbai'),
+(2, 'Priya Mehta', 'Mumbai'),
+(3, 'Rahul Verma', 'Mumbai'),
+(4, 'Sneha Patil', 'Mumbai'),
+(5, 'Aisha Khan', 'Mumbai'),
+(6, 'Rohan Joshi', 'Mumbai');
+
+
+CREATE TABLE Pune_Customers (
+    Customer_ID INT,
+    Customer_Name VARCHAR(50),
+    City VARCHAR(30)
+);
+
+INSERT INTO Pune_Customers (Customer_ID, Customer_Name, City)
+VALUES
+(3, 'Rahul Verma', 'Mumbai'),
+(4, 'Sneha Patil', 'Mumbai'),
+(5, 'Aisha Khan', 'Mumbai'),
+(7, 'Neha Shah', 'Pune'),
+(8, 'Aditya Rao', 'Pune'),
+(9, 'Kavya Iyer', 'Pune');
+
+-- UNION combines the results of two SELECT queries  and removes duplicate records.
+
+-- Syntax : 
+-- SELECT column_name FROM Table1
+-- UNION
+-- SELECT column_name FROM Table2;
+
+SELECT * FROM Mumbai_Customers 
+UNION
+SELECT * FROM Pune_Customers ; 
+
+-- UNION ALL combines the results of two SELECT queries and keeps duplicate records.
+-- Syntax : 
+-- SELECT column_name FROM Table1
+-- UNION ALL
+-- SELECT column_name FROM Table2;
+
+SELECT * FROM Mumbai_Customers 
+UNION ALL
+SELECT * FROM Pune_Customers ; 
+
+-- INTERSECT returns only the records that are common in both SELECT query results.
+-- SELECT column_name FROM Table1
+-- INTERSECT
+-- SELECT column_name FROM Table2;
+
+SELECT * FROM Mumbai_Customers 
+INTERSECT
+SELECT * FROM Pune_Customers ; 
+
+-- | Operator  | Purpose                | Duplicates                   |
+-- | ----------| ---------------------- | ---------------------------- |
+-- | UNION     | Combines results       | Removes duplicates           |
+-- | UNION ALL | Combines results       | Keeps duplicates             |
+-- | INTERSECT | Returns common results | Returns common distinct rows |
+
+
+
+-- INNER JOIN returns only the records that have matching values in both tables.
+-- SYNTAX : 
+-- SELECT columns
+-- FROM Table1
+-- INNER JOIN Table2
+-- ON Table1.Column = Table2.Column;
+
+
+SELECT * FROM CUSTOMERS
+inner join orders
+on CUSTOMERS.Customer_ID  = Orders.customer_ID ; 
+
+-- INNER JOIN with WHERE
+
+SELECT  Customers.Customer_Name, Customers.City,
+Orders.Order_ID, Orders.Food_Category ,Orders.Order_Amount FROM Customers
+INNER JOIN Orders
+ON Customers.Customer_ID = Orders.Customer_ID
+WHERE Customers.City = 'Mumbai';
+
+-- Using Table Aliases
+
+SELECT  C.Name, C.Membership,
+        O.Restaurant_Name, O.Food_Category, O.Order_Amount
+FROM Customers AS C
+INNER JOIN Orders AS O
+ON C.Customer_ID = O.Customer_ID;
