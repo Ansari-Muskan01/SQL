@@ -84,7 +84,7 @@ RDBMS = Relational Database Management System
 
 
 ### 7. SQL vs MySQL
-<img src="./IMAGES/SQLVsMYSQL.png" alt="Banking Database Relationship">
+
 
 
 ### 10. What is a Row?
