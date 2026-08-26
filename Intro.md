@@ -38,7 +38,7 @@ A Database Management System (DBMS) is software used to create, store, organize,
 
 ### What Can a DBMS Do?
 
-A DBMS allows us to:<br
+A DBMS allows us to:
 
                       
 - Create databases<br>
