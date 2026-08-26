@@ -53,6 +53,11 @@ A DBMS allows us to:
 
 <img src="./IMAGES/Banking%20Exampe.png" alt="Banking Database Relationship">
 
+### What is RDBMS?
+
+RDBMS = Relational Database Management System
+
+**Definition:**  A Relational Database Management System (RDBMS) is a type of DBMS that stores data in tables and allows relationships to be created between related tables.
 
 ### 5. DBMS vs RDBMS
 
