@@ -45,28 +45,24 @@ VALUES
 -- UNION
 -- SELECT column_name FROM Table2;
 
-SELECT * FROM Mumbai_Customers 
-UNION
-SELECT * FROM Pune_Customers ; 
+SELECT * FROM Mumbai_Customers  UNION SELECT * FROM Pune_Customers ; 
 
 -- UNION ALL combines the results of two SELECT queries and keeps duplicate records.
+
 -- Syntax : 
 -- SELECT column_name FROM Table1
 -- UNION ALL
 -- SELECT column_name FROM Table2;
 
-SELECT * FROM Mumbai_Customers 
-UNION ALL
-SELECT * FROM Pune_Customers ; 
+SELECT * FROM Mumbai_Customers  UNION ALL SELECT * FROM Pune_Customers ; 
 
 -- INTERSECT returns only the records that are common in both SELECT query results.
+
 -- SELECT column_name FROM Table1
 -- INTERSECT
 -- SELECT column_name FROM Table2;
 
-SELECT * FROM Mumbai_Customers 
-INTERSECT
-SELECT * FROM Pune_Customers ; 
+SELECT * FROM Mumbai_Customers  INTERSECT SELECT * FROM Pune_Customers ; 
 
 -- | Operator  | Purpose                | Duplicates                   |
 -- | ----------| ---------------------- | ---------------------------- |
@@ -77,6 +73,7 @@ SELECT * FROM Pune_Customers ;
 
 
 -- INNER JOIN returns only the records that have matching values in both tables.
+
 -- SYNTAX : 
 -- SELECT columns
 -- FROM Table1
