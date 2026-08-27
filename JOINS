@@ -38,6 +38,8 @@ VALUES
 (8, 'Aditya Rao', 'Pune'),
 (9, 'Kavya Iyer', 'Pune');
 
+SELECT * FROM Mumbai_Customers ; 
+SELECT * FROM Pune_Customers ; 
 -- UNION combines the results of two SELECT queries  and removes duplicate records.
 
 -- Syntax : 
@@ -62,7 +64,9 @@ SELECT * FROM Mumbai_Customers  UNION ALL SELECT * FROM Pune_Customers ;
 -- INTERSECT
 -- SELECT column_name FROM Table2;
 
-SELECT * FROM Mumbai_Customers  INTERSECT SELECT * FROM Pune_Customers ; 
+SELECT * FROM Mumbai_Customers  INTERSECT SELECT * FROM Pune_Customers ;
+
+ 
 
 -- | Operator  | Purpose                | Duplicates                   |
 -- | ----------| ---------------------- | ---------------------------- |
@@ -70,33 +74,134 @@ SELECT * FROM Mumbai_Customers  INTERSECT SELECT * FROM Pune_Customers ;
 -- | UNION ALL | Combines results       | Keeps duplicates             |
 -- | INTERSECT | Returns common results | Returns common distinct rows |
 
+-- Create Customers Table
+
+CREATE TABLE Customers1 (
+    Customer_ID INT,
+    Customer_Name VARCHAR(50),
+    City VARCHAR(30)
+);
+
+INSERT INTO Customers1 (Customer_ID, Customer_Name, City)
+VALUES
+(1, 'Aarav Sharma', 'Mumbai'),
+(2, 'Priya Mehta', 'Pune'),
+(3, 'Rahul Verma', 'Delhi'),
+(4, 'Sneha Patil', 'Mumbai'),
+(5, 'Aisha Khan', 'Nashik'),
+(6, 'Rohan Joshi', 'Thane');
 
 
+-- Create Orders Table
+
+CREATE TABLE Orders1 (
+    Order_ID INT,
+    Customer_ID INT,
+    Order_Amount DECIMAL(10,2)
+);
+
+INSERT INTO Orders1 (Order_ID, Customer_ID, Order_Amount)
+VALUES
+(101, 1, 2500.00),
+(102, 2, 1800.00),
+(103, 3, 3200.00),
+(104, 3, 1500.00),
+(105, 4, 4200.00),
+(106, 7, 2000.00);
+
+
+-- JOINS IN SQL
+-- Joins are used to combine rows from two or more tables based on a related column between them.
+
+-- The main types of Joins are:
+-- 1. INNER JOIN
+-- 2. LEFT JOIN
+-- 3. RIGHT JOIN
+-- 4. FULL JOIN
+
+
+-- 1. INNER JOIN
 -- INNER JOIN returns only the records that have matching values in both tables.
 
--- SYNTAX : 
+-- Syntax:
 -- SELECT columns
 -- FROM Table1
 -- INNER JOIN Table2
 -- ON Table1.Column = Table2.Column;
 
 
-SELECT * FROM CUSTOMERS
-inner join orders
-on CUSTOMERS.Customer_ID  = Orders.customer_ID ; 
+-- Example:
+SELECT *
+FROM Customers1
+INNER JOIN Orders1
+ON Customers1.Customer_ID = Orders1.Customer_ID;
 
--- INNER JOIN with WHERE
 
-SELECT  Customers.Customer_Name, Customers.City,
-Orders.Order_ID, Orders.Food_Category ,Orders.Order_Amount FROM Customers
-INNER JOIN Orders
-ON Customers.Customer_ID = Orders.Customer_ID
-WHERE Customers.City = 'Mumbai';
 
--- Using Table Aliases
+-- 2. LEFT JOIN
+-- LEFT JOIN returns all records from the left table and the matching records from the right table.
+-- If there is no matching record in the right table, NULL values are returned.
 
-SELECT  C.Name, C.Membership,
-        O.Restaurant_Name, O.Food_Category, O.Order_Amount
-FROM Customers AS C
-INNER JOIN Orders AS O
-ON C.Customer_ID = O.Customer_ID;
+-- Syntax:
+-- SELECT columns
+-- FROM Table1
+-- LEFT JOIN Table2
+-- ON Table1.Column = Table2.Column;
+
+
+-- Example:
+SELECT *
+FROM Customers1
+LEFT JOIN Orders1
+ON Customers1.Customer_ID = Orders1.Customer_ID;
+
+
+-- 3. RIGHT JOIN
+-- RIGHT JOIN returns all records from the right table and the matching records from the left table.
+-- If there is no matching record in the left table, NULL values are returned.
+
+-- Syntax:
+-- SELECT columns
+-- FROM Table1
+-- RIGHT JOIN Table2
+-- ON Table1.Column = Table2.Column;
+
+
+-- Example:
+SELECT *
+FROM Customers1
+RIGHT JOIN Orders1
+ON Customers1.Customer_ID = Orders1.Customer_ID;
+
+
+-- 4. FULL JOIN
+-- FULL JOIN returns all records from both tables.
+-- If there is no matching record, NULL values are returned for the columns of the other table.
+
+-- Syntax:
+-- SELECT columns
+-- FROM Table1
+-- FULL JOIN Table2
+-- ON Table1.Column = Table2.Column;
+
+
+-- Example:
+SELECT *
+FROM Customers1
+FULL JOIN Orders1
+ON Customers1.Customer_ID = Orders1.Customer_ID;
+
+
+SELECT *
+FROM Customers1
+LEFT JOIN Orders1
+ON Customers1.Customer_ID = Orders1.Customer_ID
+
+UNION
+
+SELECT *
+FROM Customers1
+RIGHT JOIN Orders1
+ON Customers1.Customer_ID = Orders1.Customer_ID;
+
+
