@@ -1,30 +1,111 @@
+CREATE TABLE Orders (
+    Order_ID INT PRIMARY KEY,
+    Customer_Name VARCHAR(50),
+    City VARCHAR(30),
+    Product_Name VARCHAR(50),
+    Category VARCHAR(30),
+    Order_Amount DECIMAL(10,2),
+    Order_Date DATE
+);
+
+INSERT INTO Orders
+(Order_ID, Customer_Name, City, Product_Name, Category, Order_Amount, Order_Date)
+VALUES
+(1, 'Aarav Sharma', 'Mumbai', 'Laptop', 'Electronics', 55000.00, '2026-01-15'),
+(2, 'Priya Singh', 'Pune', 'Headphones', 'Electronics', 2500.00, '2026-01-22'),
+(3, 'Rahul Verma', 'Delhi', 'Shoes', 'Fashion', 3200.00, '2026-02-10'),
+(4, 'Sneha Patel', 'Mumbai', 'Watch', 'Fashion', 4500.00, '2026-02-18'),
+(5, 'Neha Gupta', 'Bangalore', 'Mobile Phone', 'Electronics', 28000.00, '2026-03-05'),
+(6, 'Rohan Mehta', 'Chennai', 'Backpack', 'Accessories', 1800.00, '2026-03-15'),
+(7, 'Ananya Joshi', 'Pune', 'Smart TV', 'Electronics', 42000.00, '2026-04-08'),
+(8, 'Vikram Shah', 'Delhi', 'Jacket', 'Fashion', 3500.00, '2026-04-20'),
+(9, 'Kavya Rao', 'Mumbai', 'Coffee Maker', 'Home Appliances', 6500.00, '2026-05-12'),
+(10, 'Aditya Kumar', 'Hyderabad', 'Table Lamp', 'Home Decor', 1200.00, '2026-05-25'),
+(11, 'Isha Malhotra', 'Bangalore', 'Keyboard', 'Electronics', 2200.00, '2026-06-03'),
+(12, 'Arjun Nair', 'Chennai', 'Running Shoes', 'Fashion', 3800.00, '2026-06-18'),
+(13, 'Pooja Desai', 'Mumbai', 'Office Chair', 'Furniture', 8500.00, '2026-07-07'),
+(14, 'Karan Kapoor', 'Delhi', 'Monitor', 'Electronics', 15000.00, '2026-07-19'),
+(15, 'Meera Iyer', 'Pune', 'Dining Set', 'Furniture', 12000.00, '2026-08-05');
+
 -- Date Functions in SQL
 -- Date Functions are built-in SQL functions used to extract, format, calculate, compare, and manipulate dates and times.
 
-| Function       | Purpose                               |
-| ---------------| ------------------------------------- |
-| CURDATE()      | Returns the current date              |
-| NOW()          | Returns current date and time         |
-| YEAR()         | Extracts the year                     |
-| MONTH()        | Extracts the month                    |
-| MONTHNAME()    | Returns the month name                |
-| DAY()          | Extracts the day                      |
-| DAYNAME()      | Returns the day name                  |
-| DAYOFWEEK()    | Returns weekday number                |
-| DAYOFYEAR()    | Returns day number of the year        |
-| DATEDIFF()     | Finds difference between two dates    |
-| QUARTER()      | Returns the quarter                   |
+-- | Function       | Purpose                               |
+-- | ---------------| ------------------------------------- |
+-- | CURDATE()      | Returns the current date              |
+-- | NOW()          | Returns current date and time         |
+-- | YEAR()         | Extracts the year                     |
+-- | MONTH()        | Extracts the month                    |
+-- | MONTHNAME()    | Returns the month name                |
+-- | DAY()          | Extracts the day                      |
+-- | DAYNAME()      | Returns the day name                  |
+-- | DATEDIFF()     | Finds difference between two dates     |
+-- | QUARTER()      | Returns the quarter                   |
 
-Q. Display today's date.                                                         (Hint : CURDATE ) 
-Q. Display the current date and time.                                            (Hint : NOW() )
-Q. Display the order ID and order year for every order.                          (Hint : YEAR())
-Q. Display the order ID and month number for every order.                        (Hint : MONTH())
-Q. Display the order ID and month name for every order.                          (Hint : MONTHNAME())
-Q. Display the order date and day of the month.                                  (Hint : DAY())
-Q. Display the order date and the day on which the order was placed.             (Hint : DAYNAME())
-Q. Display the order date and weekday number.                                    (Hint : DAYOFWEEK())
-Q. Display the order date and its day number within the year.                    (Hint : DAYOFYEAR())
-Q. Display the order ID, order date, and quarter in which the order was placed.  (Hint : QUARTER())
-Q. Find how many days have passed between the order date and today's date.       (Hint : DATEDIFF())
+-- Q1. Display today's date.        -- Hint: CURDATE()
+SELECT CURDATE();
 
+-- Q2. Display the current date and time.   -- Hint: NOW()
+SELECT NOW();
 
+-- Q3. Display all columns along with the order year.  -- Hint: YEAR()
+SELECT *, YEAR(Order_Date) AS Order_Year FROM Orders;
+
+-- Q4. Display all columns along with the order month number. -- Hint: MONTH()
+SELECT *, MONTH(Order_Date) AS Order_Month FROM Orders;
+
+-- Q5. Display all columns along with the order month name. -- Hint: MONTHNAME()
+SELECT *, MONTHNAME(Order_Date) AS Month_Name FROM Orders;
+
+-- Q6. Display all columns along with the day of the month.   -- Hint: DAY()
+SELECT *, DAY(Order_Date) AS Day_Of_Month FROM Orders;
+
+-- Q7. Display all columns along with the day on which the order was placed.   -- Hint: DAYNAME()
+SELECT *,  DAYNAME(Order_Date) AS Day_Name FROM Orders;
+
+-- Q8. Display all columns along with the quarter in which the order was placed.      -- Hint: QUARTER()
+SELECT *, QUARTER(Order_Date) AS Order_Quarter FROM Orders;
+
+-- Q9. Display all columns along with the number of days passed between the Order Date and today's date.  -- Hint: DATEDIFF()
+SELECT *, DATEDIFF(CURDATE(), Order_Date) AS Days_Passed FROM Orders;
+
+-- | Function      | Purpose                            |
+-- | --------------| ---------------------------------- |
+-- | UPPER()       | Converts text to uppercase         |
+-- | LOWER()       | Converts text to lowercase         |
+-- | LENGTH()      | Returns the length of a string     |
+-- | CONCAT()      | Combines two or more strings       |
+-- | TRIM()        | Removes spaces from both sides     |
+-- | LTRIM()       | Removes spaces from the left       |
+-- | RTRIM()       | Removes spaces from the right      |
+-- | LEFT()        | Extracts characters from the left  |
+-- | RIGHT()       | Extracts characters from the right |
+-- | SUBSTRING()   | Extracts part of a string          |
+-- | REPLACE()     | Replaces part of a string          |
+
+-- Q1. Display all customer names in uppercase.  -- Hint: UPPER()
+SELECT Customer_Name, UPPER(Customer_Name) AS Upper_Name FROM Orders;
+
+-- Q2. Display all customer names in lowercase.       -- Hint: LOWER()
+SELECT Customer_Name, LOWER(Customer_Name) AS Lower_Name FROM Orders;
+
+-- Q3. Display the customer name and its length.     -- Hint: LENGTH()
+SELECT Customer_Name, LENGTH(Customer_Name) AS Name_Length FROM Orders;
+
+-- Q4. Combine Customer Name and City.           -- Hint: CONCAT()
+SELECT CONCAT(Customer_Name, ' - ', City) AS Customer_Details FROM Orders;
+
+-- Q5. Extract the first 3 characters of Customer Name.  -- Hint: LEFT()
+SELECT Customer_Name, LEFT(Customer_Name, 3) AS First_3_Characters FROM Orders;
+
+-- Q6. Extract the last 3 characters of Customer Name.   -- Hint: RIGHT()
+SELECT Customer_Name, RIGHT(Customer_Name, 3) AS Last_3_Characters FROM Orders;
+
+-- Q7. Extract the first 5 characters of Product Name. -- Hint: SUBSTRING()
+SELECT Product_Name, SUBSTRING(Product_Name, 1, 5) AS Product_Part FROM Orders;
+
+-- Q8. Replace 'Mumbai' with 'Bombay'.                     -- Hint: REPLACE()
+SELECT City, REPLACE(City, 'Mumbai', 'Bombay') AS Modified_City FROM Orders;
+
+-- Q9. Remove spaces from both sides of Customer Name.     -- Hint: TRIM()
+SELECT TRIM(Customer_Name) AS Clean_Name FROM Orders;
