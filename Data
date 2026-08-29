@@ -518,3 +518,85 @@ VALUES
        │                  LOANS            TRANSACTIONS
        │
        └────────────── Branch_ID
+
+
+
+Display the customer name along with their branch name.
+Display customer name, city, and branch manager.
+Display customer name, account type, and account balance.
+Display customer name, account ID, account type, and branch name.
+Display account ID, account type, transaction type, and transaction amount.
+Display customer name along with their transaction details.
+Display customer name, loan type, loan amount, and loan status.
+Display customer name, loan type, loan amount, and branch name.
+Display customer name, account type, balance, and transaction amount.
+Display customer name, branch name, account type, and loan type.
+Display all customers along with their accounts, including customers who do not have an account.
+Display all branches along with their customers, including branches that do not have customers.
+Display customers who have both an account and a loan.
+Display customers who have an account but do not have a loan.
+Display customers who have a loan but do not have an account.
+Find the total account balance for each branch.
+Find the total number of customers in each branch.
+Find the average account balance for each branch.
+Find the total loan amount for each branch.
+Find the number of transactions performed by each account.
+Find the branch having the highest total account balance.
+Find the branch having the highest total loan amount.
+Display customers whose account balance is greater than ₹50,000 along with their branch name.
+Display Mumbai customers and their account details.
+Display customers who have performed a withdrawal transaction.
+Display customers who have taken a Home Loan.
+Display complete banking details of customers including customer, branch, account, transaction, and loan information.
+👁️ VIEW Questions
+Create a view to display customer name, city, email, and customer status.
+Create a view to display customer name along with their branch name.
+Create a view to display customer name, account type, and account balance.
+Create a view to display account details along with branch name.
+Create a view to display customer name, loan type, loan amount, and loan status.
+Create a view to display customer name, account type, balance, and branch name.
+Create a view to display all active customers.
+Create a view to display all active accounts.
+Create a view to display all active loans.
+Create a view to display customers from Mumbai along with their account details.
+Create a view to display branch-wise total account balance.
+Create a view to display branch-wise total loan amount.
+Create a view to display account type-wise total balance.
+Create a view to display customers who have loans.
+Create a view to display customer and transaction details.
+Display data from a created view.
+Show the structure of a view.
+Modify an existing view to include an additional column.
+Rename a view.
+Delete an existing view.
+🔀 IF / CASE Questions
+CASE – Customer Analysis
+Display customer name and classify customers as Young, Middle-Aged, or Senior based on age.
+Display customer name and categorize customers as Minor, Adult, or Senior Citizen based on age.
+Display customer name and classify customers based on their customer status as Active or Inactive.
+Display customer name and city, and classify customers as Mumbai Customer or Other City Customer.
+Display customer name and assign an age category based on age.
+CASE – Account Analysis
+Display account ID, balance, and classify accounts as Low Balance, Medium Balance, or High Balance.
+Display account type and convert it into a meaningful category such as Personal Account or Business Account.
+Display account status and classify accounts as Active or Inactive.
+Display account ID and classify accounts based on their balance.
+Display customer ID, account type, and create a category for each account type.
+CASE – Transaction Analysis
+Display transaction ID, amount, and classify transactions as Small, Medium, or Large based on amount.
+Display transaction type and classify it as Credit Transaction or Debit Transaction.
+Display transaction amount and classify transactions based on amount.
+Display transaction type and create a meaningful description for each transaction type.
+Display transactions and identify whether the transaction is a Deposit, Withdrawal, Transfer, or Payment.
+CASE – Loan Analysis
+Display customer ID, loan amount, and classify loans as Small, Medium, or Large.
+Display loan type and classify it as Personal Loan or Business/Asset Loan.
+Display loan status and classify loans as Active, Closed, or Other.
+Display loan amount and interest rate and identify high-interest loans.
+Display loan details and classify customers based on their loan amount.
+CASE with Analysis
+Find the number of customers in each age category.
+Find the number of accounts in each balance category.
+Find the total transaction amount for each transaction category.
+Find the number of loans in each loan amount category.
+Find the total loan amount for each loan status category.
