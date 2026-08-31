@@ -635,6 +635,7 @@ Display Mumbai customers and their account details.
 Display customers who have performed a withdrawal transaction.
 Display customers who have taken a Home Loan.
 Display complete banking details of customers including customer, branch, account, transaction, and loan information.
+
 👁️ VIEW Questions
 Create a view to display customer name, city, email, and customer status.
 Create a view to display customer name along with their branch name.
@@ -656,6 +657,7 @@ Show the structure of a view.
 Modify an existing view to include an additional column.
 Rename a view.
 Delete an existing view.
+
 🔀 IF / CASE Questions
 CASE – Customer Analysis
 Display customer name and classify customers as Young, Middle-Aged, or Senior based on age.
@@ -663,24 +665,28 @@ Display customer name and categorize customers as Minor, Adult, or Senior Citize
 Display customer name and classify customers based on their customer status as Active or Inactive.
 Display customer name and city, and classify customers as Mumbai Customer or Other City Customer.
 Display customer name and assign an age category based on age.
+
 CASE – Account Analysis
 Display account ID, balance, and classify accounts as Low Balance, Medium Balance, or High Balance.
 Display account type and convert it into a meaningful category such as Personal Account or Business Account.
 Display account status and classify accounts as Active or Inactive.
 Display account ID and classify accounts based on their balance.
 Display customer ID, account type, and create a category for each account type.
+
 CASE – Transaction Analysis
 Display transaction ID, amount, and classify transactions as Small, Medium, or Large based on amount.
 Display transaction type and classify it as Credit Transaction or Debit Transaction.
 Display transaction amount and classify transactions based on amount.
 Display transaction type and create a meaningful description for each transaction type.
 Display transactions and identify whether the transaction is a Deposit, Withdrawal, Transfer, or Payment.
+
 CASE – Loan Analysis
 Display customer ID, loan amount, and classify loans as Small, Medium, or Large.
 Display loan type and classify it as Personal Loan or Business/Asset Loan.
 Display loan status and classify loans as Active, Closed, or Other.
 Display loan amount and interest rate and identify high-interest loans.
 Display loan details and classify customers based on their loan amount.
+
 CASE with Analysis
 Find the number of customers in each age category.
 Find the number of accounts in each balance category.
