@@ -1,0 +1,67 @@
+-- SUBQUERY
+
+-- Definition:
+-- A subquery is a SQL query written inside another SQL query.
+-- It is used to get a result from the inner query and use that result in the outer query.
+-- A subquery is also called a Nested Query or Inner Query.
+
+
+-- TYPES OF SUBQUERIES
+
+-- 1. Single-Row Subquery
+-- Returns only one value or one row.
+-- Common operators: =, >, <, >=, <=, <>
+
+-- Syntax:
+-- SELECT column1, column2
+-- FROM table_name
+-- WHERE column_name operator
+-- (
+--     SELECT column_name
+--     FROM table_name
+-- );
+
+-- 2. Multiple-Row Subquery
+-- Returns multiple values or multiple rows.
+-- Common operators: IN, ANY, ALL
+
+-- Syntax:
+-- SELECT column1, column2
+-- FROM table_name
+-- WHERE column_name IN
+-- (
+--     SELECT column_name
+--     FROM table_name
+-- );
+
+
+
+-- 3. Nested Subquery
+-- A Nested Subquery is a subquery that executes independently of the outer query.
+-- The inner query executes first, and its result is then used by the outer query.
+
+
+-- Syntax:
+-- SELECT column1, column2
+-- FROM table_name
+-- WHERE column_name operator
+-- (
+--     SELECT column_name
+--     FROM table_name
+--     WHERE condition
+-- );
+
+
+-- 4. Correlated Subquery
+-- A Correlated Subquery is a subquery that depends on the outer query. 
+The inner query uses values from the outer query and is executed repeatedly for each row processed by the outer query.
+
+-- Syntax:
+-- SELECT column1, column2
+-- FROM table_name AS T1
+-- WHERE column_name operator
+-- (
+--     SELECT column_name
+--     FROM table_name AS T2
+--     WHERE T2.column_name = T1.column_name
+-- );
