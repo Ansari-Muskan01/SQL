@@ -1,0 +1,73 @@
+-- VIEW
+
+-- Definition : A VIEW is a virtual table created from a SQL query. It allows us to view specific data from one or more tables without storing a separate copy of the data.
+
+-- Syntax :  CREATE VIEW view_name AS SELECT column1, column2 FROM table_name WHERE condition;
+
+CREATE TABLE Customers (
+    Customer_ID INT PRIMARY KEY,
+    Customer_Name VARCHAR(50),
+    City VARCHAR(50),
+    Age INT,
+    Customer_Status VARCHAR(20)
+);
+
+
+INSERT INTO Customers
+(Customer_ID, Customer_Name, City, Age, Customer_Status)
+VALUES
+(1, 'Rahul Sharma', 'Mumbai', 28, 'Active'),
+(2, 'Priya Patil', 'Pune', 32, 'Active'),
+(3, 'Amit Verma', 'Nashik', 25, 'Inactive'),
+(4, 'Sneha Joshi', 'Nagpur', 30, 'Active'),
+(5, 'Arjun Mehta', 'Mumbai', 35, 'Inactive'),
+(6, 'Neha Singh', 'Pune', 27, 'Active'),
+(7, 'Rohan Desai', 'Thane', 40, 'Active'),
+(8, 'Pooja Shah', 'Mumbai', 24, 'Inactive'),
+(9, 'Karan Gupta', 'Nashik', 31, 'Active'),
+(10, 'Anjali More', 'Nagpur', 29, 'Active'),
+(11, 'Vikas Kulkarni', 'Pune', 45, 'Inactive'),
+(12, 'Simran Khan', 'Mumbai', 26, 'Active'),
+(13, 'Aditya Pawar', 'Thane', 33, 'Active'),
+(14, 'Meera Iyer', 'Nashik', 38, 'Inactive'),
+(15, 'Sahil Khan', 'Nagpur', 22, 'Active'),
+(16, 'Komal Patil', 'Mumbai', 34, 'Active'),
+(17, 'Nitin Joshi', 'Pune', 41, 'Inactive'),
+(18, 'Riya Mehta', 'Thane', 28, 'Active'),
+(19, 'Manish Shah', 'Nagpur', 36, 'Inactive'),
+(20, 'Kavita Desai', 'Mumbai', 30, 'Active');
+
+
+
+# 1. Create a view named Active_Customers that displays only customers whose status is 'Active'.
+CREATE VIEW Active_Customers AS SELECT Customer_ID, Customer_Name, City, Age FROM Customers WHERE Customer_Status = 'Active';
+-- Display the View
+SELECT * FROM Active_Customers;
+
+
+# 2. Create a view named Mumbai_Customers that displays customers who belong to Mumbai.
+
+
+
+#3. Create a view named Customers_Above_30 that displays customers whose age is greater than 30.
+
+
+
+# 4. Create a view named Customer_Details that displays: Customer_ID , Customer_Name , City , Customer_Status .Then modify the view to also include Age using CREATE OR REPLACE VIEW.
+
+
+
+# 5. Create a view named Active_Customers that displays only active customers.Then update the city of customer with Customer_ID = 1 to 'Pune' using the view.
+CREATE OR REPLACE VIEW Customer_Details AS SELECT Customer_ID, Customer_Name, City, Customer_Status, Age FROM Customers;
+
+-- Display the Modified View
+SELECT * FROM Customer_Details1;
+
+
+# 6. Create a view named Inactive_Customers that displays only inactive customers.Then delete the customer with Customer_ID = 5 using the view.
+
+
+-- Display the Inactive Customers
+-- Delete Customer_ID = 5 using the View
+-- Check the View
+
