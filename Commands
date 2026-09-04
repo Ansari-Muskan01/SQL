@@ -107,6 +107,142 @@ SET SQL_SAFE_UPDATES = 0;
 -- Display the Student_ID, Student_Name from the Student table
 -- Display All Column from the Student table
 
+
+
+-- DCL – Data Control Language
+-- Definition : DCL (Data Control Language) is a group of SQL commands used to control access and permissions of users on database objects 
+-- such as tables and databases.
+
+-- DCL mainly includes two commands:
+-- GRANT – Used to give permissions to a user.
+-- REVOKE – Used to remove permissions from a user.
+
+-- Create a new MySQL user
+CREATE USER 'user5'@'localhost' IDENTIFIED BY 'root';
+
+-- Create Database
+create database company3 ;
+-- Select Database
+use  company3 ; 
+
+-- Create Employee Table
+create table employee (
+emp_id int , 
+emp_name varchar(25),
+age int);
+
+-- GRANT
+-- Give SELECT, INSERT and UPDATE permissions to user5
+grant select , insert , update on company3.employee  to 'user5'@'localhost'; 
+
+-- Check table data
+select * from employee ; 
+
+-- REVOKE
+-- Remove only INSERT permission from user5
+revoke insert on company3.employee from 'user5'@'localhost' ; 
+
+
+-- REVOKE ALL
+-- Remove all permissions from user5 on employee table
+REVOKE ALL PRIVILEGES ON company3.employee FROM 'user5'@'localhost';
+
+
+-- TCL – Transaction Control Language
+-- Definition : TCL (Transaction Control Language) is a group of SQL commands used to manage transactions in a database.
+-- TCL mainly helps us to save changes, undo changes, and create points within a transaction.
+
+-- COMMIT → Permanently saves the changes.
+-- ROLLBACK → Undoes changes that have not been committed.
+-- SAVEPOINT → Creates a temporary point inside a transaction to which we can roll back.
+
+
+-- COMMIT is used to permanently save all the changes made during the current transaction.
+-- ROLLBACK is used to undo the changes made during the current transaction that have not yet been committed.
+-- SAVEPOINT is used to create a temporary point inside a transaction. It allows us to roll back part of a transaction instead of rolling back everything.
+
+-- Bank Account Table
+USE SAMPLE ; 
+CREATE TABLE Accounts (
+    Account_ID INT PRIMARY KEY,
+    Customer_Name VARCHAR(50),
+    Balance DECIMAL(10,2)
+);
+
+INSERT INTO Accounts VALUES
+(101, 'Rahul', 50000),
+(102, 'Priya', 30000),
+(103, 'Aman', 45000);
+
+SELECT * FROM Accounts ; 
+
+-- Problem Statement : Rahul wants to transfer ₹5,000 to Priya.
+START TRANSACTION;
+-- Step 1: Deduct money
+UPDATE Accounts SET Balance = Balance - 5000 WHERE Account_ID = 101;
+SELECT * FROM Accounts ; 
+
+-- Step 2: Add money
+UPDATE Accounts SET Balance = Balance + 5000 WHERE Account_ID = 102;
+SELECT * FROM Accounts ; 
+
+COMMIT;
+
+
+-- Problem Statement : Rahul wants to transfer ₹3,000 to Aman, but after making the changes, the company decides to cancel the transaction.
+START TRANSACTION;
+SELECT * FROM Accounts ; 
+
+-- Step 2: Deduct from Rahul
+UPDATE Accounts SET Balance = Balance - 3000 WHERE Account_ID = 101;
+
+-- Step 3: Add to Aman
+UPDATE Accounts SET Balance = Balance + 3000 WHERE Account_ID = 103;
+
+-- Suppose we now decide: "Cancel this transaction."
+ROLLBACK;
+
+-- After ROLLBACK, both changes are undone.
+
+
+-- Problem Statement : Suppose we have multiple updates. We want to keep the first update but undo the changes made after a particular point.
+
+CREATE TABLE Accounts1 (
+    Account_ID INT PRIMARY KEY,
+    Customer_Name VARCHAR(50),
+    Balance DECIMAL(10,2)
+);
+
+INSERT INTO Accounts1
+VALUES
+(101, 'Rahul', 50000.00),
+(102, 'Priya', 30000.00),
+(103, 'Aman', 45000.00);
+
+START TRANSACTION;
+
+SELECT * FROM Accounts1;
+
+UPDATE Accounts1 SET Balance = Balance + 2000 WHERE Account_ID = 101;  # CURRENT AMOUNT -- 50000
+SELECT * FROM Accounts1;                                               # NEW AMOUNT -- 52000
+
+SAVEPOINT sp2;
+
+UPDATE Accounts1 SET Balance = Balance + 3000 WHERE Account_ID = 102; # CURRENT AMOUNT -- 30000 
+SELECT * FROM Accounts1;                                              # NEW AMOUNT -- 33000
+
+
+UPDATE Accounts1 SET Balance = Balance + 4000 WHERE Account_ID = 103; # CURRENT AMOUNT -- 45000
+SELECT * FROM Accounts1;                                              # NEW AMOUNT -- 49000
+
+
+ROLLBACK TO SAVEPOINT sp2;
+SELECT * FROM Accounts1;
+
+COMMIT;
+
+
+
 DISTINCT Keyword
 The DISTINCT keyword is used with SELECT to remove duplicate values from the result.
 Syntax : SELECT DISTINCT column_name FROM table_name;
