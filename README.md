@@ -64,19 +64,19 @@ A customer can have one or more loans, and each loan is associated with a partic
 - SmartBank wants to identify all customers whose current banking relationship is active. Display their complete customer details.
 
 - Customer & Basic Analysis<Br>
--1. SmartBank wants to maintain a customer directory. Display complete details of all registered customers.<Br>
--2. Management wants to know the different cities from which SmartBank customers are coming. Display the unique customer cities.<Br>
--- Identify all customers whose current status is Active.
--- Find active customers who are currently registered in Mumbai.
--- Find customers registered in either Mumbai or Pune.
--- Identify customers who are registered in cities other than Mumbai.
--- Find customers whose age falls between 30 and 50 years for customer demographic analysis.
--- Identify customers belonging to Mumbai, Pune, Nashik, or Nagpur.
--- Find customers whose names begin with the letter A.
--- Identify customers whose email address is not available in the bank records.
--- Identify customers who have a registered email address.
--- Display customer accounts from highest to lowest balance to identify high-value accounts.
--- Identify the top 5 accounts with the highest balance for priority customer analysis.
+1. SmartBank wants to maintain a customer directory. Display complete details of all registered customers.<br>
+2. Management wants to know the different cities from which SmartBank customers are coming. Display the unique customer cities.<br>
+3. Identify all customers whose current status is Active.<br>
+4. Find active customers who are currently registered in Mumbai.<br>
+5. Find customers who are registered in either Mumbai or Pune.<br>
+6. Identify customers who are registered in cities other than Mumbai.<br>
+7. Find customers whose age falls between 30 and 50 years for customer demographic analysis.<br>
+8. Identify customers belonging to Mumbai, Pune, Nashik, or Nagpur.<br>
+9. Find customers whose names begin with the letter A.<br>
+10. Identify customers whose email address is not available in the bank records.<br>
+11. Identify customers who have a registered email address.<br>
+12. Display customer accounts from highest to lowest balance to identify high-value accounts.<br>
+13. Identify the top 5 accounts with the highest balance for priority customer analysis.<br>
 
 -- Customer & Banking Relationship Analysis
 -- Display each customer's name along with the branch where their banking relationship is maintained.
