@@ -78,6 +78,57 @@ A customer can have one or more loans, and each loan is associated with a partic
 12. Display customer accounts from highest to lowest balance to identify high-value accounts.<br>
 13. Identify the top 5 accounts with the highest balance for priority customer analysis.<br>
 
+- Customer Profile & Segmentation
+1. Identify customers who are between 25 and 40 years old and have an Active status.<br>
+2. Find customers whose names contain the letter a for customer name analysis.<br>
+3. Display customers from Mumbai who are above 30 years of age.<br>
+4. Identify customers whose age is outside the range of 25 to 50 years.<br>
+5. Display customers whose city starts with the letter M.<br>
+6. Find customers whose email addresses belong to the Gmail domain.<br>
+
+- Account Monitoring & Balance Analysis
+1. Display all accounts with their account type, balance, and current status.<br>
+2. Identify accounts that are currently Active and have a balance greater than ₹25,000.<br>
+3 Find accounts with a balance between ₹20,000 and ₹1,00,000.<br>
+4. Identify accounts belonging to customers whose account status is not Active.<br>
+5. Display the account with the lowest balance.<br>
+6. Calculate the total balance maintained across all customer accounts.<br>
+7. Calculate the average balance of all accounts.<br>
+
+- Branch Performance Analysis
+1. Display all branches along with their city and state details.<br>
+2. Identify branches located in Maharashtra.<br>
+3. Find the number of branches operating in each city.<br>
+4. Calculate the total number of accounts maintained at each branch.<br>
+5. Identify branches having more than 3 customer accounts.<br>
+6. Find the branch with the highest number of customers.<br>
+
+- Transaction Activity Analysis
+1. Display all transactions along with account details and transaction dates.<br>
+2. Identify customers who have performed a Deposit transaction.<br>
+3. Find customers who have performed both Deposit and Withdrawal transactions.<br>
+4. Identify transactions where the amount is greater than ₹50,000.<br>
+5. Calculate the total transaction amount for each transaction type.<br>
+6. Find the average transaction amount for each transaction type.<br>
+7. Identify the account with the highest total transaction amount.<br>
+
+- Loan Portfolio Analysis
+1. Display all Home Loans along with customer names and loan amounts.
+2. Identify customers having loans with an amount greater than ₹10,00,000.
+3. Find loans with an interest rate greater than 10%.
+4. Calculate the total loan amount for each loan type.
+5. Calculate the average loan amount for each loan type.
+6. Identify the loan type with the highest total loan amount.
+7. Find branches where the total loan amount exceeds ₹50,00,000.
+
+- Customer Financial Behavior
+1. Identify customers whose account balance is greater than their total loan amount.
+2. Identify customers whose total loan amount is greater than their account balance.
+3. Find customers who have both an Active account and an Active loan.
+4. Identify customers who have multiple accounts.
+5. Identify customers who have performed more than 3 transactions.
+6. Find customers who have both performed transactions and taken a loan
+
 - Customer & Banking Relationship Analysis
 1. Display each customer's name along with the branch where their banking relationship is maintained.<br>
 2. Identify all registered customers and display their account details, including customers who have not opened an account yet.<br>
