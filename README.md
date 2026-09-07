@@ -59,7 +59,47 @@ A customer can have one or more loans, and each loan is associated with a partic
 
 
 
+## -- SmartBank SQL Project – Business Analysis Questions
 
+-- SmartBank wants to identify all customers whose current banking relationship is active. Display their complete customer details.
+
+-- Customer & Basic Analysis
+-- SmartBank wants to maintain a customer directory. Display complete details of all registered customers.
+-- Management wants to know the different cities from which SmartBank customers are coming. Display the unique customer cities.
+-- Identify all customers whose current status is Active.
+-- Find active customers who are currently registered in Mumbai.
+-- Find customers registered in either Mumbai or Pune.
+-- Identify customers who are registered in cities other than Mumbai.
+-- Find customers whose age falls between 30 and 50 years for customer demographic analysis.
+-- Identify customers belonging to Mumbai, Pune, Nashik, or Nagpur.
+-- Find customers whose names begin with the letter A.
+-- Identify customers whose email address is not available in the bank records.
+-- Identify customers who have a registered email address.
+-- Display customer accounts from highest to lowest balance to identify high-value accounts.
+-- Identify the top 5 accounts with the highest balance for priority customer analysis.
+
+-- Customer & Banking Relationship Analysis
+-- Display each customer's name along with the branch where their banking relationship is maintained.
+-- Identify all registered customers and display their account details, including customers who have not opened an account yet.
+-- Generate a consolidated banking view showing customer name, branch name, account type, account balance, and loan type.
+-- Identify branches operating in the same city for branch network analysis.
+
+-- Customer & Financial Product Analysis
+-- Identify customers who are using both deposit/account and loan services.
+-- Identify customers who have an account but have not taken any loan.
+-- Identify customers who have a loan but do not currently have an account.
+-- Identify the branch with the highest total account balance.
+-- Identify the branch with the highest total loan portfolio.
+-- Identify customers who have performed at least one Withdrawal transaction.
+-- Identify customers who have taken a Home Loan from SmartBank.
+-- Identify customers maintaining an account balance above ₹50,000, along with their branch details.
+
+-- Customer & Financial Risk Classification
+-- CASE – Classify customers into Young, Middle-Aged, and Senior categories based on age.
+-- CASE – Classify accounts into Low, Medium, and High Balance categories.
+-- CASE – Classify transactions into Small, Medium, and Large transactions based on amount.
+-- CASE – Classify loans based on their current status as Active, Closed, or Pending.
+-- CASE + GROUP BY – Find the number of customers in each age category for demographic analysis.
 
 
 # SQL
