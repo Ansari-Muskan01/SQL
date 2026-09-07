@@ -61,11 +61,11 @@ A customer can have one or more loans, and each loan is associated with a partic
 
 ## -- SmartBank SQL Project – Business Analysis Questions
 
--- SmartBank wants to identify all customers whose current banking relationship is active. Display their complete customer details.
+- SmartBank wants to identify all customers whose current banking relationship is active. Display their complete customer details.
 
--- Customer & Basic Analysis
--- SmartBank wants to maintain a customer directory. Display complete details of all registered customers.
--- Management wants to know the different cities from which SmartBank customers are coming. Display the unique customer cities.
+- Customer & Basic Analysis
+-  SmartBank wants to maintain a customer directory. Display complete details of all registered customers.
+- Management wants to know the different cities from which SmartBank customers are coming. Display the unique customer cities.
 -- Identify all customers whose current status is Active.
 -- Find active customers who are currently registered in Mumbai.
 -- Find customers registered in either Mumbai or Pune.
