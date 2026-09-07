@@ -1,4 +1,5 @@
 # 1. Create Database
+
 CREATE DATABASE SmartBankDB;
 USE SmartBankDB;
 
@@ -51,7 +52,6 @@ VALUES
 -- |         8 | Aurangabad Branch    | Aurangabad  |
 -- |         9 | Borivali Branch      | Mumbai      |
 -- |        10 | Kalyan Branch        | Kalyan      |
-
 
 
 # 3. Create Customers Table
@@ -212,7 +212,6 @@ VALUES ('CUST001', 'Rahul Sharma', 'rahul.sharma@gmail.com', '9000001001', 'Mumb
 -- | Branches            | 10            |
 -- | Registration Period | 2021–2025     |
 
-
 # 4. Create Accounts Table
 
 -- Account_ID: Unique ID for each account.
@@ -353,8 +352,6 @@ VALUES
 ('CUST098', 8, 'Savings', 86000.00, 'Active', '2025-07-23'),
 ('CUST099', 9, 'Current', 425000.00, 'Active', '2025-08-18'),
 ('CUST100', 10, 'Savings', 102000.00, 'Active', '2025-09-25');
-
-
 
 
 # 5. Create Transactions Table
@@ -614,6 +611,7 @@ VALUES
 -- | Loan Dates        |                 2021–2025 |
 
 
+
 | Table                   | Relationship                            |
 | ----------------------- | --------------------------------------- |
 | Branches → Customers    | One branch has many customers           |
@@ -642,19 +640,4 @@ VALUES
        │
        └────────────── Branch_ID
 
-
--- Customer & Basic Analysis
--- SELECT – SmartBank wants to maintain a customer directory. Display complete details of all registered customers.
--- DISTINCT – Management wants to know the different cities from which SmartBank customers are coming. Display the unique customer cities.
--- WHERE – Identify all customers whose current status is Active.
--- AND – Find active customers who are currently registered in Mumbai.
--- OR – Find customers registered in either Mumbai or Pune.
--- NOT – Identify customers who are registered in cities other than Mumbai.
--- BETWEEN – Find customers whose age falls between 30 and 50 years for customer demographic analysis.
--- IN – Identify customers belonging to Mumbai, Pune, Nashik, or Nagpur.
--- LIKE – Find customers whose names begin with the letter A.
--- IS NULL – Identify customers whose email address is not available in the bank records.
--- IS NOT NULL – Identify customers who have a registered email address.
--- ORDER BY – Display customer accounts from highest to lowest balance to identify high-value accounts.
--- LIMIT – Identify the top 5 accounts with the highest balance for priority customer analysis.
 
