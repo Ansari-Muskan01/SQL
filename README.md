@@ -65,7 +65,7 @@ A customer can have one or more loans, and each loan is associated with a partic
 
 - Customer & Basic Analysis<Br>
 -1. SmartBank wants to maintain a customer directory. Display complete details of all registered customers.<Br>
-- Management wants to know the different cities from which SmartBank customers are coming. Display the unique customer cities.
+-2. Management wants to know the different cities from which SmartBank customers are coming. Display the unique customer cities.<Br>
 -- Identify all customers whose current status is Active.
 -- Find active customers who are currently registered in Mumbai.
 -- Find customers registered in either Mumbai or Pune.
