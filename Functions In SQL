@@ -1,6 +1,6 @@
--- Aggregate Functions : Aggregate functions in SQL are used to perform calculations on multiple rows of data and return one single result.
+-- Aggregate Functions : Aggregate functions in SQL are used to perform calculations on multiple rows of data and return a single result.
 
-Common Aggregate Functions : 
+-- Common Aggregate Functions : 
 -- | Function | Purpose                      | Syntax             |
 -- | -------- | ---------------------------- | -------------------|
 -- | COUNT()  | Counts the number of records | COUNT(Column_Name) |
@@ -12,7 +12,8 @@ Common Aggregate Functions :
 # 1. Select the Database
 USE Sample ; 
 
-# 2. Create Sales TableCREATE TABLE Sales (
+# 2. Create Sales Table
+CREATE TABLE Sales (
     Sale_ID INT PRIMARY KEY,
     Product_Name VARCHAR(50),
     Category VARCHAR(30),
@@ -45,23 +46,118 @@ VALUES (1, 'Laptop', 'Electronics', 2, 55000.00, 110000.00, '2026-01-05'),
 (19, 'Tablet', 'Electronics', 2, 18000.00, 36000.00, '2026-02-25'),
 (20, 'Backpack', 'Accessories', 4, 2200.00, 8800.00, '2026-02-28');
 
--- AS (Alias) in SQL
--- AS is used to give a temporary name, called an alias, to a column or table in the SQL query.
--- It makes the output easier to understand and read.
-
 # 4. Check the Table
 SELECT * FROM Sales ; 
 
--- Count total sales records
+-- AS is used to give a temporary name, called an alias, to a column or table in a SQL query.The alias is used only in the query result and does not change the actual column or table name.
 
--- Here, Total_Sales is the alias given to the result of SUM(Sales_Amount).
+-- Q1. Count the total number of sales records.
+
+-- Q2. Calculate the total sales amount.
+
+-- Q3. Calculate the average sales amount.
+
+-- Q4. Find the minimum sales amount.
+
+-- Q5. Find the maximum sales amount.
+
+-- Date functions : 
+-- Date functions are built-in SQL functions used to extract, format, calculate, compare, and manipulate date and time values.
+
+CREATE TABLE Orders (
+    Order_ID INT PRIMARY KEY,
+    Customer_Name VARCHAR(50),
+    City VARCHAR(30),
+    Product_Name VARCHAR(50),
+    Category VARCHAR(30),
+    Order_Amount DECIMAL(10,2),
+    Order_Date DATE
+);
+
+INSERT INTO Orders (Order_ID, Customer_Name, City, Product_Name, Category, Order_Amount, Order_Date)
+VALUES (1, 'Aarav Sharma', 'Mumbai', 'Laptop', 'Electronics', 55000.00, '2026-01-15'),
+(2, 'Priya Singh', 'Pune', 'Headphones', 'Electronics', 2500.00, '2026-01-22'),
+(3, 'Rahul Verma', 'Delhi', 'Shoes', 'Fashion', 3200.00, '2026-02-10'),
+(4, 'Sneha Patel', 'Mumbai', 'Watch', 'Fashion', 4500.00, '2026-02-18'),
+(5, 'Neha Gupta', 'Bangalore', 'Mobile Phone', 'Electronics', 28000.00, '2026-03-05'),
+(6, 'Rohan Mehta', 'Chennai', 'Backpack', 'Accessories', 1800.00, '2026-03-15'),
+(7, 'Ananya Joshi', 'Pune', 'Smart TV', 'Electronics', 42000.00, '2026-04-08'),
+(8, 'Vikram Shah', 'Delhi', 'Jacket', 'Fashion', 3500.00, '2026-04-20'),
+(9, 'Kavya Rao', 'Mumbai', 'Coffee Maker', 'Home Appliances', 6500.00, '2026-05-12'),
+(10, 'Aditya Kumar', 'Hyderabad', 'Table Lamp', 'Home Decor', 1200.00, '2026-05-25'),
+(11, 'Isha Malhotra', 'Bangalore', 'Keyboard', 'Electronics', 2200.00, '2026-06-03'),
+(12, 'Arjun Nair', 'Chennai', 'Running Shoes', 'Fashion', 3800.00, '2026-06-18'),
+(13, 'Pooja Desai', 'Mumbai', 'Office Chair', 'Furniture', 8500.00, '2026-07-07'),
+(14, 'Karan Kapoor', 'Delhi', 'Monitor', 'Electronics', 15000.00, '2026-07-19'),
+(15, 'Meera Iyer', 'Pune', 'Dining Set', 'Furniture', 12000.00, '2026-08-05');
+
+-- | Function       | Purpose                               |
+-- | ---------------| ------------------------------------- |
+-- | CURDATE()      | Returns the current date              |
+-- | NOW()          | Returns current date and time         |
+-- | YEAR()         | Extracts the year                     |
+-- | MONTH()        | Extracts the month                    |
+-- | MONTHNAME()    | Returns the month name                |
+-- | DAY()          | Extracts the day                      |
+-- | DAYNAME()      | Returns the day name                  |
+-- | DATEDIFF()     | Finds difference between two dates    |
+-- | QUARTER()      | Returns the quarter                   |
 
 
--- Calculate total sales amount
+-- Q1. Display today's date.                                                                               -- Hint: CURDATE()
 
--- Calculate average sales amount
+-- Q2. Display the current date and time.                                                                  -- Hint: NOW()
 
--- Find minimum sales amount
+-- Q3. Display all columns along with the order year.                                                      -- Hint: YEAR()
+ 
+-- Q4. Display all columns along with the order month number.                                              -- Hint: MONTH()
 
--- Find maximum sales amount
+-- Q5. Display all columns along with the order month name.                                                -- Hint: MONTHNAME()
+
+-- Q6. Display all columns along with the day of the month.                                                -- Hint: DAY()
+
+-- Q7. Display all columns along with the day name on which the order was placed.                          -- Hint: DAYNAME()
+
+-- Q8. Display all columns along with the quarter in which the order was placed.                           -- Hint: QUARTER()
+
+-- Q9. Display all columns along with the number of days between the Order Date and today's date.         -- Hint: DATEDIFF()
+
+-- String functions : 
+-- String functions are built-in SQL functions used to manipulate and work with text values.
+
+-- | Function      | Purpose                            |
+-- | --------------| ---------------------------------- |
+-- | UPPER()       | Converts text to uppercase         |
+-- | LOWER()       | Converts text to lowercase         |
+-- | LENGTH()      | Returns the length of a string     |
+-- | CONCAT()      | Combines two or more strings       |
+-- | TRIM()        | Removes spaces from both sides     |
+-- | LTRIM()       | Removes spaces from the left       |
+-- | RTRIM()       | Removes spaces from the right      |
+-- | LEFT()        | Extracts characters from the left  |
+-- | RIGHT()       | Extracts characters from the right |
+-- | SUBSTRING()   | Extracts part of a string          |
+-- | REPLACE()     | Replaces part of a string          |
+
+-- Q1. Display all customer names in uppercase.                   -- Hint: UPPER()
+
+-- Q2. Display all customer names in lowercase.                  -- Hint: LOWER()
+
+-- Q3. Display the customer name and its length.                 -- Hint: LENGTH()
+
+-- Q4. Combine Customer Name and City into a single column.      -- Hint: CONCAT()
+
+-- Q5. Extract the first 3 characters of Customer Name.          -- Hint: LEFT()
+
+-- Q6. Extract the last 3 characters of Customer Name.           -- Hint: RIGHT()
+
+-- Q7. Extract the first 5 characters of Product Name.           -- Hint: SUBSTRING()
+
+-- Q8. Replace 'Mumbai' with 'Bombay' in the City column.        -- Hint: REPLACE()
+
+-- Q9. Remove spaces from both sides of the Customer Name.       -- Hint: TRIM()
+
+
+
+
 
