@@ -20,36 +20,28 @@
 --     COLUMN_NAME DATA_TYPE CONSTRAINT
 -- );
 
--- Create a Customers table with the following columns:
--- Customer_ID
--- Customer_Name
--- Gender
--- Email
--- Phone
--- Age
--- Account_Balance
--- Registration_Date
--- Customer_Status
-
-
-
 -- 1. CUSTOMERS TABLE
 
 
--- Customer_ID      → PRIMARY KEY + AUTO_INCREMENT
--- Customer_Name    → NOT NULL
--- Email            → UNIQUE
--- Age              → CHECK
--- Customer_Status  → DEFAULT
+-- Customer_ID       → PRIMARY KEY + AUTO_INCREMENT
+-- Customer_Name     → NOT NULL
+-- Email             → UNIQUE
+-- Phone             → UNIQUE
+-- Age               → CHECK
+-- Customer_Status   → DEFAULT
 
 CREATE TABLE Customers (
     Customer_ID INT PRIMARY KEY AUTO_INCREMENT,
     Customer_Name VARCHAR(100) NOT NULL,
+    Gender CHAR(1),
     Email VARCHAR(100) UNIQUE,
-
+    Phone VARCHAR(15) UNIQUE,
     Age INT CHECK (Age >= 18),
+    Account_Balance DECIMAL(12,2),
+    Registration_Date DATE,
     Customer_Status VARCHAR(20) DEFAULT 'Active'
 );
+
 
 
 -- 2. ACCOUNTS TABLE
@@ -58,16 +50,56 @@ CREATE TABLE Customers (
 -- Account_ID       → PRIMARY KEY + AUTO_INCREMENT
 -- Customer_ID      → FOREIGN KEY
 -- Account_Type     → NOT NULL
--- Account_Balance → DEFAULT
+-- Account_Balance  → DEFAULT
 
 CREATE TABLE Accounts (
     Account_ID INT PRIMARY KEY AUTO_INCREMENT,
     Customer_ID INT,
     Account_Type VARCHAR(50) NOT NULL,
     Account_Balance DECIMAL(12,2) DEFAULT 0,
-    
+
     FOREIGN KEY (Customer_ID)
         REFERENCES Customers(Customer_ID)
 );
 
 
+INSERT INTO Customers 
+(Customer_Name, Gender, Email, Phone, Age, Account_Balance, Registration_Date, Customer_Status)
+VALUES ('Aarav Sharma', 'M', 'aarav@gmail.com', '9876543210', 28, 25000, '2026-01-10', 'Active'),     -- Customer_ID is not mentioned because AUTO_INCREMENT constraint is applied
+(NULL, 'F', 'priya@gmail.com', '9876543211', 32, 40000, '2026-02-15', 'Active'),                      -- ERROR → NULL is not allowed because NOT NULL constraint is applied
+('Rahul Verma', 'M', 'rahul@gmail.com', '9876543212', 25, 18000, '2026-03-20', 'Active'),              
+('Rahul Verma', 'M', 'rahul@gmail.com', '9876543212', 25, 18000, '2026-03-20', 'Active');             -- ERROR → Same Email and Phone are repeated because UNIQUE constraint is applied
+('Riya Joshi', 'F', 'riya@gmail.com', '9876543215', 16, 18000, '2026-03-25', 'Active');               -- ERROR → Age 16 is not allowed because CHECK constraint is applied
+
+INSERT INTO Customers (Customer_Name, Gender, Email, Phone, Age, Account_Balance, Registration_Date)
+VALUES ('Neha Gupta', 'F', 'neha@gmail.com', '9876543216', 27, 22000, '2026-03-28');                  -- Customer_Status is not mentioned because DEFAULT constraint is applied
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- 1. INSERT DATA INTO CUSTOMERS
+
+INSERT INTO Customers (Customer_Name, Gender, Email, Phone, Age, Account_Balance, Registration_Date)
+VALUES ('Aarav Sharma', 'M', 'aarav@gmail.com', '9876543210', 28, 25000, '2026-01-10'),  -- Customer_ID is not mentioned because AUTO_INCREMENT is used
+(NULL, 'F', 'priya@gmail.com', '9876543211', 32, 40000, '2026-02-15'),                   -- ERROR → NULL is not allowed because NOT NULL is used
+('Rahul Verma', 'M', 'rahul@gmail.com', '9876543212', 25, 18000, '2026-03-20'),
+('Rahul Verma', 'M', 'rahul@gmail.com', '9876543212', 25, 18000, '2026-03-20')           -- ERROR → Same Email and Phone are repeated, so UNIQUE constraint does not allow duplicates
+('Riya Joshi', 'F', 'riya@gmail.com', '9876543215', 16, 18000, '2026-03-25');  -- ERROR → Age 16 is not allowed because CHECK (Age >= 18) is used
+('Neha Gupta', 'F', 'neha@gmail.com', '9876543216', 27, 22000, '2026-03-28');  -- Customer_Status is not mentioned because DEFAULT 'Active' is used
+
+
+
+INSERT INTO Customers (Customer_Name, Gender, Email, Phone, Age, Account_Balance, Registration_Date)
+VALUES ('Aarav Sharma', 'M', 'aarav@gmail.com', '9876543210', 28, 25000, '2026-01-10'),  -- Customer_ID is not provided → AUTO_INCREMENT generates the ID automatically.
+('Priya Mehta', 'F', 'priya@gmail.com', '9876543211', 32, 40000, '2026-02-15'), -- -- Customer_Name is provided → NOT NULL does not allow NULL values.
+('Rahul Verma', 'M', 'rahul@gmail.com', '9876543212', 25, 18000, '2026-03-20'); -- Age → CHECK (Age >= 18)
