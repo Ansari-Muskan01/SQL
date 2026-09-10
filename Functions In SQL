@@ -1,7 +1,6 @@
--- Aggregate Functions
+-- Aggregate Functions : Aggregate functions in SQL are used to perform calculations on multiple rows of data and return one single result.
 
--- Aggregate functions in SQL are used to perform calculations on multiple rows of data and return one single result.
-
+Common Aggregate Functions : 
 -- | Function | Purpose                      | Syntax             |
 -- | -------- | ---------------------------- | -------------------|
 -- | COUNT()  | Counts the number of records | COUNT(Column_Name) |
@@ -10,11 +9,10 @@
 -- | MIN()    | Finds the minimum value      | MIN(Column_Name)   |
 -- | MAX()    | Finds the maximum value      | MAX(Column_Name)   |
 
--- Use Database 
+# 1. Select the Database
 USE Sample ; 
 
--- Sales Table
-CREATE TABLE Sales (
+# 2. Create Sales TableCREATE TABLE Sales (
     Sale_ID INT PRIMARY KEY,
     Product_Name VARCHAR(50),
     Category VARCHAR(30),
@@ -24,11 +22,9 @@ CREATE TABLE Sales (
     Sales_Date DATE
 );
 
-
-INSERT INTO Sales
-(Sale_ID, Product_Name, Category, Quantity, Price, Sales_Amount, Sales_Date)
-VALUES
-(1, 'Laptop', 'Electronics', 2, 55000.00, 110000.00, '2026-01-05'),
+# 3. Insert Sample Data
+INSERT INTO Sales (Sale_ID, Product_Name, Category, Quantity, Price, Sales_Amount, Sales_Date)
+VALUES (1, 'Laptop', 'Electronics', 2, 55000.00, 110000.00, '2026-01-05'),
 (2, 'Mouse', 'Electronics', 5, 800.00, 4000.00, '2026-01-07'),
 (3, 'Keyboard', 'Electronics', 3, 1500.00, 4500.00, '2026-01-10'),
 (4, 'Monitor', 'Electronics', 2, 12000.00, 24000.00, '2026-01-12'),
@@ -53,7 +49,7 @@ VALUES
 -- AS is used to give a temporary name, called an alias, to a column or table in the SQL query.
 -- It makes the output easier to understand and read.
 
--- Check the Table
+# 4. Check the Table
 SELECT * FROM Sales ; 
 
 -- Count total sales records
