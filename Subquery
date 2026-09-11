@@ -1,119 +1,141 @@
--- SUBQUERY IN SQL
+-- A subquery  is a query written INSIDE another query.
 
--- Definition : Subquery is a query written inside another SQL query. It is also called a Nested Query or Inner Query.
--- In a subquery, the inner query provides a result that is used by the outer query.
+-- The subquery is always enclosed in parentheses ( ).
+-- The subquery runs FIRST, and its result is then used by the outer query (as a value, a list, or a condition).
 
-
--- Basic Syntax
+-- Basic syntax:
 -- OUTER QUERY
--- SELECT column_name
--- FROM table_name
--- WHERE column_name operator
--- (
---     INNER QUERY / SUBQUERY
---     SELECT column_name
---     FROM table_name
---     WHERE condition
--- );
+-- SELECT column_name(s) FROM table_name
+-- WHERE column_name OPERATOR (SELECT column_name FROM table_name WHERE condition); -- INNER QUERY / SUBQUERY
 
--- The subquery is enclosed within parentheses ( ).
+-- Types of subqueries (based on what the inner query returns):
+-- 1) Single-row subquery   -> returns exactly ONE value   -> use =, >, <, >=, <=
+-- 2) Multi-row subquery    -> returns MULTIPLE values     -> use IN, ANY, ALL
+-- 3) Correlated subquery   -> depends on the outer query's current row
+-- 4) Nested subquery
 
--- CREATE TABLE
+
+
 CREATE TABLE Employees (
-    Employee_ID INT PRIMARY KEY,
-    Employee_Name VARCHAR(50),
-    Department VARCHAR(50),
-    Salary DECIMAL(10,2)
+    emp_id      INT PRIMARY KEY,
+    emp_name    VARCHAR(50),
+    department  VARCHAR(20),
+    salary      INT
 );
 
--- INSERT DATA
-INSERT INTO Employees (Employee_ID, Employee_Name, Department, Salary)
-VALUES
-(101, 'Rahul', 'IT', 50000),
-(102, 'Priya', 'HR', 40000),
-(103, 'Amit', 'IT', 60000),
-(104, 'Neha', 'Sales', 45000),
-(105, 'Rohan', 'Finance', 70000),
-(106, 'Sneha', 'HR', 55000),
-(107, 'Karan', 'IT', 35000),
-(108, 'Pooja', 'Sales', 65000),
-(109, 'Arjun', 'Finance', 80000),
-(110, 'Simran', 'IT', 50000);
+INSERT INTO Employees VALUES
+(1, 'Aditi',  'IT',    75000),
+(2, 'Rahul',  'IT',    55000),
+(3, 'Sneha',  'HR',    48000),
+(4, 'Karan',  'HR',    55000),
+(5, 'Meena',  'HR',    60000),
+(6, 'Vikas',  'Sales', 50000),
+(7, 'Priya',  'Sales', 75000),
+(8, 'Farhan', 'Sales', 45000),
+(9, 'Divya',  'IT',    60000),
+(10,'Aman',   'IT',    58000),
+(11,'Rohan',   'Sales',30000),
+(12,'Ayyan',   'HR',    20000);
+
+select * from Employees ; 
+
+SELECT MAX(salary) FROM Employees ; -- returns exactly ONE value
+SELECT * FROM Employees WHERE salary >= 75000 ; 
+
+-- 1) Single-row subquery   -> returns exactly ONE value   -> use =, >, <, >=, <=
+
+-- Q1 : Find the name and salary of the highest-paid employee
+SELECT emp_name, department, salary FROM Employees
+    WHERE salary = (SELECT MAX(salary) FROM Employees);
+
+-- Execution order:
+-- 1) Inner query runs first  -> SELECT MAX(salary) FROM Employees -> returns 75000
+-- 2) Outer query becomes     -> WHERE salary = 75000
+-- Output: Aditi (IT, 75000), Priya (Sales, 75000)
+
+-- 2) Multi-row subquery    -> returns MULTIPLE values     -> use IN, ANY, ALL
+
+-- Q2 : Show the employees whose salary matches any salary paid to an IT department employee
+SELECT * FROM Employees WHERE department = 'IT' ;   -- Aditi(75000), Rahul(55000), Divya(60000), Aman(58000)
+
+-- So the inner query returns this list of salaries: -- salary IN (75000, 55000, 60000, 58000)
+
+SELECT emp_name, department, salary FROM Employees
+WHERE salary IN (SELECT salary FROM Employees WHERE department = 'IT');
+
+-- Execution order:
+-- 1) Inner query runs first -> gets IT salaries -> (75000, 55000, 60000, 58000)
+-- 2) Outer query becomes    -> WHERE salary IN (75000, 55000, 60000, 58000)
 
 
--- Types of Subqueries
--- Single-Row Subquery → Returns one row/value
--- Multiple-Row Subquery → Returns multiple rows
--- Nested Subquery → Subquery inside another subquery
--- Correlated Subquery → Inner query depends on the outer query
+-- Output (7 rows):
+-- Aditi  | IT    | 75000   <- IT employee
+-- Rahul  | IT    | 55000   <- IT employee
+-- Karan  | HR    | 55000   <- HR, but salary matches Rahul's (IT)
+-- Meena  | HR    | 60000   <- HR, but salary matches Divya's (IT)
+-- Priya  | Sales | 75000   <- Sales, but salary matches Aditi's (IT)
+-- Divya  | IT    | 60000   <- IT employee
+-- Aman   | IT    | 58000   <- IT employee
+
+-- Rohan (30000) and Ayyan (20000) do NOT appear,
+-- because their salaries don't match any IT employee's salary.
 
 
--- Single-Row Subquery → Returns one row/value
-SELECT AVG(SALARY) FROM Employees ;  # 55000
-SELECT * FROM Employees WHERE SALARY > 55000 ; 
+-- Q3 : Find employees earning more than the average salary of their OWN department
 
--- Question: Find employees whose salary is greater than the average salary. (Single-Row Subquery)
-SELECT Employee_Name, Salary FROM Employees
-WHERE Salary > ( SELECT AVG(Salary) FROM Employees );
+-- First, let's see the average salary of each department:
+SELECT department, AVG(salary) AS dept_avg FROM Employees GROUP BY department;
+
+-- department	dept_avg
+-- IT			62000
+-- HR	        45750
+-- Sales		50000
+
+-- e1 = outer table's current row
+-- e2 = inner query's own copy of the table
+-- The inner query filters e2 rows based on the department of the current e1 row and calculates the department average
+
+SELECT e1.emp_name, e1.department, e1.salary
+FROM Employees e1
+WHERE e1.salary > (
+    SELECT AVG(e2.salary) FROM Employees e2
+    WHERE e2.department = e1.department ); -- << CORRELATION happens here
+                                                 
+
+-- Output:
+-- emp_name | department | salary | dept_avg | condition (salary > dept_avg) | result
+-- Aditi    | IT         | 75000  | 62000    | 75000 > 62000  -> TRUE        | ✅ Included
+-- Rahul    | IT         | 55000  | 62000    | 55000 > 62000  -> FALSE       | ❌ Excluded
+-- Divya    | IT         | 60000  | 62000    | 60000 > 62000  -> FALSE       | ❌ Excluded
+-- Aman     | IT         | 58000  | 62000    | 58000 > 62000  -> FALSE       | ❌ Excluded
+-- Sneha    | HR         | 48000  | 45750    | 48000 > 45750  -> TRUE        | ✅ Included
+-- Karan    | HR         | 55000  | 45750    | 55000 > 45750  -> TRUE        | ✅ Included
+-- Meena    | HR         | 60000  | 45750    | 60000 > 45750  -> TRUE        | ✅ Included
+-- Ayyan    | HR         | 20000  | 45750    | 20000 > 45750  -> FALSE       | ❌ Excluded
+-- Vikas    | Sales      | 50000  | 50000    | 50000 > 50000  -> FALSE (equal, not >) | ❌ Excluded
+-- Priya    | Sales      | 75000  | 50000    | 75000 > 50000  -> TRUE        | ✅ Included
+-- Farhan   | Sales      | 45000  | 50000    | 45000 > 50000  -> FALSE       | ❌ Excluded
+-- Rohan    | Sales      | 30000  | 50000    | 30000 > 50000  -> FALSE       | ❌ Excluded
+
+-- In a correlated subquery, the outer query provides a value to the inner query for each row.
 
 
--- Find employees who earn the highest salary in the company.
-SELECT Employee_Name, Salary FROM Employees
-WHERE Salary = ( SELECT MAX(Salary) FROM Employees );
+-- Q4 :  Find employee(s) with the SECOND-HIGHEST salary
 
-
-
--- Multiple-Row Subquery → Returns multiple rows
--- Question: Find employees who work in the same departments as employees whose salary is greater than 60,000. (Multiple-Row Subquery)
-SELECT * FROM Employees WHERE Salary > 60000 ; 
-
-
-SELECT Employee_Name, Department FROM Employees
-WHERE Department IN (SELECT Department FROM Employees WHERE Salary > 60000);
-
--- Nested Subquery → Subquery inside another subquery
--- Find all employees working in the department of the company's highest-paid employee.
-
-SELECT Employee_Name, Department, Salary
+SELECT emp_name, department, salary  -- OUTER QUERY (runs LAST)
 FROM Employees
-WHERE Department = ( SELECT Department FROM Employees     #Find the department of the highest-paid employee
-    WHERE Salary = (SELECT MAX(Salary) FROM Employees)    #Find the highest salary in the company
+
+WHERE salary = ( SELECT MAX(salary) FROM Employees  
+    WHERE salary < (SELECT MAX(salary) FROM Employees)
 );
 
--- Correlated Subquery → Inner query depends on the outer query
--- Find employees whose salary is greater than the average salary of their own department.
-
-SELECT Employee_Name, Department, Salary FROM Employees AS e
-WHERE Salary = (SELECT MAX(Salary) FROM Employees  # Find the highest salary for the current employee's department
-    WHERE Department = e.Department                # e.Department comes from the outer query
-);
-
--- e → Alias for the outer Employees table
--- e.Department → Gets the department of the current employee
--- MAX(Salary) → Finds the highest salary in that department
--- WHERE Salary = → Compares the employee's salary with that department's maximum salary
+-- Step 1: The innermost query finds the highest salary -> 75000
+-- Step 2: The middle query finds the highest salary below 75000 -> 60000
+-- Step 3: The outer query finds employees whose salary is 60000
 
 
 
--- EXECUTION ORDER OF SUBQUERIES
-
--- 1. Normal Subquery
--- The INNER QUERY runs first.
--- It returns a result.
--- The OUTER QUERY then uses that result.
-
-
--- 2. Multiple-Row Subquery
--- The INNER QUERY runs first and returns multiple values.
--- The OUTER QUERY then uses those values.
-
--- 3. Nested Subquery
--- When one subquery is written inside another subquery,
--- the INNERMOST query is evaluated first.
-
-
--- 4. Correlated Subquery
--- The inner query depends on the current row
--- of the outer query.
--- Therefore, the inner query is evaluated for each row
--- of the outer query.
+-- Execution rule:
+-- Normal subquery     -> Inner query runs first, then Outer query.
+-- Correlated subquery -> Outer query takes one row, then the Inner query
+--                        uses that row's value. This repeats for each row.
