@@ -1,18 +1,19 @@
 -- A subquery  is a query written INSIDE another query.
 
 -- The subquery is always enclosed in parentheses ( ).
--- The subquery runs FIRST, and its result is then used by the outer query (as a value, a list, or a condition).
+-- The subquery runs first, and its result is then used by the outer query as a value, a list of values, or a condition.
 
 -- Basic syntax:
+
 -- OUTER QUERY
--- SELECT column_name(s) FROM table_name
--- WHERE column_name OPERATOR (SELECT column_name FROM table_name WHERE condition); -- INNER QUERY / SUBQUERY
+-- 
+-- SELECT column_name(s) FROM table_name WHERE column_name OPERATOR (SELECT column_name FROM table_name WHERE condition); -- INNER QUERY / SUBQUERY
 
 -- Types of subqueries (based on what the inner query returns):
 -- 1) Single-row subquery   -> returns exactly ONE value   -> use =, >, <, >=, <=
 -- 2) Multi-row subquery    -> returns MULTIPLE values     -> use IN, ANY, ALL
 -- 3) Correlated subquery   -> depends on the outer query's current row
--- 4) Nested subquery
+-- 4) Nested subquery       -> 
 
 
 
