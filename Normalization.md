@@ -79,14 +79,13 @@ Each cell now contains one value.
 | S01        | C02       | Aarav        | Excel       |
 | S02        | C01       | Priya        | SQL         |
 
-Here, we use Student_ID + Course_ID together to identify a student's course.
+Here, we use Student_ID + Course_ID together to identify a student's course.<BR>
 
-But look at the columns:
-Student_Name depends only on Student_ID
-Course_Name depends only on Course_ID
+But look at the columns:<BR>
+Student_Name depends only on Student_ID<BR>
+Course_Name depends only on Course_ID<BR>
 
-So, these columns do not depend on both Student_ID and Course_ID.
-This is called Partial Dependency.
+So, these columns do not depend on both Student_ID and Course_ID.This is called Partial Dependency.<BR>
 
 <table>
 <tr>
