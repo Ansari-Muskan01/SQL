@@ -110,3 +110,41 @@ Enrollments
 | S01        | C02       |
 | S02        | C01       |
 
+
+<table>
+<tr>
+<td>
+
+### Students
+
+| Student_ID | Student_Name |
+| ---------- | ------------ |
+| S01        | Aarav        |
+| S02        | Priya        |
+
+</td>
+
+<td>
+
+### Courses
+
+| Course_ID | Course_Name |
+| --------- | ----------- |
+| C01       | SQL         |
+| C02       | Excel       |
+
+</td>
+
+<td>
+
+### Enrollments
+
+| Student_ID | Course_ID |
+| ---------- | --------- |
+| S01        | C01       |
+| S01        | C02       |
+| S02        | C01       |
+
+</td>
+</tr>
+</table>
