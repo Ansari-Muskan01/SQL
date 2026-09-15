@@ -70,7 +70,6 @@ Each cell now contains one value.
 
 # 2NF – Second Normal Form
 
-- It is already in 1NF
 - Each column should depend on the complete key.
 - If a column depends only on one part of the key, it is called partial dependency
 
