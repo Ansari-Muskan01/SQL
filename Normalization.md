@@ -89,28 +89,6 @@ Course_Name depends only on Course_ID
 So, these columns do not depend on both Student_ID and Course_ID.
 This is called Partial Dependency.
 
-
-
-     Students                                  Courses                                Enrollments
-| Student_ID | Student_Name |         | Course_ID | Course_Name |              | Student_ID | Course_ID |
-| ---------- | ------------ |         | --------- | ----------- |              | ---------- | --------- |
-| S01        | Aarav        |         | C01       | SQL         |              | S01        | C01       |
-| S02        | Priya        |         | C02       | Excel       |              | S01        | C02       |
-                                                                               | S02        | C01       |
-Courses
-| Course_ID | Course_Name |
-| --------- | ----------- |
-| C01       | SQL         |
-| C02       | Excel       |
-
-Enrollments
-| Student_ID | Course_ID |
-| ---------- | --------- |
-| S01        | C01       |
-| S01        | C02       |
-| S02        | C01       |
-
-
 <table>
 <tr>
 <td>
@@ -148,3 +126,50 @@ Enrollments
 </td>
 </tr>
 </table>
+
+
+# 3NF – Third Normal Form
+
+- A non-key column should not depend on another non-key column.
+
+| Employee_ID | Employee_Name | Department_ID | Department_Name |
+| ----------- | ------------- | ------------- | --------------- |
+| E01         | Aarav         | D01           | Sales           |
+| E02         | Priya         | D02           | HR              |
+| E03         | Rohan         | D01           | Sales           |
+| E04         | Anaya         | D03           | IT              |
+
+Here:
+
+Employee_ID identifies the employee.
+Department_ID identifies the department.
+Department_Name depends on Department_ID
+
+So, Department_Name does not directly belong to Employee_ID. It depends on another column, Department_ID. This is called Transitive Dependency.
+
+Employees
+| Employee_ID | Employee_Name | Department_ID |
+| ----------- | ------------- | ------------- |
+| E01         | Aarav         | D01           |
+| E02         | Priya         | D02           |
+| E03         | Rohan         | D01           |
+| E04         | Anaya         | D03           |
+
+Departments
+| Department_ID | Department_Name |
+| ------------- | --------------- |
+| D01           | Sales           |
+| D02           | HR              |
+| D03           | IT              |
+
+
+
+1NF → Remove multiple values
+→ Keep only one value in each cell.
+
+2NF → Remove partial dependency
+→ Keep information that depends on the complete key.
+
+3NF → Remove transitive dependency
+→ Keep related information in the table where it belongs.
+
