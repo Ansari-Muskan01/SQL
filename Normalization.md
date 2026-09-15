@@ -51,3 +51,57 @@ Now the branch information is stored only once. Branch_ID connects the two table
 - Each column contains atomic/single values<br>
 - There are no multiple values in one cell<br>
 - There are no repeating groups<br>
+
+
+| Customer_ID | Customer_Name | Phone                  |
+| ----------- | ------------- | ---------------------- |
+| C001        | Aarav         | 9876543210, 9988776655 |
+| C002        | Priya         | 9876543211             |
+
+In 1NF
+
+| Customer_ID | Customer_Name | Phone      |
+| ----------- | ------------- | ---------- |
+| C001        | Aarav         | 9876543210 |
+| C001        | Aarav         | 9988776655 |
+| C002        | Priya         | 9876543211 |
+
+Each cell now contains one value.
+
+# 2NF – Second Normal Form
+
+It is already in 1NF and there is no partial dependency.
+
+| Student_ID | Course_ID | Student_Name | Course_Name |
+| ---------- | --------- | ------------ | ----------- |
+| S01        | C01       | Aarav        | SQL         |
+| S01        | C02       | Aarav        | Excel       |
+| S02        | C01       | Priya        | SQL         |
+
+Suppose the primary key is: (Student_ID, Course_ID)
+
+But:
+Student_Name depends only on Student_ID
+Course_Name depends only on Course_ID
+
+This is called partial dependency.
+
+Students
+| Student_ID | Student_Name |
+| ---------- | ------------ |
+| S01        | Aarav        |
+| S02        | Priya        |
+
+Courses
+| Course_ID | Course_Name |
+| --------- | ----------- |
+| C01       | SQL         |
+| C02       | Excel       |
+
+Enrollments
+| Student_ID | Course_ID |
+| ---------- | --------- |
+| S01        | C01       |
+| S01        | C02       |
+| S02        | C01       |
+
