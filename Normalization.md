@@ -70,7 +70,9 @@ Each cell now contains one value.
 
 # 2NF – Second Normal Form
 
-It is already in 1NF and there is no partial dependency.
+- It is already in 1NF
+- Each column should depend on the complete key.
+- If a column depends only on one part of the key, it is called partial dependency
 
 | Student_ID | Course_ID | Student_Name | Course_Name |
 | ---------- | --------- | ------------ | ----------- |
@@ -78,20 +80,23 @@ It is already in 1NF and there is no partial dependency.
 | S01        | C02       | Aarav        | Excel       |
 | S02        | C01       | Priya        | SQL         |
 
-Suppose the primary key is: (Student_ID, Course_ID)
+Here, we use Student_ID + Course_ID together to identify a student's course.
 
-But:
+But look at the columns:
 Student_Name depends only on Student_ID
 Course_Name depends only on Course_ID
 
-This is called partial dependency.
+So, these columns do not depend on both Student_ID and Course_ID.
+This is called Partial Dependency.
 
-Students
-| Student_ID | Student_Name |
-| ---------- | ------------ |
-| S01        | Aarav        |
-| S02        | Priya        |
 
+
+     Students                                  Courses                                Enrollments
+| Student_ID | Student_Name |         | Course_ID | Course_Name |              | Student_ID | Course_ID |
+| ---------- | ------------ |         | --------- | ----------- |              | ---------- | --------- |
+| S01        | Aarav        |         | C01       | SQL         |              | S01        | C01       |
+| S02        | Priya        |         | C02       | Excel       |              | S01        | C02       |
+                                                                               | S02        | C01       |
 Courses
 | Course_ID | Course_Name |
 | --------- | ----------- |
