@@ -39,7 +39,7 @@ Now the branch information is stored only once. Branch_ID connects the two table
 
 # Normal Forms
 
-Normalization is commonly explained using Normal Forms:
-1NF – First Normal Form
-2NF – Second Normal Form
-3NF – Third Normal Form
+- Normalization is commonly explained using Normal Forms:<br>
+1. 1NF – First Normal Form <br>
+2. 2NF – Second Normal Form <br>
+3. 3NF – Third Normal Form <br>
