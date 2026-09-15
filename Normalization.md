@@ -142,8 +142,11 @@ Employee_ID identifies the employee.<BR>
 Department_ID identifies the department.<BR>
 Department_Name depends on Department_ID<BR>
 
-So, Department_Name does not directly belong to Employee_ID. It depends on another column, Department_ID. This is called Transitive Dependency.<BR>
+Employee_ID → Department_ID <BR>
+Department_ID → Department_Name <BR>
+Employee_ID → Department_ID → Department_Name <BR>
 
+Department_Name depends on Department_ID, and Department_ID depends on Employee_ID. Therefore, Department_Name indirectly depends on Employee_ID. This is called Transitive Dependency.
 
 Employees
 | Employee_ID | Employee_Name | Department_ID |
