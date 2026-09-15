@@ -43,3 +43,11 @@ Now the branch information is stored only once. Branch_ID connects the two table
 1. 1NF – First Normal Form <br>
 2. 2NF – Second Normal Form <br>
 3. 3NF – Third Normal Form <br>
+
+
+# 1NF – First Normal Form
+
+- A table is in 1NF when:<br>
+- Each column contains atomic/single values<br>
+- There are no multiple values in one cell<br>
+- There are no repeating groups<br>
