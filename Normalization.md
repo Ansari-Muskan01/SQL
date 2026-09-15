@@ -48,7 +48,7 @@ Now the branch information is stored only once. Branch_ID connects the two table
 # 1NF – First Normal Form
 
 - A table is in 1NF when:<br>
-- Each column contains atomic/single values<br>
+- Each cell contains a single/atomic value.<br>
 - There are no multiple values in one cell<br>
 - There are no repeating groups<br>
 
@@ -70,7 +70,7 @@ Each cell now contains one value.
 
 # 2NF – Second Normal Form
 
-- Each column should depend on the complete key.
+- Each non-key column should depend on the complete primary key.
 - If a column depends only on one part of the key, it is called partial dependency
 
 | Student_ID | Course_ID | Student_Name | Course_Name |
