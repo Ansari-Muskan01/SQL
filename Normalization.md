@@ -137,13 +137,13 @@ So, these columns do not depend on both Student_ID and Course_ID.This is called 
 | E03         | Rohan         | D01           | Sales           |
 | E04         | Anaya         | D03           | IT              |
 
-Here:
+Here:<BR>
+Employee_ID identifies the employee.<BR>
+Department_ID identifies the department.<BR>
+Department_Name depends on Department_ID<BR>
 
-Employee_ID identifies the employee.
-Department_ID identifies the department.
-Department_Name depends on Department_ID
+So, Department_Name does not directly belong to Employee_ID. It depends on another column, Department_ID. This is called Transitive Dependency.<BR>
 
-So, Department_Name does not directly belong to Employee_ID. It depends on another column, Department_ID. This is called Transitive Dependency.
 
 Employees
 | Employee_ID | Employee_Name | Department_ID |
