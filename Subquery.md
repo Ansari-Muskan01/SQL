@@ -10,10 +10,10 @@
 -- SELECT column_name(s) FROM table_name WHERE column_name OPERATOR (SELECT column_name FROM table_name WHERE condition); -- INNER QUERY / SUBQUERY
 
 -- Types of subqueries (based on what the inner query returns):
--- 1) Single-row subquery   -> returns exactly ONE value   -> use =, >, <, >=, <=
--- 2) Multi-row subquery    -> returns MULTIPLE values     -> use IN, ANY, ALL
--- 3) Correlated subquery   -> depends on the outer query's current row
--- 4) Nested subquery       -> 
+-- 1) Single-row subquery   -> Returns exactly ONE value   -> use =, >, <, >=, <=
+-- 2) Multi-row subquery    -> Returns MULTIPLE values     -> use IN, ANY, ALL
+-- 3) Correlated subquery   -> Depends on the outer query's current row
+-- 4) Nested subquery       -> A subquery written inside another subquery
 
 
 
@@ -49,6 +49,13 @@ SELECT * FROM Employees WHERE salary >= 75000 ;
 SELECT emp_name, department, salary FROM Employees
     WHERE salary = (SELECT MAX(salary) FROM Employees);
 
+
+| emp_name | department | salary |
+| -------- | ---------- | -----: |
+| Aditi    | IT         |  75000 |
+| Priya    | Sales      |  75000 |
+
+
 -- Execution order:
 -- 1) Inner query runs first  -> SELECT MAX(salary) FROM Employees -> returns 75000
 -- 2) Outer query becomes     -> WHERE salary = 75000
@@ -63,6 +70,17 @@ SELECT * FROM Employees WHERE department = 'IT' ;   -- Aditi(75000), Rahul(55000
 
 SELECT emp_name, department, salary FROM Employees
 WHERE salary IN (SELECT salary FROM Employees WHERE department = 'IT');
+
+| emp_name | department | salary |
+| -------- | ---------- | -----: |
+| Aditi    | IT         |  75000 |
+| Rahul    | IT         |  55000 |
+| Karan    | HR         |  55000 |
+| Meena    | HR         |  60000 |
+| Priya    | Sales      |  75000 |
+| Divya    | IT         |  60000 |
+| Aman     | IT         |  58000 |
+
 
 -- Execution order:
 -- 1) Inner query runs first -> gets IT salaries -> (75000, 55000, 60000, 58000)
@@ -123,12 +141,12 @@ WHERE e1.salary > (
 
 -- Q4 :  Find employee(s) with the SECOND-HIGHEST salary
 
-SELECT emp_name, department, salary  -- OUTER QUERY (runs LAST)
-FROM Employees
+SELECT emp_name, department, salary FROM Employees -- OUTER QUERY (runs LAST)
 
 WHERE salary = ( SELECT MAX(salary) FROM Employees  
     WHERE salary < (SELECT MAX(salary) FROM Employees)
 );
+
 
 -- Step 1: The innermost query finds the highest salary -> 75000
 -- Step 2: The middle query finds the highest salary below 75000 -> 60000
@@ -138,5 +156,4 @@ WHERE salary = ( SELECT MAX(salary) FROM Employees
 
 -- Execution rule:
 -- Normal subquery     -> Inner query runs first, then Outer query.
--- Correlated subquery -> Outer query takes one row, then the Inner query
---                        uses that row's value. This repeats for each row.
+-- Correlated subquery -> Outer query takes one row, then the Inner query  uses that row's value. This repeats for each row.
