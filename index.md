@@ -105,12 +105,7 @@ Here:
 
 Now run the same query again.
 
-```sql
-EXPLAIN
-SELECT *
-FROM Employees
-WHERE department = 'IT';
-```
+EXPLAIN SELECT * FROM Employees WHERE department = 'IT';
 
 Example output when MySQL uses the index:
 
