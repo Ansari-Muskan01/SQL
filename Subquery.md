@@ -37,6 +37,17 @@ flowchart TD
 ```
 
 
+If you want the **actual SQL syntax inside the boxes**, use:
+
+```markdown
+```mermaid
+flowchart LR
+    A["OUTER QUERY<br><br>SELECT column_name(s) FROM table_name<br>WHERE column_name OPERATOR"]
+    B["INNER QUERY / SUBQUERY<br><br>SELECT column_name FROM table_name<br>WHERE condition"]
+
+    A --> B
+```
+
 -- Types of subqueries (based on what the inner query returns):
 -- 1) Single-row subquery   -> Returns exactly ONE value   -> use =, >, <, >=, <=
 -- 2) Multi-row subquery    -> Returns MULTIPLE values     -> use IN, ANY, ALL
