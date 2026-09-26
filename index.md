@@ -4,7 +4,6 @@ An index helps MySQL find data quickly without checking every row in the table.
 
 ## Sample Employees Table
 
-```sql
 CREATE TABLE Employees (
     emp_id INT PRIMARY KEY,
     emp_name VARCHAR(50),
@@ -23,7 +22,7 @@ INSERT INTO Employees VALUES
 (8, 'Farhan', 'Sales', 45000),
 (9, 'Divya', 'IT', 60000),
 (10, 'Aman', 'IT', 58000);
-```
+
 
 ### Employees Table
 
