@@ -52,6 +52,7 @@ flowchart LR
     A["OUTER QUERY"] --- B["SELECT column_name(s) FROM table_name WHERE column_name OPERATOR ( SELECT column_name FROM table_name WHERE condition )"] --- C["INNER QUERY / SUBQUERY"]
 
 ```
+```
 
 
 -- Types of subqueries (based on what the inner query returns):
