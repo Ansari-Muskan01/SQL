@@ -33,7 +33,6 @@ flowchart TD
     B["INNER QUERY / SUBQUERY<br><br>SELECT column_name<br>FROM table_name<br>WHERE condition"]
 
     A --> B
-
 ```
 
 
