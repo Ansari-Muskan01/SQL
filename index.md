@@ -4,24 +4,24 @@ An index helps MySQL find data quickly without checking every row in the table.
 
 ## Sample Employees Table
 
-CREATE TABLE Employees (
-    emp_id INT PRIMARY KEY,
-    emp_name VARCHAR(50),
-    department VARCHAR(20),
-    salary INT
-);
+CREATE TABLE Employees (<br>
+    emp_id INT PRIMARY KEY,<br>
+    emp_name VARCHAR(50),<br>
+    department VARCHAR(20),<br>
+    salary INT<br>
+);<br>
 
-INSERT INTO Employees VALUES
-(1, 'Aditi', 'IT', 75000),
-(2, 'Rahul', 'IT', 55000),
-(3, 'Sneha', 'HR', 48000),
-(4, 'Karan', 'HR', 55000),
-(5, 'Meena', 'HR', 60000),
-(6, 'Vikas', 'Sales', 50000),
-(7, 'Priya', 'Sales', 75000),
-(8, 'Farhan', 'Sales', 45000),
-(9, 'Divya', 'IT', 60000),
-(10, 'Aman', 'IT', 58000);
+INSERT INTO Employees VALUES<br>
+(1, 'Aditi', 'IT', 75000),<br>
+(2, 'Rahul', 'IT', 55000),<br>
+(3, 'Sneha', 'HR', 48000),<br>
+(4, 'Karan', 'HR', 55000),<br>
+(5, 'Meena', 'HR', 60000),<br>
+(6, 'Vikas', 'Sales', 50000),<br>
+(7, 'Priya', 'Sales', 75000),<br>
+(8, 'Farhan', 'Sales', 45000),<br>
+(9, 'Divya', 'IT', 60000),<br>
+(10, 'Aman', 'IT', 58000);<br>
 
 
 ### Employees Table
