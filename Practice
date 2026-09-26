@@ -1,0 +1,248 @@
+# 1. Create a database named CompanyDB
+-- Syntax : CREATE DATABASE database_name;
+
+
+# 2. Select the CompanyDB database.
+-- Syntax : USE database_name;
+
+
+# 3. Display all databases available in MySQL.
+-- Syntax : SHOW DATABASES;
+
+
+# 4. Delete the database named TestDB.
+-- Syntax : DROP DATABASE database_name;
+
+
+# 5. Create an Employees table with columns for employee ID, employee name, department, city, salary, and experience.
+-- Syntax :
+-- CREATE TABLE table_name (
+--     column1 datatype,
+--     column2 datatype,
+--     column3 datatype
+-- );
+
+
+# 6. Display all tables available in CompanyDB.
+-- Syntax : SHOW TABLES;
+
+
+# 7. Display the structure of the Employees table.
+-- Syntax : DESC table_name;
+
+
+# 8. Add a new column Email to the Employees table.
+-- Syntax : ALTER TABLE table_name ADD COLUMN column_name datatype;
+
+
+# 9. Rename the Email column to Email_ID.
+-- Syntax : ALTER TABLE table_name RENAME COLUMN old_column_name TO new_column_name;
+
+
+# 10. Change the datatype of the Experience column.
+-- Syntax : ALTER TABLE table_name MODIFY column_name new_datatype;
+
+
+# 11. Delete the Email_ID column from the Employees table.
+-- Syntax : ALTER TABLE table_name DROP COLUMN column_name;
+
+
+# 12. Insert at least 5 employee records into the Employees table.
+
+-- Insert values without specifying column names
+-- Syntax : INSERT INTO table_name VALUES (value1, value2, value3);
+
+-- Specify column names
+-- Syntax : INSERT INTO table_name (column1, column2, column3) VALUES (value1, value2, value3);
+
+
+# 13. Display employee names and their salaries.
+-- Syntax : SELECT column1, column2 FROM table_name;
+
+
+# 14. Display all employee details.
+-- Syntax : SELECT * FROM table_name;
+
+
+# 15. Display all unique departments in the company.
+-- Syntax : SELECT DISTINCT column_name FROM table_name;
+
+
+# 16. Display employees who work in the IT department.
+-- Syntax : SELECT * FROM table_name WHERE condition;
+
+
+# 17. Find employees who work in IT and live in Mumbai.
+-- Syntax : SELECT * FROM table_name WHERE condition1 AND condition2;
+
+
+# 18. Find employees who live in Mumbai or Pune.
+-- Syntax : SELECT * FROM table_name WHERE condition1 OR condition2;
+
+
+# 19. Display the employees who are not from the HR department.
+-- Syntax : SELECT * FROM table_name WHERE NOT condition;
+
+
+# 20. Find employees whose salary is between ₹50,000 and ₹70,000.
+-- Syntax : SELECT * FROM table_name WHERE column_name BETWEEN value1 AND value2;
+
+
+# 21. Find employees who work in IT, HR, or Finance.
+-- Syntax : SELECT * FROM table_name WHERE column_name IN (value1, value2, value3);
+
+
+# 22. Display employees who do not work in HR or Finance.
+-- Syntax : SELECT * FROM table_name WHERE column_name NOT IN (value1, value2, value3);
+
+
+# 23. Find employees whose names start with A.
+-- Syntax : SELECT * FROM table_name WHERE column_name LIKE 'pattern';
+
+
+# 24. Find employees whose department information is missing.
+-- Syntax : SELECT * FROM table_name WHERE column_name IS NULL;
+
+
+# 25. Display employees whose department information is available.
+-- Syntax : SELECT * FROM table_name WHERE column_name IS NOT NULL;
+
+
+# 26. Display employees from the lowest salary to the highest salary.
+-- Syntax : SELECT * FROM table_name ORDER BY column_name ASC;
+
+
+# 27. Display employees from the highest salary to the lowest salary.
+-- Syntax : SELECT * FROM table_name ORDER BY column_name DESC;
+
+
+# 28. Display only the first 3 employees.
+-- Syntax : SELECT * FROM table_name LIMIT number;
+
+
+# 29. Increase the salary of employee 101 to ₹60,000.
+-- Syntax : UPDATE table_name SET column_name = value WHERE condition;
+
+
+# 30. Delete the employee whose Emp_ID is 105.
+-- Syntax : DELETE FROM table_name WHERE condition;
+
+
+# 31. Create a temporary table named Test_Employees.
+-- Syntax : CREATE TEMPORARY TABLE table_name (column1 datatype, column2 datatype);
+
+
+# 32. Remove all records from Test_Employees without deleting the table.
+-- Syntax : TRUNCATE TABLE table_name;
+
+
+# 33. Delete the Test_Employees table.
+-- Syntax : DROP TABLE table_name;
+
+
+# 34. Create an Employee Management System using Constraints.
+
+-- Create the Departments table.
+-- Create the Constraint_Employees table.
+-- Use all the following constraints:
+-- PRIMARY KEY
+-- NOT NULL
+-- UNIQUE
+-- DEFAULT
+-- CHECK
+-- AUTO_INCREMENT
+-- FOREIGN KEY
+
+-- Insert at least 3 departments.
+-- Insert at least 5 employees.
+
+-- Display the data from both tables.
+
+-- Try inserting:
+-- 1. A duplicate email.
+-- 2. A negative salary.
+-- 3. An employee without a name.
+-- 4. An employee with an invalid Department_ID.
+
+-- Hint: Observe which constraints prevent the invalid data from being inserted.
+
+
+# 35. Find the total number of employees.
+-- Syntax : SELECT COUNT(column_name) FROM table_name;
+
+
+# 36. Calculate the total salary paid to all employees.
+-- Syntax : SELECT SUM(column_name) FROM table_name;
+
+
+# 37. Find the average employee salary.
+-- Syntax : SELECT AVG(column_name) FROM table_name;
+
+
+# 38. Find the lowest salary in the company.
+-- Syntax : SELECT MIN(column_name) FROM table_name;
+
+
+# 39. Find the highest salary in the company.
+-- Syntax : SELECT MAX(column_name) FROM table_name;
+
+
+# 40. Find the number of employees in each department.
+-- Syntax : SELECT column_name, aggregate_function(column_name) FROM table_name GROUP BY column_name;
+
+
+# 41. Display departments having at least 2 employees.
+-- Syntax : SELECT column_name, aggregate_function(column_name) FROM table_name GROUP BY column_name HAVING condition;
+
+
+# 42. Create a salary category:
+-- Salary ≥ 70,000 → High Salary
+-- Salary ≥ 50,000 → Medium Salary
+-- Otherwise → Low Salary
+
+-- Syntax : SELECT columns, CASE WHEN condition THEN value ELSE value END AS alias_name FROM table_name;
+
+
+# 43. Create a salary category using Nested IF:
+-- Salary ≥ 70,000 → High Salary
+-- Salary ≥ 50,000 → Medium Salary
+-- Otherwise → Low Salary
+-- Hint : Use Nested IF
+
+-- Syntax : SELECT IF(condition, value, IF(condition, value, value)) AS alias_name FROM table_name;
+
+
+# 44. Create a view named IT_Employees that displays IT employee details.
+-- Syntax : CREATE VIEW view_name AS SELECT columns FROM table_name WHERE condition;
+
+
+# 45. Delete the IT_Employees view.
+-- Syntax : DROP VIEW view_name;
+
+
+# 46. Use the OVER clause to calculate the average salary of all employees.
+-- Syntax : SELECT columns, aggregate_function(column_name) OVER () AS alias_name FROM table_name;
+
+
+# 47. Display the average salary for each department using PARTITION BY.
+-- Syntax : SELECT columns, aggregate_function(column_name) OVER (PARTITION BY column_name) AS alias_name FROM table_name;
+
+
+# 48. Rank employees based on salary from highest to lowest.
+-- Syntax : SELECT columns, RANK() OVER (ORDER BY column_name DESC) AS alias_name FROM table_name;
+
+
+# 49. Create a dense rank for employees based on salary from highest to lowest.
+-- Syntax : SELECT columns, DENSE_RANK() OVER (ORDER BY column_name DESC) AS alias_name FROM table_name;
+
+
+# 50. Assign a unique row number to employees based on salary from highest to lowest.
+-- Syntax : SELECT columns, ROW_NUMBER() OVER (ORDER BY column_name DESC) AS alias_name FROM table_name;
+
+
+# 51. Display the next employee's salary along with the current employee's salary.
+-- Syntax : SELECT columns, LEAD(column_name) OVER (ORDER BY column_name) AS alias_name FROM table_name;
+
+
+# 52. Display the previous employee's salary along with the current employee's salary.
+-- Syntax : SELECT columns, LAG(column_name) OVER (ORDER BY column_name) AS alias_name FROM table_name;
