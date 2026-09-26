@@ -39,8 +39,9 @@ flowchart TD
 
 If you want the **actual SQL syntax inside the boxes**, use:
 
-```markdown
-```mermaid
+
+```
+mermaid
 flowchart LR
     A["OUTER QUERY<br><br>SELECT column_name(s) FROM table_name<br>WHERE column_name OPERATOR"]
     B["INNER QUERY / SUBQUERY<br><br>SELECT column_name FROM table_name<br>WHERE condition"]
