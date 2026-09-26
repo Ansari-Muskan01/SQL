@@ -58,8 +58,8 @@ Here:
 * `key = NULL` means no index is being used.
 * `rows = 10` means MySQL may check all 10 rows.
 
-The query returns these records:
-SELECT * FROM Employees WHERE department = 'IT';
+The query returns these records:<br>
+SELECT * FROM Employees WHERE department = 'IT';<br>
 
 
 ### Output
