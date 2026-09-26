@@ -1,16 +1,10 @@
 # SQL INDEX
 
-An index is used to make searching data faster.
-
-For example, if we frequently search employees based on their department, we can create an index on the `department` column.
+An index helps MySQL find data quickly without checking every row in the table.
 
 ### Before Creating Index
 
-
-EXPLAIN
-SELECT *
-FROM Employees
-WHERE department = 'IT';
+EXPLAIN SELECT * FROM Employees WHERE department = 'IT';
 
 
 Example output:
