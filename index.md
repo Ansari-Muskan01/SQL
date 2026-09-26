@@ -140,4 +140,3 @@ The **result of the query does not change**. The index changes how MySQL finds t
 | `key = NULL`             | `key = idx_department`  |
 | Full table scan          | Index-based search      |
 
-**Note:** The `EXPLAIN` output can be different depending on the table size, data, MySQL version, and optimizer. For a very small table like this one, MySQL may still decide to use a full table scan even after creating the index.
