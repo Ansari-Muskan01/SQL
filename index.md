@@ -2,34 +2,97 @@
 
 An index helps MySQL find data quickly without checking every row in the table.
 
-### Before Creating Index
+## Sample Employees Table
 
-EXPLAIN SELECT * FROM Employees WHERE department = 'IT';
+```sql
+CREATE TABLE Employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    department VARCHAR(20),
+    salary INT
+);
 
+INSERT INTO Employees VALUES
+(1, 'Aditi', 'IT', 75000),
+(2, 'Rahul', 'IT', 55000),
+(3, 'Sneha', 'HR', 48000),
+(4, 'Karan', 'HR', 55000),
+(5, 'Meena', 'HR', 60000),
+(6, 'Vikas', 'Sales', 50000),
+(7, 'Priya', 'Sales', 75000),
+(8, 'Farhan', 'Sales', 45000),
+(9, 'Divya', 'IT', 60000),
+(10, 'Aman', 'IT', 58000);
+```
+
+### Employees Table
+
+| emp_id | emp_name | department | salary |
+| -----: | -------- | ---------- | -----: |
+|      1 | Aditi    | IT         |  75000 |
+|      2 | Rahul    | IT         |  55000 |
+|      3 | Sneha    | HR         |  48000 |
+|      4 | Karan    | HR         |  55000 |
+|      5 | Meena    | HR         |  60000 |
+|      6 | Vikas    | Sales      |  50000 |
+|      7 | Priya    | Sales      |  75000 |
+|      8 | Farhan   | Sales      |  45000 |
+|      9 | Divya    | IT         |  60000 |
+|     10 | Aman     | IT         |  58000 |
+
+## Before Creating Index
+
+First, check how MySQL executes the query.
+
+```sql
+EXPLAIN
+SELECT *
+FROM Employees
+WHERE department = 'IT';
+```
 
 Example output:
 
-| type | possible_keys | key  | rows |
-| ---- | ------------- | ---- | ---: |
-| ALL  | NULL          | NULL |   10 |
+| id | select_type | table     | type | possible_keys | key  | rows | Extra       |
+| -: | ----------- | --------- | ---- | ------------- | ---- | ---: | ----------- |
+|  1 | SIMPLE      | Employees | ALL  | NULL          | NULL |   10 | Using where |
 
 Here:
 
 * `ALL` means MySQL checks the complete table.
-* `possible_keys = NULL` means no index is available for this query.
-* `key = NULL` means no index is used.
+* `possible_keys = NULL` means there is no index available for this query.
+* `key = NULL` means no index is being used.
 * `rows = 10` means MySQL may check all 10 rows.
 
-### Create Index
+The query returns these records:
+
+```sql
+SELECT *
+FROM Employees
+WHERE department = 'IT';
+```
+
+### Output
+
+| emp_id | emp_name | department | salary |
+| -----: | -------- | ---------- | -----: |
+|      1 | Aditi    | IT         |  75000 |
+|      2 | Rahul    | IT         |  55000 |
+|      9 | Divya    | IT         |  60000 |
+|     10 | Aman     | IT         |  58000 |
+
+## Create Index
+
+Now create an index on the `department` column.
 
 ```sql
 CREATE INDEX idx_department
 ON Employees (department);
 ```
 
-Now the `department` column has an index named `idx_department`.
+`idx_department` is the name given to the index.
 
-### Check Index
+## Check Index
 
 ```sql
 SHOW INDEX FROM Employees;
@@ -37,19 +100,23 @@ SHOW INDEX FROM Employees;
 
 Example output:
 
-| Key_name       | Column_name | Index_type |
-| -------------- | ----------- | ---------- |
-| PRIMARY        | emp_id      | BTREE      |
-| idx_department | department  | BTREE      |
+| Table     | Key_name       | Column_name | Non_unique | Index_type |
+| --------- | -------------- | ----------- | ---------: | ---------- |
+| Employees | PRIMARY        | emp_id      |          0 | BTREE      |
+| Employees | idx_department | department  |          1 | BTREE      |
 
 Here:
 
 * `PRIMARY` is the index created for the primary key.
 * `idx_department` is the index we created.
 * `department` is the column on which the index is created.
+* `Non_unique = 0` means duplicate values are not allowed.
+* `Non_unique = 1` means duplicate values are allowed.
 * `BTREE` is the index structure used by MySQL.
 
-### Check Query Again
+## Check Query Again
+
+Now run the same query again.
 
 ```sql
 EXPLAIN
@@ -60,18 +127,35 @@ WHERE department = 'IT';
 
 Example output when MySQL uses the index:
 
-| type | possible_keys  | key            | rows |
-| ---- | -------------- | -------------- | ---: |
-| ref  | idx_department | idx_department |    4 |
+| id | select_type | table     | type | possible_keys  | key            | rows | Extra |
+| -: | ----------- | --------- | ---- | -------------- | -------------- | ---: | ----- |
+|  1 | SIMPLE      | Employees | ref  | idx_department | idx_department |    4 | NULL  |
 
 Here:
 
 * `possible_keys` shows the index that MySQL can use.
 * `key` shows the index actually used.
 * `ref` means MySQL is using the index to find matching values.
-* `rows` shows the approximate number of rows MySQL expects to check.
+* `rows = 4` means MySQL expects to check approximately 4 matching rows.
 
-So, without an index, MySQL may scan the complete table.
-With an index, MySQL can use the index to find the required rows more efficiently.
+The query output remains the same:
 
-**Note:** If the table contains very few rows, MySQL may still choose a full table scan even after creating an index. The final decision is made by the MySQL optimizer.
+| emp_id | emp_name | department | salary |
+| -----: | -------- | ---------- | -----: |
+|      1 | Aditi    | IT         |  75000 |
+|      2 | Rahul    | IT         |  55000 |
+|      9 | Divya    | IT         |  60000 |
+|     10 | Aman     | IT         |  58000 |
+
+The **result of the query does not change**. The index changes how MySQL finds the data.
+
+### Without Index vs With Index
+
+| Without Index            | With Index              |
+| ------------------------ | ----------------------- |
+| MySQL may check all rows | MySQL can use the index |
+| `type = ALL`             | `type = ref`            |
+| `key = NULL`             | `key = idx_department`  |
+| Full table scan          | Index-based search      |
+
+**Note:** The `EXPLAIN` output can be different depending on the table size, data, MySQL version, and optimizer. For a very small table like this one, MySQL may still decide to use a full table scan even after creating the index.
