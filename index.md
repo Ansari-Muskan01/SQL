@@ -41,9 +41,9 @@ INSERT INTO Employees VALUES<br>
 
 ## Before Creating Index
 
-First, check how MySQL executes the query.
+First, check how MySQL executes the query.<br>
 
-EXPLAIN SELECT * FROM Employees WHERE department = 'IT';
+EXPLAIN SELECT * FROM Employees WHERE department = 'IT';<br>
 
 Example output:
 
