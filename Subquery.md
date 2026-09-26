@@ -18,6 +18,17 @@ flowchart LR
     A["OUTER QUERY"] --> B["SELECT column_name(s) FROM table_name WHERE column_name OPERATOR (SELECT column_name FROM table_name WHERE condition)"] --> C["INNER QUERY / SUBQUERY"]
 ```
 
+
+
+Lekin agar aapka purpose **exactly ye dikhana hai ki brackets `( )` wala part INNER QUERY hai**, Mermaid mein labels ko SQL ke specific text ke upar directly place karna cleanly possible nahi hai. Isliye best visual representation ye hoga:
+
+```markdown
+```mermaid
+flowchart LR
+    A["OUTER QUERY"] --> B["SELECT column_name(s) FROM table_name WHERE column_name OPERATOR"] --> C["( SELECT column_name FROM table_name WHERE condition )<br>INNER QUERY / SUBQUERY"]
+```
+```
+
 -- Types of subqueries (based on what the inner query returns):
 -- 1) Single-row subquery   -> Returns exactly ONE value   -> use =, >, <, >=, <=
 -- 2) Multi-row subquery    -> Returns MULTIPLE values     -> use IN, ANY, ALL
