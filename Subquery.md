@@ -7,16 +7,6 @@
 -- OUTER QUERY
 --  SELECT column_name(s) FROM table_name WHERE column_name OPERATOR (SELECT column_name FROM table_name WHERE condition); -- INNER QUERY / SUBQUERY
 
-```mermaid
-flowchart LR
-    A["OUTER QUERY"] --- B["SELECT column_name(s) FROM table_name WHERE column_name OPERATOR ( SELECT column_name FROM table_name WHERE condition )"] --- C["INNER QUERY / SUBQUERY"]
- ```
-
-
-```mermaid
-flowchart LR
-    A["OUTER QUERY"] --> B["SELECT column_name(s) FROM table_name WHERE column_name OPERATOR (SELECT column_name FROM table_name WHERE condition)"] --> C["INNER QUERY / SUBQUERY"]
-```
 
 
 
