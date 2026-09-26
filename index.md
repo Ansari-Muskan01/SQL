@@ -43,12 +43,7 @@ INSERT INTO Employees VALUES<br>
 
 First, check how MySQL executes the query.
 
-```sql
-EXPLAIN
-SELECT *
-FROM Employees
-WHERE department = 'IT';
-```
+EXPLAIN SELECT * FROM Employees WHERE department = 'IT';
 
 Example output:
 
@@ -64,12 +59,8 @@ Here:
 * `rows = 10` means MySQL may check all 10 rows.
 
 The query returns these records:
+SELECT * FROM Employees WHERE department = 'IT';
 
-```sql
-SELECT *
-FROM Employees
-WHERE department = 'IT';
-```
 
 ### Output
 
