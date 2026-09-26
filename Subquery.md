@@ -8,52 +8,8 @@
 --  SELECT column_name(s) FROM table_name WHERE column_name OPERATOR (SELECT column_name FROM table_name WHERE condition); -- INNER QUERY / SUBQUERY
 
 ```mermaid
-flowchart TD
-    A["OUTER QUERY<br/>SELECT column_name(s)<br/>FROM table_name<br/>WHERE column_name OPERATOR"]
-    B["INNER QUERY / SUBQUERY<br/>SELECT column_name<br/>FROM table_name<br/>WHERE condition"]
-
-    A --> B
-    B --> A
-
-```
-
-```mermaid
-flowchart TD
-    A["SELECT column_name(s)<br>FROM table_name<br>WHERE column_name OPERATOR<br>(<br>&nbsp;&nbsp;SELECT column_name<br>&nbsp;&nbsp;FROM table_name<br>&nbsp;&nbsp;WHERE condition<br>)"]
-
-```
-
-
-Or, if you want to clearly show **Outer Query** and **Inner Query/Subquery**:
-
-
-```mermaid
-flowchart TD
-    A["OUTER QUERY<br><br>SELECT column_name(s)<br>FROM table_name<br>WHERE column_name OPERATOR<br>"]
-    B["INNER QUERY / SUBQUERY<br><br>SELECT column_name<br>FROM table_name<br>WHERE condition"]
-
-    A --> B
-```
-
-
-If you want the **actual SQL syntax inside the boxes**, use:
-
-
-
-Ye visually aise represent hoga:
-
-**[ OUTER QUERY ] — SELECT column_name(s) FROM table_name WHERE column_name OPERATOR — [ INNER QUERY / SUBQUERY ]**
-
-But agar aap **exact SQL syntax** bhi preserve karna chahte ho:
-
-```markdown
-```mermaid
 flowchart LR
-    A["OUTER QUERY"] --- B["SELECT column_name(s) FROM table_name WHERE column_name OPERATOR ( SELECT column_name FROM table_name WHERE condition )"] --- C["INNER QUERY / SUBQUERY"]
-
-```
-```
-
+    A["OUTER QUERY"] --- B["SELECT column_name(s) FROM table_name WHERE column_name OPERATOR ( SELECT column_name FROM table_name WHERE condition )"] --- C["INNER QUERY / SUBQUERY"] ```
 
 -- Types of subqueries (based on what the inner query returns):
 -- 1) Single-row subquery   -> Returns exactly ONE value   -> use =, >, <, >=, <=
