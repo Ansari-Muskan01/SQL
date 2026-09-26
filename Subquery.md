@@ -26,7 +26,7 @@ flowchart TD
 
 Or, if you want to clearly show **Outer Query** and **Inner Query/Subquery**:
 
-```markdown
+
 ```mermaid
 flowchart TD
     A["OUTER QUERY<br><br>SELECT column_name(s)<br>FROM table_name<br>WHERE column_name OPERATOR<br>"]
