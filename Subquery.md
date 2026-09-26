@@ -21,7 +21,22 @@ flowchart TD
 flowchart TD
     A["SELECT column_name(s)<br>FROM table_name<br>WHERE column_name OPERATOR<br>(<br>&nbsp;&nbsp;SELECT column_name<br>&nbsp;&nbsp;FROM table_name<br>&nbsp;&nbsp;WHERE condition<br>)"]
 
-``` 
+```
+
+
+Or, if you want to clearly show **Outer Query** and **Inner Query/Subquery**:
+
+```markdown
+```mermaid
+flowchart TD
+    A["OUTER QUERY<br><br>SELECT column_name(s)<br>FROM table_name<br>WHERE column_name OPERATOR<br>"]
+    B["INNER QUERY / SUBQUERY<br><br>SELECT column_name<br>FROM table_name<br>WHERE condition"]
+
+    A --> B
+
+```
+
+
 -- Types of subqueries (based on what the inner query returns):
 -- 1) Single-row subquery   -> Returns exactly ONE value   -> use =, >, <, >=, <=
 -- 2) Multi-row subquery    -> Returns MULTIPLE values     -> use IN, ANY, ALL
