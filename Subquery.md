@@ -17,6 +17,11 @@ flowchart TD
 
 ```
 
+```mermaid
+flowchart TD
+    A["SELECT column_name(s)<br>FROM table_name<br>WHERE column_name OPERATOR<br>(<br>&nbsp;&nbsp;SELECT column_name<br>&nbsp;&nbsp;FROM table_name<br>&nbsp;&nbsp;WHERE condition<br>)"]
+
+``` 
 -- Types of subqueries (based on what the inner query returns):
 -- 1) Single-row subquery   -> Returns exactly ONE value   -> use =, >, <, >=, <=
 -- 2) Multi-row subquery    -> Returns MULTIPLE values     -> use IN, ANY, ALL
