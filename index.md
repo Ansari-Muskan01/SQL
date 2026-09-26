@@ -6,12 +6,12 @@ For example, if we frequently search employees based on their department, we can
 
 ### Before Creating Index
 
-```sql
+
 EXPLAIN
 SELECT *
 FROM Employees
 WHERE department = 'IT';
-```
+
 
 Example output:
 
