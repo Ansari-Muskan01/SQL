@@ -73,20 +73,17 @@ SELECT * FROM Employees WHERE department = 'IT';<br>
 
 ## Create Index
 
-Now create an index on the `department` column.
+Now create an index on the `department` column.<br>
 
-```sql
-CREATE INDEX idx_department
-ON Employees (department);
-```
 
-`idx_department` is the name given to the index.
+CREATE INDEX idx_department ON Employees (department);<br>
+
+`idx_department` is the name given to the index.<br>
 
 ## Check Index
 
-```sql
 SHOW INDEX FROM Employees;
-```
+
 
 Example output:
 
